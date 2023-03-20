@@ -55,7 +55,7 @@ const CopyButton = styled.button`
   }
 `
 
-export default ({ children, className }) => {
+const Code = ({ children, className }) => {
   const language = className && className.replace(/language-/, '')
   const [isCopied, setCopied] = useClipboard(children, {
     successDuration: 1000
@@ -96,3 +96,4 @@ export default ({ children, className }) => {
     </Highlight>
   )
 }
+export default Code
