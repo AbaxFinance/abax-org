@@ -259,10 +259,7 @@ const IndexPage = props => {
   return (
     <Layout path={props.location.pathname}>
       <BGCard>
-        {/* <CardNoise /> */}
-        {/* <CardGlimmerImage isDark={isDark} /> */}
         <CardBGImage isDark={isDark} />
-        {/* <CardFade /> */}
       </BGCard>
       <SEO title="Home" path={props.location.pathname} description={mainHeaderText} />
       <StyledBody>
@@ -307,7 +304,55 @@ const IndexPage = props => {
   )
 }
 
-export default IndexPage
+const IndexPageMock = props => {
+  const isDark = useDarkMode()
+
+  const mainHeaderText =
+    'With fair interest rates and high security, you can grow your capital with Abax both as a lender as well as a borrower.'
+
+  return (
+    <Layout path={props.location.pathname}>
+      <BGCard>
+        <CardBGImage isDark={isDark} />
+      </BGCard>
+      <SEO title="Home" path={props.location.pathname} description={mainHeaderText} />
+      <StyledBody>
+        <StyledTitle>
+          <StyledBodyTitle>
+            <span style={{ fontWeight: 200 }}>ABAX PROTOCOL</span>
+          </StyledBodyTitle>
+          <StyledBodySubTitle>{mainHeaderText}</StyledBodySubTitle>
+          <StyledBodySubText>Part of the Aleph Zero Ecosystem Funding Program</StyledBodySubText>
+
+          <StyledTradeLink
+            style={{
+              background: `linear-gradient(128.17deg, #BD00FF -14.78%, #FF1F8A 110.05%)`,
+              color: 'white'
+            }}
+            target="_blank"
+            href="https://app.abax.org/"
+          >
+            Launch App
+          </StyledTradeLink>
+          <StyledSocialRow>
+            <a href="https://https://twitter.com/AbaxFinance/">
+              <StyledTwitter />
+            </a>
+            <a href="https://github.com/AbaxFinance/">
+              <StyledGithub />
+            </a>
+            <a href="https://discord.gg/">
+              <StyledDiscord />
+            </a>
+          </StyledSocialRow>
+        </StyledTitle>
+      </StyledBody>
+      <BG />
+    </Layout>
+  )
+}
+
+export default IndexPageMock
 
 const StyledSectionHeader = styled.h1`
   font-size: 20px;
