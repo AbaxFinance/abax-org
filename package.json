@@ -107,7 +107,7 @@
     "dev": "gatsby develop",
     "devlocal": "gatsby develop -H 0.0.0.0",
     "start": "gatsby develop",
-    "build": "gatsby build && yarn post-build",
+    "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "format": "prettier --write \"src/**/*.{js,jsx,md,mdx}\"",
