@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 import React, { useState, useRef, useEffect, useLayoutEffect } from 'react'
 import { useMediaQuery } from '@react-hook/media-query'
 import { useStaticQuery, graphql } from 'gatsby'
-import styled from 'styled-components'
+import styled, { useTheme } from 'styled-components'
 import Menu from './menu'
 
-import Uni from '../images/abax.inline.svg'
+import Logo from '../images/abax.inline.svg'
 import MenuIcon from '../images/menu.inline.svg'
 import CloseIcon from '../images/x.inline.svg'
 
@@ -14,6 +14,7 @@ import { Sun, Moon } from 'react-feather'
 import { useDarkMode } from '../contexts/Application'
 
 import useDocumentScrollThrottled from '../utils/useDocumentScrollThrottled'
+import StyledLogo from './logo'
 
 const StyledHeader = styled.header`
   display: flex;
@@ -140,22 +141,6 @@ const MenuToggle = styled.button`
   }
 `
 
-const StyledUni = styled(Uni)`
-  path {
-    fill: ${({ theme }) => theme.textColor};
-  }
-  margin: 0;
-  width: 32px;
-  height: 32px;
-  margin-right: 0.35rem;
-  margin-top: -4px;
-  transform: rotate(0deg);
-  transition: transform 0.2s linear;
-  :hover {
-    transform: rotate(-10deg);
-  }
-`
-
 const StyledCloseIcon = styled(CloseIcon)`
   path {
     stroke: ${({ theme }) => theme.textColor};
@@ -248,7 +233,7 @@ const Header = props => {
             textDecoration: `none`
           }}
         >
-          <StyledUni />
+          <StyledLogo />
         </StyledHomeLink>
       </StyledNavTitleWrapper>
       <MenuToggle ref={button} open={isMenuOpen} onClick={() => updateIsMenuOpen(!isMenuOpen)}>
@@ -267,7 +252,7 @@ const Header = props => {
         {props.path !== undefined && (
           <StyledTradeLink
             style={{
-              background: `linear-gradient(128.17deg, #dfcfbe -14.78%, #ab8154 110.05%)`,
+              background: `linear-gradient(128.17deg, #6a3700 -14.78%, #ab8154 110.05%)`,
               color: 'white'
             }}
             target="_blank"

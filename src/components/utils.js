@@ -1,6 +1,5 @@
 import styled from 'styled-components'
-// import uImage from '../images/big_unicorn_fade.png'
-import uBanner from '../images/abax.banner3.png'
+import bgBanner from '../images/abax.bgBanner.png'
 
 import gImage from '../images/glimmer_bg.svg'
 import noise from '../images/noise.png'
@@ -16,7 +15,7 @@ export const CardBGImage = styled.span`
   top: 10vw;
   opacity: 1;
   position: absolute;
-  background: url(${uBanner});
+  background: url(${bgBanner});
   content: '';
   background-size: contain;
   background-repeat: no-repeat;
@@ -27,27 +26,6 @@ export const CardBGImage = styled.span`
     background-repeat: no-repeat;
     width: 100vw;
     left: -60px;
-  }
-`
-
-export const CardGlimmerImage = styled.span`
-  mix-blend-mode: ${({ isDark }) => (isDark ? 'overlay' : 'lighten')};
-  background: url(${gImage});
-  width: 100%;
-  height: 100%;
-  opacity: 0.5;
-  background-size: contain;
-  position: absolute;
-  left: 0;
-  background-repeat: no-repeat;
-  mask-image: radial-gradient(ellipse 70% 90% at 50% 50%, black 50%, transparent 80%);
-
-  top: 0;
-  /* ${({ desaturate }) => desaturate && `filter: saturate(0)`}; */
-  @media (max-width: 960px) {
-    background-repeat: no-repeat;
-    background-size: unset;
-
   }
 `
 

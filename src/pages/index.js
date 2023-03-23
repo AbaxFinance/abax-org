@@ -1,31 +1,23 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useStaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
-import Layout from '../layouts'
-import SEO from '../components/seo'
 import BG from '../components/bg'
 import { Button } from '../components/button'
-import ProtocolData from '../components/protocolData'
+import SEO from '../components/seo'
+import { CardBGImage } from '../components/utils'
 import { useDarkMode } from '../contexts/Application'
-import { CardBGImage, CardGlimmerImage } from '../components/utils'
+import Layout from '../layouts'
 
-import Twitter from '../images/twitter.inline.svg'
-import Github from '../images/github.inline.svg'
-import Discord from '../images/discord.inline.svg'
-import DevImage from '../images/developer.png'
 import GovImage from '../images/abax.banner.png'
+import Discord from '../images/discord.inline.svg'
+import { default as Github, default as Telegram } from '../images/github.inline.svg'
+import Twitter from '../images/twitter.inline.svg'
 
-///////
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-// Import Swiper styles
-import 'swiper/swiper.min.css'
 import 'swiper/modules/pagination/pagination.min.css'
+import 'swiper/swiper.min.css'
 
-// import required modules
-import { Autoplay, Pagination, Navigation } from 'swiper'
-///////
+import { Autoplay, Navigation, Pagination } from 'swiper'
 
 const BGCard = styled.span`
   width: 100vw;
@@ -143,14 +135,6 @@ const StyledSectionTitle = styled.h3`
   }
 `
 
-const StyledProductImage = styled(Img)`
-  width: 100%;
-  max-width: 120px;
-  margin-bottom: 2rem;
-  background-color: none;
-  border-radius: 12px;
-`
-
 const StyledSocialRow = styled.nav`
   display: flex;
   flex-direction: row;
@@ -199,6 +183,14 @@ const StyledTwitter = styled(Twitter)`
 `
 
 const StyledDiscord = styled(Discord)`
+  path {
+    fill: ${({ theme }) => theme.textColor};
+  }
+  width: 24px;
+  height: 24px;
+`
+
+const StyledTelegram = styled(Telegram)`
   path {
     fill: ${({ theme }) => theme.textColor};
   }
@@ -272,7 +264,7 @@ const IndexPage = props => {
 
           <StyledTradeLink
             style={{
-              background: `linear-gradient(128.17deg, #BD00FF -14.78%, #FF1F8A 110.05%)`,
+              background: `linear-gradient(128.17deg, #6a3700 -14.78%, #FF1F8A 110.05%)`,
               color: 'white'
             }}
             target="_blank"
@@ -281,7 +273,7 @@ const IndexPage = props => {
             Launch App
           </StyledTradeLink>
           <StyledSocialRow>
-            <a href="https://https://twitter.com/AbaxFinance/">
+            <a href="https://twitter.com/AbaxFinance/">
               <StyledTwitter />
             </a>
             <a href="https://github.com/AbaxFinance/">
@@ -289,6 +281,9 @@ const IndexPage = props => {
             </a>
             <a href="https://discord.gg/FCfyBSbCU5">
               <StyledDiscord />
+            </a>
+            <a href="https://telegram.com/AbaxFinance">
+              <StyledTelegram />
             </a>
           </StyledSocialRow>
         </StyledTitle>
@@ -326,7 +321,7 @@ const IndexPageMock = props => {
 
           <StyledTradeLink
             style={{
-              background: `linear-gradient(128.17deg, #BD00FF -14.78%, #FF1F8A 110.05%)`,
+              background: `linear-gradient(128.17deg, #6a3700 -14.78%, #FF1F8A 110.05%)`,
               color: 'white'
             }}
             target="_blank"
@@ -335,7 +330,7 @@ const IndexPageMock = props => {
             Launch App
           </StyledTradeLink>
           <StyledSocialRow>
-            <a href="https://https://twitter.com/AbaxFinance/">
+            <a href="https://twitter.com/AbaxFinance/">
               <StyledTwitter />
             </a>
             <a href="https://github.com/AbaxFinance/">
@@ -352,33 +347,7 @@ const IndexPageMock = props => {
   )
 }
 
-export default IndexPageMock
-
-const StyledSectionHeader = styled.h1`
-  font-size: 20px;
-  white-space: wrap;
-  overflow-wrap: normal;
-  max-width: 900px;
-  font-weight: 500;
-
-  a {
-    color: ${({ theme }) => theme.textColor};
-  }
-
-  @media (max-width: 960px) {
-    width: 100%;
-    /* font-size: 2rem; */
-    line-height: 2.5rem;
-    max-width: 600px;
-    margin-top: 4rem;
-  }
-  @media (max-width: 640px) {
-    width: 100%;
-    font-weight: 400;
-    margin-top: 4rem;
-    text-align: left;
-  }
-`
+export default IndexPage
 
 const StyledSection = styled.section`
   display: flex;
@@ -390,21 +359,14 @@ const StyledSection = styled.section`
   }
 `
 
-export const DeveloperCard = styled(StyledCard)`
-  mix-blend-mode: ${({ isDark }) => (isDark ? 'overlay' : 'lighten')};
-  background: url(${DevImage});
-  color: white;
-  background-size: cover;
-  background-repeat: no-repeat;
-`
-
 export const GovernanceCard = styled(StyledCard)`
-  mix-blend-mode: ${({ isDark }) => (isDark ? 'overlay' : 'lighten')};
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${GovImage});
+  mix-blend-mode: ${({ isDark }) => (isDark ? 'lighten' : 'inherit')};
+  background: ${({ isDark }) =>
+    isDark ? `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${GovImage})` : 'inherit'};
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  background-clip: content-box;
+  background-clip: ${({ isDark }) => (isDark ? 'content-box' : 'inherit')};
   background-origin: content-box;
   margin-right: 12px;
 
@@ -684,10 +646,14 @@ const RoadmapSection = () => {
 }
 
 const GovernanceSection = () => {
+  const [isDark] = useDarkMode()
   return (
     <StyledSection>
       <StyledItemRow>
-        <GovernanceCard style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+        <GovernanceCard
+          isDark={isDark}
+          style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}
+        >
           <span>
             <StyledSectionTitle>Shape Abax with us!</StyledSectionTitle>
             <StyledBodySubTitle style={{ fontSize: '20px' }}>
@@ -697,7 +663,6 @@ const GovernanceSection = () => {
               rewards you for your efforts.
             </StyledBodySubTitle>
           </span>
-
           <Button href="https://docs.uniswap.org/protocol/concepts/governance/guide-to-voting" outlined>
             <p style={{ margin: 0 }}>Read more </p>
           </Button>
@@ -719,7 +684,7 @@ const GovernanceSection = () => {
               </p>
             </div>
           </Button>
-          <Button style={{ borderRadius: '20px', width: '100%' }} href="https://discourse.abax.finance" outlined>
+          <Button style={{ borderRadius: '20px', width: '100%' }} href="https://gov.abax.finance" outlined>
             <div style={{ padding: '1rem' }}>
               <StyledBodySubTitle style={{ marginBottom: '0.25rem' }}>
                 Governance Forum <span style={{ fontSize: '16px' }}>↗</span>

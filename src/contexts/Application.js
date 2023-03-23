@@ -10,7 +10,7 @@ const DARK_MODE_OPTION = {
 }
 
 const INITIAL_STATE = {
-  [DARKMODE_KEY]: DARK_MODE_OPTION.DARK
+  [DARKMODE_KEY]: DARK_MODE_OPTION.LIGHT
 }
 
 const ApplicationContext = createContext({})
@@ -62,7 +62,7 @@ export function Updater() {
     if (initialColorValue === 'dark') {
       updateDarkMode(DARK_MODE_OPTION.DARK)
     } else {
-      updateDarkMode(DARK_MODE_OPTION.DARK.LIGHT)
+      updateDarkMode(DARK_MODE_OPTION.LIGHT)
     }
   }, [])
   return null

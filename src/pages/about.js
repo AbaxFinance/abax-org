@@ -261,26 +261,6 @@ const About = props => {
         <span style={{ marginTop: '5rem' }}>
           <Title style={{ paddingBottom: '4rem' }}>The Secure and Fair Lending Solution launched on Aleph Zero.</Title>
 
-          <Numbers id="about" style={{ flexDirection: 'column' }}>
-            <div style={{ display: 'flex', width: '100%', justifyContent: 'space-between', margin: 0 }}>
-              <h2 style={{ fontSize: '32px' }}>
-                {UniStats.exchanges}
-                <p style={{ fontSize: '14px' }}>Token Pairs </p>
-              </h2>
-              <h2 style={{ fontSize: '32px' }}>
-                {UniStats.volume}
-                <p style={{ fontSize: '14px' }}>24H Volume</p>
-              </h2>
-              <h2 style={{ fontSize: '32px' }}>
-                {UniStats.liquidity}
-                <p style={{ fontSize: '14px' }}>Total Liquidity</p>
-              </h2>
-              <h2 style={{ fontSize: '32px' }}>
-                {'> 200'}
-                <p style={{ fontSize: '14px' }}>DeFi Integrations</p>
-              </h2>
-            </div>
-          </Numbers>
           <StyledSectionFlex id="about" style={{ flexDirection: 'column' }}>
             <p>
               Abax empowers developers, liquidity providers and traders to participate in a financial marketplace that
@@ -289,7 +269,7 @@ const About = props => {
             <p>We are committed to open source software and building on the decentralized web.</p>
 
             <div style={{ display: 'flex', width: '100%', margin: 0 }}>
-              <InternalLink to="/blog/abax">UNI token</InternalLink>
+              <InternalLink to="/blog/abax">ABAX token</InternalLink>
               <InternalLink to="/whitepaper.pdf">
                 V1 Whitepaper <span style={{ fontSize: '11px' }}>↗</span>
               </InternalLink>
@@ -305,7 +285,7 @@ const About = props => {
 
             <p>
               We encourage anyone facing issues with their wallet, transaction or Abax related question to join our
-              active community discord or explore the{' '}
+              active community on Telegram or visit
               <ExternalLink href={'https://help.abax.org'}>help & tutorial</ExternalLink> site.
             </p>
 
@@ -313,11 +293,14 @@ const About = props => {
               <ExternalLink href={'https://discord.gg/<placeholder>'}>
                 Discord <span style={{ fontSize: '11px' }}>↗</span>
               </ExternalLink>
-              <ExternalLink href={'https://https://twitter.com/AbaxFinance'}>
+              <ExternalLink href={'https://twitter.com/AbaxFinance'}>
                 Twitter <span style={{ fontSize: '11px' }}>↗</span>
               </ExternalLink>
               <ExternalLink href={'https://www.reddit.com/r/Abax'}>
                 Reddit <span style={{ fontSize: '11px' }}>↗</span>
+              </ExternalLink>
+              <ExternalLink href={'https://twitter.com/AbaxFinance'}>
+                Telegram <span style={{ fontSize: '11px' }}>↗</span>
               </ExternalLink>
             </div>
           </StyledSectionFlex>

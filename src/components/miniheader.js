@@ -3,13 +3,14 @@ import React, { useRef, useState } from 'react'
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import Uni from '../images/abax.inline.svg'
+import Logo from '../images/abax.inline.svg'
 import { Sun, Moon, Home } from 'react-feather'
 
 import MenuIcon from '../images/menu.inline.svg'
 import CloseIcon from '../images/x.inline.svg'
 import Discord from '../images/discord.inline.svg'
 import Github from '../images/githubicon.inline.svg'
+import Telegram from '../images/githubicon.inline.svg'
 
 import SidebarV2 from './sidebarV2'
 import SidebarV1 from './sidebarV1'
@@ -112,7 +113,7 @@ const StyledHomeLink = styled(Link)`
   align-items: center;
 `
 
-const StyledUni = styled(Uni)`
+const StyledLogo = styled(Logo)`
   path {
     fill: ${({ theme }) => theme.textColor};
   }
@@ -210,7 +211,7 @@ const Header = props => {
               textDecoration: `none`
             }}
           >
-            <StyledUni />
+            <StyledLogo />
           </StyledHomeLink>
           {props.path && props.path !== '/' && props.path !== '' && (
             <>
@@ -257,6 +258,11 @@ const Header = props => {
           <StyledButton fill>
             <a href="https://github.com/AbaxFinance">
               <Github width={20} />
+            </a>
+          </StyledButton>
+          <StyledButton fill>
+            <a href="https://telegram.com/AbaxFinance">
+              <Telegram width={20} />
             </a>
           </StyledButton>
           <StyledButton type="button">

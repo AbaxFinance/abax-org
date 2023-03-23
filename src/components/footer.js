@@ -75,7 +75,7 @@ const Footer = () => {
         </StyledFooterLink>
         <StyledFooterLink to="/trademarks">Trademarks</StyledFooterLink>
         <StyledFooterLink to="/about#brand">Brand</StyledFooterLink>
-        <a href="https://https://twitter.com/AbaxFinance" rel="noopener noreferrer" target="_blank">
+        <a href="https://twitter.com/AbaxFinance" rel="noopener noreferrer" target="_blank">
           <StyledTwitter />
         </a>
         <a href="https://github.com/AbaxFinance" rel="noopener noreferrer" target="_blank">
