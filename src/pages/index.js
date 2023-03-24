@@ -271,8 +271,9 @@ const IndexPage = props => {
               background: `linear-gradient(128.17deg, #395175 -14.78%, #755139 110.05%)`,
               color: 'white'
             }}
-            target="_blank"
-            href="https://app.abax.finance/"
+            href="#"
+            // target="_blank"
+            // href="https://app.abax.finance/"
           >
             Launch App
           </StyledTradeLink>
@@ -666,13 +667,17 @@ const GovernanceSection = () => {
               </p>
             </div>
           </Button>
-          <Button style={{ borderRadius: '20px', width: '100%' }} href="https://app.abax.finance/#/vote" outlined>
+          <Button
+            style={{ borderRadius: '20px', width: '100%' }}
+            href="https://gov.abax.finance/t/abax-the-dao-token-tokenomics/32"
+            outlined
+          >
             <div style={{ padding: '1rem' }}>
               <StyledBodySubTitle style={{ marginBottom: '0.25rem' }}>
-                Governance Portal <span style={{ fontSize: '16px' }}>↗</span>
+                ABAX Token<span style={{ fontSize: '16px' }}>↗</span>
               </StyledBodySubTitle>
               <p style={{ textAlign: 'left', margin: '0', opacity: '0.6', fontSize: '16px', fontWeight: 400 }}>
-                Vote on official Abax governance proposals and view past proposals.{' '}
+                Read and discuss the DAO token tokenomics proposal.
               </p>
             </div>
           </Button>
