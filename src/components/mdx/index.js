@@ -10,7 +10,6 @@ import Code from './code'
 import InlineCode from './inlineCode'
 import InlineCard from '../inlineCard'
 import InlineBoxLink from '../inlineBoxLink'
-import Wizard from '../wizard'
 import ExternalRedirect from '../ExternalRedirect'
 
 import '../../styles/katex.css'
@@ -24,7 +23,6 @@ const components = {
   Title,
   InlineCard,
   InlineBoxLink,
-  Wizard,
   code: Code,
   inlineCode: InlineCode
 }

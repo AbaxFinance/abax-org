@@ -2,7 +2,6 @@ import React from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import Layout from '.'
-import SidebarV2 from '../components/sidebarV2'
 import SidebarV1 from '../components/sidebarV1'
 import SEO from '../components/seo'
 import TableofContents from '../components/toc'
@@ -179,7 +178,6 @@ const Docs = props => {
       }
     }
   `)
-  const isV1 = props.path.slice(0, 8) === '/docs/v1'
 
   const isMobile = useMediaQuery('(max-width: 960px)')
 
@@ -209,7 +207,7 @@ const Docs = props => {
           )
         })}
       <StyledDocs id="docs-header">
-        {!isMobile && (isV1 ? <SidebarV1 parent={'/docs/'} {...props} /> : <SidebarV2 parent={'/docs/'} {...props} />)}
+        {!isMobile && <SidebarV1 parent={'/docs/'} {...props} />}
         <StyledMDX>
           <StyledPageTitle>
             <small style={{ marginBottom: '.5rem' }}>

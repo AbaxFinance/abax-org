@@ -10,9 +10,8 @@ import MenuIcon from '../images/menu.inline.svg'
 import CloseIcon from '../images/x.inline.svg'
 import Discord from '../images/discord.inline.svg'
 import Github from '../images/githubicon.inline.svg'
-import Telegram from '../images/githubicon.inline.svg'
+import Telegram from '../images/telegram.inline.svg'
 
-import SidebarV2 from './sidebarV2'
 import SidebarV1 from './sidebarV1'
 import { useMediaQuery } from '@react-hook/media-query'
 
@@ -169,32 +168,9 @@ const MenuToggle = styled.button`
   }
 `
 
-const VersionLabel = styled.span`
-  padding: 0.15rem 0.45rem;
-  border-radius: 12px;
-  background: ${({ theme, toggled }) => (toggled ? theme.textColor : 'none')};
-  color: ${({ theme, toggled }) => (toggled ? theme.invertedTextColor : theme.textColor)};
-
-  font-size: 0.75rem;
-  font-weight: 400;
-`
-
-const VersionToggle = styled(Link)`
-  border-radius: 14px;
-  margin-right: 1rem;
-  color: ${({ theme }) => theme.invertedTextColor};
-  border: 1px solid ${({ theme }) => theme.colors.grey4};
-  display: flex;
-  width: fit-content;
-  cursor: pointer;
-`
-
 const Header = props => {
   const node = useRef()
   const [darkMode, toggleDarkMode] = useDarkMode()
-
-  // get global version and check if v2 or not
-  const v2Toggle = props.path.slice(0, 8) === '/docs/v2'
 
   const button = useRef()
   const [isMenuOpen, updateIsMenuOpen] = useState(false)
@@ -241,17 +217,12 @@ const Header = props => {
           {isMenuOpen ? <StyledCloseIcon /> : <StyledMenuIcon />}
         </MenuToggle>
         <StyledNav ref={node} open={isMenuOpen}>
-          {isMobile &&
-            (v2Toggle ? <SidebarV2 parent={'/docs/'} {...props} /> : <SidebarV1 parent={'/docs/'} {...props} />)}
-          <VersionToggle to={v2Toggle ? '/docs/v1/' : '/docs/v2/'}>
-            <VersionLabel toggled={!v2Toggle}>V1</VersionLabel>
-            <VersionLabel toggled={v2Toggle}>V2</VersionLabel>
-          </VersionToggle>
+          {isMobile && <SidebarV1 parent={'/docs/'} {...props} />}
           <StyledButton type="button" onClick={toggleDarkMode}>
             {darkMode ? <Sun size={20} /> : <Moon size={20} />}
           </StyledButton>
           <StyledButton fill>
-            <a href="https://discord.gg/FCfyBSbCU5">
+            <a href="https://discord.gg/ECBA5ZYT">
               <Discord />
             </a>
           </StyledButton>
@@ -261,7 +232,7 @@ const Header = props => {
             </a>
           </StyledButton>
           <StyledButton fill>
-            <a href="https://telegram.com/AbaxFinance">
+            <a href="https://t.me/abaxprotocol">
               <Telegram width={20} />
             </a>
           </StyledButton>

@@ -1,6 +1,5 @@
 import React from 'react'
 import { createGlobalStyle } from 'styled-components'
-import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import Layout from '.'
 import SEO from '../components/seo'
@@ -88,31 +87,6 @@ const StyledPageTitle = styled.div`
 `
 
 const Docs = props => {
-  // const data = useStaticQuery(graphql`
-  //   {
-  //     allMdx(filter: { fileAbsolutePath: { regex: "/faq/" } }, sort: {}) {
-  //       edges {
-  //         node {
-  //           headings {
-  //             value
-  //             depth
-  //           }
-  //           frontmatter {
-  //             title
-  //           }
-  //           fields {
-  //             slug
-  //             subDir
-  //             rawSlug
-  //             parentDir
-  //           }
-  //           id
-  //         }
-  //       }
-  //     }
-  //   }
-  // `)
-
   return (
     <Layout path={props.location.pathname} isDocs={false}>
       <BG />

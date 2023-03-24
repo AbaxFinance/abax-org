@@ -1,12 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 
 import styled from 'styled-components'
 
 import gql from 'graphql-tag'
-import dayjs from 'dayjs'
-import utc from 'dayjs/plugin/utc'
-import { useQuery } from '@apollo/react-hooks'
-import { client, blockClient } from '../apollo/client'
 
 import { Link } from 'gatsby'
 
@@ -152,106 +148,7 @@ export const ETH_PRICE = block => {
   return gql(queryString)
 }
 
-const APOLLO_QUERY = gql`
-  {
-    uniswapFactory(id: "0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f") {
-      totalVolumeUSD
-      totalLiquidityUSD
-      pairCount
-      txCount
-    }
-    bundle(id: 1) {
-      ethPrice
-    }
-  }
-`
-
-export const UNISWAP_GLOBALS_24HOURS_AGO_QUERY = block => {
-  let queryString = `
-  query uniswapFactory {
-    uniswapFactory(id: "0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f", block: { number: ${block} }) {
-      totalVolumeUSD
-      totalLiquidityUSD
-      pairCount
-    
-    }
-  }
-  `
-  return gql(queryString)
-}
-
 const About = props => {
-  dayjs.extend(utc)
-  const utcCurrentTime = dayjs()
-  const utcOneDayBack = utcCurrentTime.subtract(1, 'day').unix()
-
-  const { data: blockData } = useQuery(GET_BLOCK, {
-    client: blockClient,
-    variables: {
-      timestamp: utcOneDayBack
-    }
-  })
-  const oneDayBackBlock = blockData?.blocks?.[0]?.number
-  const { data } = useQuery(APOLLO_QUERY, { pollInterval: 10000, client: client })
-
-  const [oneDayResult, setOnedayResult] = useState()
-
-  useEffect(() => {
-    async function getData() {
-      let result = await client.query({
-        query: UNISWAP_GLOBALS_24HOURS_AGO_QUERY(oneDayBackBlock),
-
-        fetchPolicy: 'cache-first'
-      })
-      if (result) {
-        setOnedayResult(result?.data?.uniswapFactory)
-      }
-    }
-    if (oneDayBackBlock) {
-      getData()
-    }
-  }, [oneDayBackBlock])
-
-  let UniStats = {
-    key: function(n) {
-      return this[Object.keys(this)[n]]
-    }
-  }
-
-  if (data && oneDayResult) {
-    const volume24Hour = parseFloat(data?.uniswapFactory?.totalVolumeUSD) - parseFloat(oneDayResult?.totalVolumeUSD)
-
-    UniStats.volume = [
-      new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
-        notation: 'compact',
-        compactDisplay: 'short'
-      }).format(volume24Hour)
-    ]
-    UniStats.liquidity = [
-      new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
-        notation: 'compact',
-        compactDisplay: 'short'
-        // maximumSignificantDigits: 5
-      }).format(data.uniswapFactory.totalLiquidityUSD)
-    ]
-    UniStats.exchanges = [Number.parseFloat(data?.uniswapFactory?.pairCount)]
-
-    UniStats.ETHprice = [
-      new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
-        notation: 'compact',
-        compactDisplay: 'short',
-        maximumSignificantDigits: 5
-      }).format(parseFloat(data?.bundle?.ethPrice)),
-      '<small> Uni ETH Price </small>'
-    ]
-  }
-
   return (
     <Layout path={props.location.pathname}>
       <BG />
@@ -271,7 +168,7 @@ const About = props => {
             <div style={{ display: 'flex', width: '100%', margin: 0 }}>
               <InternalLink to="/blog/abax">ABAX token</InternalLink>
               <InternalLink to="/whitepaper.pdf">
-                V1 Whitepaper <span style={{ fontSize: '11px' }}>↗</span>
+                Whitepaper <span style={{ fontSize: '11px' }}>↗</span>
               </InternalLink>
               <InternalLink to="/faq">FAQ</InternalLink>
             </div>
@@ -280,13 +177,13 @@ const About = props => {
           <StyledSectionFlex id="contact" style={{ flexDirection: 'column' }}>
             <h2 style={{ width: '100%' }}>Contact</h2>
             <p>
-              To get in touch, please email <a href="mailto:contact@abax.org">contact@abax.org</a>
+              To get in touch, please email <a href="mailto:contact@abax.finance">contact@abax.finance</a>
             </p>
 
             <p>
               We encourage anyone facing issues with their wallet, transaction or Abax related question to join our
-              active community on Telegram or visit
-              <ExternalLink href={'https://help.abax.org'}>help & tutorial</ExternalLink> site.
+              active community on&nbsp;
+              <ExternalLink href={'https://t.me/abaxprotocol'}>Telegram</ExternalLink>.
             </p>
 
             <div style={{ display: 'flex', width: '100%', margin: 0 }}>
@@ -299,7 +196,7 @@ const About = props => {
               <ExternalLink href={'https://www.reddit.com/r/Abax'}>
                 Reddit <span style={{ fontSize: '11px' }}>↗</span>
               </ExternalLink>
-              <ExternalLink href={'https://twitter.com/AbaxFinance'}>
+              <ExternalLink href={'https://t.me/abaxprotocol'}>
                 Telegram <span style={{ fontSize: '11px' }}>↗</span>
               </ExternalLink>
             </div>

@@ -186,6 +186,7 @@ const Header = props => {
         siteMetadata {
           menulinks {
             name
+            link
             sublinks {
               name
               link
@@ -251,12 +252,13 @@ const Header = props => {
         </HideSmall>
         {props.path !== undefined && (
           <StyledTradeLink
+            disabled
             style={{
-              background: `linear-gradient(128.17deg, #6a3700 -14.78%, #ab8154 110.05%)`,
+              background: `linear-gradient(128.17deg, #395175 -14.78%, #755139 110.05%)`,
               color: 'white'
             }}
             target="_blank"
-            href="https://app.abax.org/"
+            href="https://app.abax.finance/"
           >
             Launch App
           </StyledTradeLink>

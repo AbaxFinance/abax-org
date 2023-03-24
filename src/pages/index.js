@@ -9,8 +9,9 @@ import Layout from '../layouts'
 
 import GovImage from '../images/abax.banner.png'
 import Discord from '../images/discord.inline.svg'
-import { default as Github, default as Telegram } from '../images/github.inline.svg'
+import Github from '../images/github.inline.svg'
 import Twitter from '../images/twitter.inline.svg'
+import Telegram from '../images/telegram.inline.svg'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 
@@ -148,6 +149,9 @@ const StyledSocialRow = styled.nav`
 const StyledItemRow = styled.nav`
   display: flex;
   flex-direction: column;
+  .my-swiper {
+    width: 100%;
+  }
 
   margin: 0rem;
   & > *:not(:first-of-type) {
@@ -264,11 +268,11 @@ const IndexPage = props => {
 
           <StyledTradeLink
             style={{
-              background: `linear-gradient(128.17deg, #6a3700 -14.78%, #FF1F8A 110.05%)`,
+              background: `linear-gradient(128.17deg, #395175 -14.78%, #755139 110.05%)`,
               color: 'white'
             }}
             target="_blank"
-            href="https://app.abax.org/"
+            href="https://app.abax.finance/"
           >
             Launch App
           </StyledTradeLink>
@@ -279,10 +283,10 @@ const IndexPage = props => {
             <a href="https://github.com/AbaxFinance/">
               <StyledGithub />
             </a>
-            <a href="https://discord.gg/FCfyBSbCU5">
+            <a href="https://discord.gg/ECBA5ZYT">
               <StyledDiscord />
             </a>
-            <a href="https://telegram.com/AbaxFinance">
+            <a href="https://t.me/abaxprotocol" style={{ marginLeft: '14px' }}>
               <StyledTelegram />
             </a>
           </StyledSocialRow>
@@ -293,54 +297,6 @@ const IndexPage = props => {
         <StyledBodyTitle2>A Powerful Protocol</StyledBodyTitle2>
         <FeturesSection />
         <RoadmapSection />
-      </StyledBody>
-      <BG />
-    </Layout>
-  )
-}
-
-const IndexPageMock = props => {
-  const isDark = useDarkMode()
-
-  const mainHeaderText =
-    'With fair interest rates and high security, you can grow your capital with Abax both as a lender as well as a borrower.'
-
-  return (
-    <Layout path={props.location.pathname}>
-      <BGCard>
-        <CardBGImage isDark={isDark} />
-      </BGCard>
-      <SEO title="Home" path={props.location.pathname} description={mainHeaderText} />
-      <StyledBody>
-        <StyledTitle>
-          <StyledBodyTitle>
-            <span style={{ fontWeight: 200 }}>ABAX PROTOCOL</span>
-          </StyledBodyTitle>
-          <StyledBodySubTitle>{mainHeaderText}</StyledBodySubTitle>
-          <StyledBodySubText>Part of the Aleph Zero Ecosystem Funding Program</StyledBodySubText>
-
-          <StyledTradeLink
-            style={{
-              background: `linear-gradient(128.17deg, #6a3700 -14.78%, #FF1F8A 110.05%)`,
-              color: 'white'
-            }}
-            target="_blank"
-            href="https://app.abax.org/"
-          >
-            Launch App
-          </StyledTradeLink>
-          <StyledSocialRow>
-            <a href="https://twitter.com/AbaxFinance/">
-              <StyledTwitter />
-            </a>
-            <a href="https://github.com/AbaxFinance/">
-              <StyledGithub />
-            </a>
-            <a href="https://discord.gg/">
-              <StyledDiscord />
-            </a>
-          </StyledSocialRow>
-        </StyledTitle>
       </StyledBody>
       <BG />
     </Layout>
@@ -412,8 +368,10 @@ const BenefitsSection = () => {
       <StyledItemRow>
         <Swiper
           loop={true}
-          spaceBetween={40}
-          slidesPerView={2}
+          breakpoints={{
+            959: { slidesPerView: 1 },
+            960: { slidesPerView: 2, spaceBetween: 40 }
+          }}
           navigation={true}
           centeredSlides={true}
           grabCursor={true}
@@ -423,7 +381,7 @@ const BenefitsSection = () => {
             disableOnInteraction: true
           }}
           modules={[Autoplay, Pagination, Navigation]}
-          className="mySwiper"
+          className="my-swiper"
         >
           {slides.map(({ header, body }, i) => {
             return (
@@ -481,8 +439,10 @@ const FeturesSection = () => {
       <StyledItemRow>
         <Swiper
           loop={true}
-          spaceBetween={40}
-          slidesPerView={2}
+          breakpoints={{
+            959: { slidesPerView: 1 },
+            960: { slidesPerView: 2, spaceBetween: 40 }
+          }}
           navigation={true}
           centeredSlides={true}
           grabCursor={true}
@@ -493,7 +453,7 @@ const FeturesSection = () => {
             reverseDirection: true
           }}
           modules={[Autoplay, Pagination, Navigation]}
-          className="mySwiper"
+          className="my-swiper"
         >
           {slides.map(({ header, body }, i) => {
             return (
@@ -522,11 +482,23 @@ const FeturesSection = () => {
   )
 }
 
+const RoadmapGridContainer = styled.div`
+  display: grid;
+  gap: 1rem;
+  grid-auto-flow: column;
+  @media (max-width: 960px) {
+    grid-auto-flow: row;
+    a {
+      width: 100%;
+    }
+  }
+`
+
 const RoadmapSection = () => {
   return (
     <>
       <StyledBodyTitle2>Roadmap</StyledBodyTitle2>
-      <div style={{ display: 'grid', gridAutoFlow: 'column', gap: '1rem' }}>
+      <RoadmapGridContainer>
         <div style={{ width: '100%', height: '100%', flex: 1 }}>
           <Button
             style={{
@@ -640,7 +612,7 @@ const RoadmapSection = () => {
             </ul>
           </Button>
         </div>
-      </div>
+      </RoadmapGridContainer>
     </>
   )
 }
@@ -663,7 +635,7 @@ const GovernanceSection = () => {
               rewards you for your efforts.
             </StyledBodySubTitle>
           </span>
-          <Button href="https://docs.uniswap.org/protocol/concepts/governance/guide-to-voting" outlined>
+          <Button href="https://gov.abax.finance/t/welcome-to-the-abax-protocol-community/24/1" outlined>
             <p style={{ margin: 0 }}>Read more </p>
           </Button>
         </GovernanceCard>

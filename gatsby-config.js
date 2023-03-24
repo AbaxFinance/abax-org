@@ -10,7 +10,7 @@ module.exports = {
     description: `Lending Protocol`,
     author: `@Abax`,
     menulinks: menu,
-    siteUrl: `https://abax.org`,
+    siteUrl: `https://abax.finance`,
     repository: `https://github.com/AbaxFinance/abax-org`,
     commit: process.env.NOW_GITHUB_COMMIT_SHA || `master`
   },
@@ -20,14 +20,14 @@ module.exports = {
       options: {
         bucketName: process.env.AWS_S3_BUCKET || 'NOT_SPECIFIED',
         protocol: 'https',
-        hostname: 'abax.org',
+        hostname: 'abax.finance',
         acl: null
       }
     },
     {
       resolve: `gatsby-plugin-canonical-urls`,
       options: {
-        siteUrl: `https://abax.org`
+        siteUrl: `https://abax.finance`
       }
     },
     {

@@ -198,26 +198,36 @@ export default function Menu(props) {
   return (
     <StyledMenu tabIndex={0}>
       <StyledMenuTitle>
-        <span style={{ marginRight: '0.25rem' }}>{props.data.name} </span>
-        <MenuFlyout>
-          {props.data.sublinks.map((item, index) => {
-            return (
-              <StyledMenuItem tabindex={index} key={index}>
-                {item.link.split('.').slice(-1)[0] === 'pdf' ? (
-                  <StyledExternalLink href={item.link} target="_blank" rel="noopener noreferrer">
-                    <StyledTitle>{item.name}</StyledTitle>
-                  </StyledExternalLink>
-                ) : (
-                  <StyledExternalLink href={item.link}>
-                    <StyledTitle>{item.name}</StyledTitle>
-                    {item.description && <StyledDescription>{item.description}</StyledDescription>}
-                  </StyledExternalLink>
-                )}
-              </StyledMenuItem>
-            )
-          })}
-        </MenuFlyout>
+        {props.data.sublinks?.length > 0 ? (
+          <>
+            <span style={{ marginRight: '0.25rem' }}>{props.data.name} </span>
+            <MenuFlyout>
+              {props.data.sublinks.map((item, index) => {
+                return (
+                  <StyledMenuItem tabindex={index} key={index}>
+                    <MenuLink item={item} />
+                  </StyledMenuItem>
+                )
+              })}
+            </MenuFlyout>
+          </>
+        ) : (
+          <MenuLink item={props.data} />
+        )}
       </StyledMenuTitle>
     </StyledMenu>
+  )
+}
+
+const MenuLink = ({ item }) => {
+  return item.link.split('.').slice(-1)[0] === 'pdf' ? (
+    <StyledExternalLink href={item.link} target="_blank" rel="noopener noreferrer">
+      <StyledTitle>{item.name}</StyledTitle>
+    </StyledExternalLink>
+  ) : (
+    <StyledExternalLink href={item.link}>
+      <StyledTitle>{item.name}</StyledTitle>
+      {item.description && <StyledDescription>{item.description}</StyledDescription>}
+    </StyledExternalLink>
   )
 }

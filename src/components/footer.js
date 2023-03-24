@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import Twitter from '../images/twitter.inline.svg'
 import Github from '../images/github.inline.svg'
 import Discord from '../images/discord.inline.svg'
+import Telegram from '../images/telegram.inline.svg'
 
 const StyledFooter = styled.footer`
   display: flex;
@@ -53,6 +54,7 @@ const StyledDiscord = styled(Discord)`
   }
   width: 16px;
   height: 16px;
+  margin-right: 10px;
 `
 
 const StyledGithub = styled(Github)`
@@ -64,25 +66,31 @@ const StyledGithub = styled(Github)`
   margin-right: 12px;
 `
 
+const StyledTelegram = styled(Telegram)`
+  path {
+    fill: ${({ theme }) => theme.textColor};
+  }
+  width: 16px;
+  height: 16px;
+`
+
 const Footer = () => {
   return (
     <StyledFooter>
       <p style={{ margin: 0 }}>© {new Date().getFullYear()} Abax</p>
       <StyledFooterLinkSection>
         <StyledFooterLink to="/about">About</StyledFooterLink>
-        <StyledFooterLink to="/disclaimer" style={{ marginRight: '12px' }}>
-          Disclaimer
-        </StyledFooterLink>
-        <StyledFooterLink to="/trademarks">Trademarks</StyledFooterLink>
-        <StyledFooterLink to="/about#brand">Brand</StyledFooterLink>
         <a href="https://twitter.com/AbaxFinance" rel="noopener noreferrer" target="_blank">
           <StyledTwitter />
         </a>
         <a href="https://github.com/AbaxFinance" rel="noopener noreferrer" target="_blank">
           <StyledGithub />
         </a>
-        <a href="https://discord.gg/FCfyBSbCU5" rel="noopener noreferrer" target="_blank">
+        <a href="https://discord.gg/ECBA5ZYT" rel="noopener noreferrer" target="_blank">
           <StyledDiscord />
+        </a>
+        <a href="https://t.me/abaxprotocol" rel="noopener noreferrer" target="_blank">
+          <StyledTelegram />
         </a>
       </StyledFooterLinkSection>
     </StyledFooter>
