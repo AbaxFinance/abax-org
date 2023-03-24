@@ -225,7 +225,7 @@ const MenuLink = ({ item }) => {
       <StyledTitle>{item.name}</StyledTitle>
     </StyledExternalLink>
   ) : (
-    <StyledExternalLink href={item.link}>
+    <StyledExternalLink href={item.link} target="_blank" rel="noopener noreferrer">
       <StyledTitle>{item.name}</StyledTitle>
       {item.description && <StyledDescription>{item.description}</StyledDescription>}
     </StyledExternalLink>
