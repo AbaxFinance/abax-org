@@ -107,8 +107,10 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "format": "prettier --write \"src/**/*.{js,jsx,md,mdx}\"",
-    "deploy": "gatsby-plugin-s3 deploy"
+    "format": "prettier --write \"src/**/*.{js,jsx,md,mdx}\""
+  },
+  "engines": {
+    "node": "16.16.0"
   },
   "packageManager": "yarn@3.4.1"
 }
