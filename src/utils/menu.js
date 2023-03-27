@@ -8,7 +8,7 @@ const menu = [
     name: 'Governance',
     sublinks: [
       {
-        name: 'ABAX Token ',
+        name: 'ABAX Token',
         link: 'https://gov.abax.finance/t/abax-the-dao-token-tokenomics/32'
       },
       { name: 'Governance Forum', link: 'https://gov.abax.finance/' }

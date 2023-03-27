@@ -159,6 +159,13 @@ const HideSmall = styled.span`
   }
 `
 
+const ShowSmall = styled.span`
+  display: none;
+  @media (max-width: 960px) {
+    display: inherit;
+  }
+`
+
 const Header = props => {
   const matches = useMediaQuery('only screen and (max-width: 1024px)')
   const node = useRef()
@@ -236,6 +243,11 @@ const Header = props => {
         >
           <StyledLogo />
         </StyledHomeLink>
+        <ShowSmall style={{ marginLeft: 'auto', marginRight: '12px' }}>
+          <StyledButton type="button" onClick={toggleDarkMode}>
+            {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+          </StyledButton>
+        </ShowSmall>
       </StyledNavTitleWrapper>
       <MenuToggle ref={button} open={isMenuOpen} onClick={() => updateIsMenuOpen(!isMenuOpen)}>
         {isMenuOpen ? <StyledCloseIcon /> : <StyledMenuIcon />}

@@ -177,6 +177,7 @@ const Header = props => {
 
   const isMobile = useMediaQuery('(max-width: 960px)')
 
+  console.log('mini header')
   return (
     <StyledHeader open={isMenuOpen}>
       <Row>
