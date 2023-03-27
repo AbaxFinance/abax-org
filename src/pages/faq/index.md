@@ -2,7 +2,7 @@
 title: FAQ
 ---
 
-<Info>Didn't find an answer? Explore the <a href="https://help.abax.finance/">help guides</a> or join the <a href="https://discord.gg/ECBA5ZYT">community Discord</a> to get support</Info>
+<Info>Didn't find an answer? Join the <a href="https://t.me/abaxprotocol">community Telegram</a> to get support</Info>
 
 #Site under construction
 

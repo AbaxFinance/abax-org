@@ -128,7 +128,7 @@ export const GET_BLOCK = gql`
   }
 `
 
-export const ETH_PRICE = block => {
+export const ETH_PRICE = (block) => {
   const queryString = block
     ? `
     query bundles {
@@ -148,7 +148,7 @@ export const ETH_PRICE = block => {
   return gql(queryString)
 }
 
-const About = props => {
+const About = (props) => {
   return (
     <Layout path={props.location.pathname}>
       <BG />
@@ -187,14 +187,8 @@ const About = props => {
             </p>
 
             <div style={{ display: 'flex', width: '100%', margin: 0 }}>
-              <ExternalLink href={'https://discord.gg/<placeholder>'}>
-                Discord <span style={{ fontSize: '11px' }}>↗</span>
-              </ExternalLink>
               <ExternalLink href={'https://twitter.com/AbaxFinance'}>
                 Twitter <span style={{ fontSize: '11px' }}>↗</span>
-              </ExternalLink>
-              <ExternalLink href={'https://www.reddit.com/r/Abax'}>
-                Reddit <span style={{ fontSize: '11px' }}>↗</span>
               </ExternalLink>
               <ExternalLink href={'https://t.me/abaxprotocol'}>
                 Telegram <span style={{ fontSize: '11px' }}>↗</span>
