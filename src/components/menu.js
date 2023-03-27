@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 export function useToggle(initialState = false) {
   const [state, setState] = useState(initialState)
-  const toggle = useCallback(() => setState(state => !state), [])
+  const toggle = useCallback(() => setState((state) => !state), [])
 
   return [state, toggle]
 }
@@ -21,7 +21,6 @@ const StyledMenu = styled.button`
   text-align: left;
   list-style: none;
   color: ${({ theme }) => theme.textColor};
-
 
   /* padding-right: 2rem; */
   background: none;
@@ -89,7 +88,7 @@ const MenuFlyout = styled.nav`
   }
 `
 
-const StyledMenuTitle = styled.span`
+const StyledMenuContent = styled.span`
   text-decoration: none;
   margin: 0px;
   border-radius: 0.5rem;
@@ -194,13 +193,23 @@ const StyledDescription = styled.p`
   }
 `
 
+const StyledMenuTitle = styled.div`
+  margin-right: 0.25rem;
+  @media (max-width: 960px) {
+    width: 100%;
+    color: ${({ theme }) => theme.colors.grey5};
+    border-bottom: 1px solid black;
+    padding-bottom: 0.25rem;
+  }
+`
+
 export default function Menu(props) {
   return (
     <StyledMenu tabIndex={0}>
-      <StyledMenuTitle>
+      <StyledMenuContent>
         {props.data.sublinks?.length > 0 ? (
           <>
-            <span style={{ marginRight: '0.25rem' }}>{props.data.name} </span>
+            <StyledMenuTitle>{props.data.name} </StyledMenuTitle>
             <MenuFlyout>
               {props.data.sublinks.map((item, index) => {
                 return (
@@ -214,7 +223,7 @@ export default function Menu(props) {
         ) : (
           <MenuLink item={props.data} />
         )}
-      </StyledMenuTitle>
+      </StyledMenuContent>
     </StyledMenu>
   )
 }

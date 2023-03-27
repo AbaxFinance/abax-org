@@ -10,9 +10,9 @@ export const CardBGImage = styled.span`
   width: 24rem;
   height: 24rem;
   opacity: 1;
-  position: absolute;
+  z-index: 10;
   left: 45vw;
-  top: 10vw;
+  top: 3vw;
   opacity: 1;
   position: absolute;
   background: url(${bgBanner});
