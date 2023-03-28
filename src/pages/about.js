@@ -128,7 +128,7 @@ export const GET_BLOCK = gql`
   }
 `
 
-export const ETH_PRICE = (block) => {
+export const ETH_PRICE = block => {
   const queryString = block
     ? `
     query bundles {
@@ -148,7 +148,7 @@ export const ETH_PRICE = (block) => {
   return gql(queryString)
 }
 
-const About = (props) => {
+const About = props => {
   return (
     <Layout path={props.location.pathname}>
       <BG />
@@ -167,9 +167,13 @@ const About = (props) => {
 
             <div style={{ display: 'flex', width: '100%', margin: 0 }}>
               <InternalLink to="/blog/abax">ABAX token</InternalLink>
-              <InternalLink to="/whitepaper.pdf">
+              <ExternalLink
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://abaxfinance.github.io/abax-org/whitepaper.pdf"
+              >
                 Whitepaper <span style={{ fontSize: '11px' }}>↗</span>
-              </InternalLink>
+              </ExternalLink>
               <InternalLink to="/faq">FAQ</InternalLink>
             </div>
           </StyledSectionFlex>
@@ -183,14 +187,17 @@ const About = (props) => {
             <p>
               We encourage anyone facing issues with their wallet, transaction or Abax related question to join our
               active community on&nbsp;
-              <ExternalLink href={'https://t.me/abaxprotocol'}>Telegram</ExternalLink>.
+              <ExternalLink target="_blank" rel="noopener noreferrer" href={'https://t.me/abaxprotocol'}>
+                Telegram
+              </ExternalLink>
+              .
             </p>
 
             <div style={{ display: 'flex', width: '100%', margin: 0 }}>
-              <ExternalLink href={'https://twitter.com/AbaxFinance'}>
+              <ExternalLink target="_blank" rel="noopener noreferrer" href={'https://twitter.com/AbaxFinance'}>
                 Twitter <span style={{ fontSize: '11px' }}>↗</span>
               </ExternalLink>
-              <ExternalLink href={'https://t.me/abaxprotocol'}>
+              <ExternalLink target="_blank" rel="noopener noreferrer" href={'https://t.me/abaxprotocol'}>
                 Telegram <span style={{ fontSize: '11px' }}>↗</span>
               </ExternalLink>
             </div>

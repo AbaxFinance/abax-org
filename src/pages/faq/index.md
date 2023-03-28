@@ -8,4 +8,4 @@ title: FAQ
 
 # How does Abax work?
 
-For an in-depth description. Check out Protocol's [Whitepaper](/whitepaper.pdf).
+For an in-depth description. Check out Protocol's [Whitepaper](https://abaxfinance.github.io/abax-org/whitepaper.pdf).

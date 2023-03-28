@@ -248,7 +248,7 @@ const StyledTradeLink = styled.a`
     display: inline-block;
   }
 `
-const IndexPage = (props) => {
+const IndexPage = props => {
   const isDark = useDarkMode()
 
   const mainHeaderText =
@@ -271,7 +271,7 @@ const IndexPage = (props) => {
           <StyledTradeLink
             style={{
               background: `linear-gradient(128.17deg, #395175 -14.78%, #755139 110.05%)`,
-              color: 'white',
+              color: 'white'
             }}
             href="#"
             // target="_blank"
@@ -343,20 +343,24 @@ const BenefitsSection = () => {
   const slides = [
     {
       header: 'Fair Interest Rate Model',
-      body: 'Abax Protocol uses a dynamic interest rate model that adjusts based on market demand, ensuring fair and competitive rates for users. Our flexible model maximizes earnings for lenders and minimizes debt costs for borrowers, benefiting both parties.',
+      body:
+        'Abax Protocol uses a dynamic interest rate model that adjusts based on market demand, ensuring fair and competitive rates for users. Our flexible model maximizes earnings for lenders and minimizes debt costs for borrowers, benefiting both parties.'
     },
     {
       header: 'Innovative Position Risk Model ',
-      body: 'Abax Protocol calculates the maximum debt for each user’s based on users collaterals and debts that built position. Each asset contributes differently to the position depending on it’s volatitlity . The less risky the position, the higher the ratio of debt to collateral may be. This ensures a fair and secure lending and borrowing experience for all users.',
+      body:
+        'Abax Protocol calculates the maximum debt for each user’s based on users collaterals and debts that built position. Each asset contributes differently to the position depending on it’s volatitlity . The less risky the position, the higher the ratio of debt to collateral may be. This ensures a fair and secure lending and borrowing experience for all users.'
     },
     {
       header: 'Transparency',
-      body: 'Abax Protocol is built with transparency at its core. Our  public code of the  smart contracts are auditable by anyone, at any time. With Abax Protocol, you can have complete confidence in the fairness and transparency of the lending and borrowing process.',
+      body:
+        'Abax Protocol is built with transparency at its core. Our  public code of the  smart contracts are auditable by anyone, at any time. With Abax Protocol, you can have complete confidence in the fairness and transparency of the lending and borrowing process.'
     },
     {
       header: 'Security & Performance',
-      body: 'Abax Protocol is built with a focus on security and performance. Abax contracts are designed for efficiency and the highest standards of security. We have chosen to deploy our smart contracts on Aleph Zero, one of the fastest blockchains with the upcoming privacy supporting features.. ',
-    },
+      body:
+        'Abax Protocol is built with a focus on security and performance. Abax contracts are designed for efficiency and the highest standards of security. We have chosen to deploy our smart contracts on Aleph Zero, one of the fastest blockchains with the upcoming privacy supporting features.. '
+    }
   ]
 
   return (
@@ -366,7 +370,7 @@ const BenefitsSection = () => {
           loop={true}
           breakpoints={{
             959: { slidesPerView: 1 },
-            960: { slidesPerView: 2, spaceBetween: 40 },
+            960: { slidesPerView: 2, spaceBetween: 40 }
           }}
           navigation={true}
           centeredSlides={true}
@@ -374,7 +378,7 @@ const BenefitsSection = () => {
           speed={700}
           autoplay={{
             delay: 3500,
-            disableOnInteraction: true,
+            disableOnInteraction: true
           }}
           modules={[Autoplay, Pagination, Navigation]}
           className="my-swiper"
@@ -386,7 +390,7 @@ const BenefitsSection = () => {
                   style={{
                     cursor: 'inherit',
                     borderRadius: '20px',
-                    height: '100%',
+                    height: '100%'
                   }}
                   outlined
                 >
@@ -410,20 +414,24 @@ const FeturesSection = () => {
   const slides = [
     {
       header: 'Cross-chain Compatibility',
-      body: 'The protocol is built on Aleph Zero and will allow for cross-chain compatibility once Aleph Zero bridges to Polkadot and other ecosystems.',
+      body:
+        'The protocol is built on Aleph Zero and will allow for cross-chain compatibility once Aleph Zero bridges to Polkadot and other ecosystems.'
     },
     {
       header: 'Community Driven',
-      body: 'Abax Protocol is community-driven, with a focus on creating a decentralized, transparent, and open financial ecosystem for all users.',
+      body:
+        'Abax Protocol is community-driven, with a focus on creating a decentralized, transparent, and open financial ecosystem for all users.'
     },
     {
       header: 'Regulatory Compliance',
-      body: 'Compliance with relevant regulations is a key goal of our Abax community.With a focus on compliance and transparency, we aim to establish ourselves as a trustworthy and reliable partner for both lenders and borrowers.',
+      body:
+        'Compliance with relevant regulations is a key goal of our Abax community.With a focus on compliance and transparency, we aim to establish ourselves as a trustworthy and reliable partner for both lenders and borrowers.'
     },
     {
       header: 'User Interface tailored to your needs',
-      body: "Whether you're an experienced blockchain user or new to the technology, the Abax App provides an intuitive and user-friendly way to utilize all the features of our platform.",
-    },
+      body:
+        "Whether you're an experienced blockchain user or new to the technology, the Abax App provides an intuitive and user-friendly way to utilize all the features of our platform."
+    }
   ]
 
   return (
@@ -433,7 +441,7 @@ const FeturesSection = () => {
           loop={true}
           breakpoints={{
             959: { slidesPerView: 1 },
-            960: { slidesPerView: 2, spaceBetween: 40 },
+            960: { slidesPerView: 2, spaceBetween: 40 }
           }}
           navigation={true}
           centeredSlides={true}
@@ -442,7 +450,7 @@ const FeturesSection = () => {
           autoplay={{
             delay: 3500,
             disableOnInteraction: true,
-            reverseDirection: true,
+            reverseDirection: true
           }}
           modules={[Autoplay, Pagination, Navigation]}
           className="my-swiper"
@@ -454,7 +462,7 @@ const FeturesSection = () => {
                   style={{
                     cursor: 'inherit',
                     borderRadius: '20px',
-                    height: '100%',
+                    height: '100%'
                   }}
                   outlined
                 >
@@ -497,7 +505,7 @@ const RoadmapSection = () => {
               cursor: 'inherit',
               borderRadius: '20px',
               height: '100%',
-              padding: '1rem',
+              padding: '1rem'
             }}
             outlined
           >
@@ -511,7 +519,7 @@ const RoadmapSection = () => {
                 opacity: '0.6',
                 fontSize: '16px',
                 padding: '1rem',
-                fontWeight: 400,
+                fontWeight: 400
               }}
             >
               <li>Gather ideas inside of community for the future of the DAO (governance process, tokenomics, etc.)</li>
@@ -525,7 +533,7 @@ const RoadmapSection = () => {
               cursor: 'inherit',
               borderRadius: '20px',
               height: '100%',
-              padding: '1rem',
+              padding: '1rem'
             }}
             outlined
           >
@@ -539,7 +547,7 @@ const RoadmapSection = () => {
                 opacity: '0.6',
                 fontSize: '16px',
                 padding: '1rem',
-                fontWeight: 400,
+                fontWeight: 400
               }}
             >
               <li>Issue DAO tokens and find financial contributors</li>
@@ -554,7 +562,7 @@ const RoadmapSection = () => {
               cursor: 'inherit',
               borderRadius: '20px',
               height: '100%',
-              padding: '1rem',
+              padding: '1rem'
             }}
             outlined
           >
@@ -568,7 +576,7 @@ const RoadmapSection = () => {
                 opacity: '0.6',
                 fontSize: '16px',
                 padding: '1rem',
-                fontWeight: 400,
+                fontWeight: 400
               }}
             >
               <li>Launch Abax Protocol</li>
@@ -581,7 +589,7 @@ const RoadmapSection = () => {
               cursor: 'inherit',
               borderRadius: '20px',
               height: '100%',
-              padding: '1rem',
+              padding: '1rem'
             }}
             outlined
           >
@@ -595,7 +603,7 @@ const RoadmapSection = () => {
                 opacity: '0.6',
                 fontSize: '16px',
                 padding: '1rem',
-                fontWeight: 400,
+                fontWeight: 400
               }}
             >
               <li>further Improve Interest Rate Model</li>
@@ -634,7 +642,7 @@ const GovernanceSection = () => {
         <StyledItemColumn style={{ display: 'flex', flexDirection: 'column' }}>
           <Button
             style={{ borderRadius: '20px', width: '100%' }}
-            href="/whitepaper.pdf"
+            href="https://abaxfinance.github.io/abax-org/whitepaper.pdf"
             rel="noreferrer noopener"
             target="_blank"
             outlined
