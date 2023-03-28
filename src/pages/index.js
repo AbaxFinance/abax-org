@@ -23,7 +23,7 @@ import { Autoplay, Navigation, Pagination } from 'swiper'
 const BGCard = styled.div`
   overflow: hidden;
   position: absolute;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   max-height: 1220px;
   user-select: none;
