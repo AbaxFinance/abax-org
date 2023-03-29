@@ -54,7 +54,10 @@ function SEO({ description, lang, title, path }) {
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:creator" content="@Abax"></meta>
       <meta name="twitter:site" content="@Abax" />
-      <meta property="og:image" content={`${site.siteMetadata.siteUrl}${path ? path : '/images/'}twitter-card.png`} />
+      <meta
+        property="twitter:image"
+        content={`${site.siteMetadata.siteUrl}${path ? path : '/images/'}twitter-card.png`}
+      />
 
       <link rel="alternate" type="application/rss+xml" href="/rss.xml" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
