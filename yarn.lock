@@ -14,6 +14,7 @@ __metadata:
     "@mdx-js/mdx": ^1.5.5
     "@mdx-js/react": ^1.5.5
     "@react-hook/media-query": ^1.0.1
+    "@vercel/analytics": ^0.1.11
     algoliasearch: ^4.3.0
     apollo-boost: ^0.4.7
     apollo-cache-inmemory: ^1.6.6
@@ -4613,6 +4614,15 @@ __metadata:
     typescript:
       optional: true
   checksum: 6eb689513765350daaf0ba12ef204061e12a8add557b4eafcc63fb0ab9345eee6ca68e64e4b88625a2b844802cfc44cbad47468840cfc990a40d27457ec75390
+  languageName: node
+  linkType: hard
+
+"@vercel/analytics@npm:^0.1.11":
+  version: 0.1.11
+  resolution: "@vercel/analytics@npm:0.1.11"
+  peerDependencies:
+    react: ^16.8||^17||^18
+  checksum: 05b8180ac6e23ebe7c09d74c43f8ee78c408cd0b6546e676389cbf4fba44dfeeae3648c9b52e2421be64fe3aeee8b026e6ea4bdfc0589fb5780670f2b090a167
   languageName: node
   linkType: hard
 
