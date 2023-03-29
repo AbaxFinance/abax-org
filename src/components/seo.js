@@ -49,14 +49,17 @@ function SEO({ description, lang, title, path }) {
       <meta property="og:description" content={metaDescription} />
       <meta property="og:type" content={'website'} />
       <meta property="og:url" content={site.siteMetadata.siteUrl + path} />
-      <meta property="og:image" content={`${site.siteMetadata.siteUrl}${path ? path : '/images/'}twitter-card.png`} />
+      <meta
+        property="og:image"
+        content={`${site.siteMetadata.siteUrl}${path ? path : '/images/'}og_twitter_card.jpg`}
+      />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:creator" content="@Abax"></meta>
       <meta name="twitter:site" content="@Abax" />
       <meta
         property="twitter:image"
-        content={`${site.siteMetadata.siteUrl}${path ? path : '/images/'}twitter-card.png`}
+        content={`${site.siteMetadata.siteUrl}${path ? path : '/images/'}og_twitter_card.jpg`}
       />
 
       <link rel="alternate" type="application/rss+xml" href="/rss.xml" />
