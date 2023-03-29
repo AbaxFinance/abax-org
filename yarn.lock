@@ -14,7 +14,6 @@ __metadata:
     "@mdx-js/mdx": ^1.5.5
     "@mdx-js/react": ^1.5.5
     "@react-hook/media-query": ^1.0.1
-    "@vercel/gatsby-plugin-vercel-analytics": ^1.0.8
     algoliasearch: ^4.3.0
     apollo-boost: ^0.4.7
     apollo-cache-inmemory: ^1.6.6
@@ -1986,15 +1985,6 @@ __metadata:
   version: 0.8.0
   resolution: "@babel/regjsgen@npm:0.8.0"
   checksum: 89c338fee774770e5a487382170711014d49a68eb281e74f2b5eac88f38300a4ad545516a7786a8dd5702e9cf009c94c2f582d200f077ac5decd74c56b973730
-  languageName: node
-  linkType: hard
-
-"@babel/runtime@npm:7.12.1":
-  version: 7.12.1
-  resolution: "@babel/runtime@npm:7.12.1"
-  dependencies:
-    regenerator-runtime: ^0.13.4
-  checksum: fb4b4c8f704a338d3500ff75bfd28a35927444e0c48254d60ce87a9402d7e149e2189e5f55fa3bd2927d4c10fa25fe34c239ae0be68df77af040b01561c5bcc8
   languageName: node
   linkType: hard
 
@@ -4623,16 +4613,6 @@ __metadata:
     typescript:
       optional: true
   checksum: 6eb689513765350daaf0ba12ef204061e12a8add557b4eafcc63fb0ab9345eee6ca68e64e4b88625a2b844802cfc44cbad47468840cfc990a40d27457ec75390
-  languageName: node
-  linkType: hard
-
-"@vercel/gatsby-plugin-vercel-analytics@npm:^1.0.8":
-  version: 1.0.8
-  resolution: "@vercel/gatsby-plugin-vercel-analytics@npm:1.0.8"
-  dependencies:
-    "@babel/runtime": 7.12.1
-    web-vitals: 0.2.4
-  checksum: 1e875716879e485fc465a6596ef67823198e88876973ebd80b91e67deb63f4ed0af0e71acb6ab8643717e7c6b5ed1e4d405b0baf0d36595fd123d60a6f61aeb0
   languageName: node
   linkType: hard
 
@@ -25668,13 +25648,6 @@ __metadata:
   version: 1.1.4
   resolution: "web-namespaces@npm:1.1.4"
   checksum: 5149842ccbfbc56fe4f8758957b3f8c8616a281874a5bb84aa1b305e4436a9bad853d21c629a7b8f174902449e1489c7a6c724fccf60965077c5636bd8aed42b
-  languageName: node
-  linkType: hard
-
-"web-vitals@npm:0.2.4":
-  version: 0.2.4
-  resolution: "web-vitals@npm:0.2.4"
-  checksum: 128a4e87730b0a02fb6af3eef7d31f9a79b4646e83cfe4465aa8ce6054fe16f7b1f4125a384f1b4f039091bd9513cb54b4e559c0b10ae953c01900786a16b1c2
   languageName: node
   linkType: hard
 
