@@ -194,7 +194,7 @@ const About = props => {
             </p>
 
             <div style={{ display: 'flex', width: '100%', margin: 0 }}>
-              <ExternalLink target="_blank" rel="noopener noreferrer" href={'https://discord.gg/<placeholder>'}>
+              <ExternalLink target="_blank" rel="noopener noreferrer" href={'https://discord.gg/WyDrWyr5Fk'}>
                 Discord <span style={{ fontSize: '11px' }}>↗</span>
               </ExternalLink>
               <ExternalLink target="_blank" rel="noopener noreferrer" href={'https://twitter.com/AbaxFinance'}>
