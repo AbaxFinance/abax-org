@@ -233,7 +233,7 @@ const Header = props => {
             </a>
           </StyledButton>
           <StyledButton fill>
-            <a href="https://t.me/abaxprotocol">
+            <a href="https://t.me/abaxfinance">
               <Telegram width={20} />
             </a>
           </StyledButton>

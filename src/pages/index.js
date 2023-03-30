@@ -21,7 +21,7 @@ import 'swiper/swiper.min.css'
 import { Autoplay, Navigation, Pagination } from 'swiper'
 
 const BGCard = styled.div`
-  overflow: hidden;
+  overflow: visible;
   position: absolute;
   width: 100%;
   height: 100vh;
@@ -286,7 +286,7 @@ const IndexPage = props => {
             <a href="https://github.com/AbaxFinance/">
               <StyledGithub />
             </a>
-            <a href="https://t.me/abaxprotocol" style={{ marginLeft: '14px' }}>
+            <a href="https://t.me/abaxfinance" style={{ marginLeft: '14px' }}>
               <StyledTelegram />
             </a>
           </StyledSocialRow>
@@ -484,8 +484,9 @@ const FeturesSection = () => {
 
 const RoadmapGridContainer = styled.div`
   display: grid;
-  gap: 1rem;
+  gap: 1.5rem;
   grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
   @media (max-width: 960px) {
     grid-auto-flow: row;
     a {
@@ -504,6 +505,7 @@ const RoadmapSection = () => {
             style={{
               cursor: 'inherit',
               borderRadius: '20px',
+              width: '100%',
               height: '100%',
               padding: '1rem'
             }}
@@ -522,8 +524,13 @@ const RoadmapSection = () => {
                 fontWeight: 400
               }}
             >
-              <li>Gather ideas inside of community for the future of the DAO (governance process, tokenomics, etc.)</li>
-              <li>align the vision for the image of Abax and the DAO</li>
+              <li>Converge on the vision of the DAO</li>
+              <ul>
+                <li>Governance processes</li>
+                <li>Tokenomics</li>
+              </ul>
+              <li>Switch to the on-chain governance</li>
+              <li>Launch protocol demo on the testnet</li>
             </ul>
           </Button>
         </div>
@@ -532,6 +539,7 @@ const RoadmapSection = () => {
             style={{
               cursor: 'inherit',
               borderRadius: '20px',
+              width: '100%',
               height: '100%',
               padding: '1rem'
             }}
@@ -550,9 +558,8 @@ const RoadmapSection = () => {
                 fontWeight: 400
               }}
             >
-              <li>Issue DAO tokens and find financial contributors</li>
-              <li>Switch to on-chain governance</li>
-              <li>Establish the foundation</li>
+              <li>Distribute DAO tokens to financial contributors</li>
+              <li>Launch protocol on the mainnet</li>
             </ul>
           </Button>
         </div>
@@ -561,6 +568,7 @@ const RoadmapSection = () => {
             style={{
               cursor: 'inherit',
               borderRadius: '20px',
+              width: '100%',
               height: '100%',
               padding: '1rem'
             }}
@@ -579,35 +587,9 @@ const RoadmapSection = () => {
                 fontWeight: 400
               }}
             >
-              <li>Launch Abax Protocol</li>
-            </ul>
-          </Button>
-        </div>
-        <div style={{ width: '100%', height: '100%', flex: 1 }}>
-          <Button
-            style={{
-              cursor: 'inherit',
-              borderRadius: '20px',
-              height: '100%',
-              padding: '1rem'
-            }}
-            outlined
-          >
-            <StyledBodySubTitle style={{ marginBottom: '0.25rem', paddingLeft: '1rem' }}>
-              {'Phase 4'}
-            </StyledBodySubTitle>
-            <ul
-              style={{
-                textAlign: 'left',
-                margin: '0',
-                opacity: '0.6',
-                fontSize: '16px',
-                padding: '1rem',
-                fontWeight: 400
-              }}
-            >
+              <li>Establish the foundation</li>
               <li>further Improve Interest Rate Model</li>
-              <li>Implement ideas issued by DAO and ship them</li>
+              <li>Implement ideas issued by DAO</li>
               <li>...TBD</li>
             </ul>
           </Button>
@@ -621,7 +603,7 @@ const GovernanceSection = () => {
   const [isDark] = useDarkMode()
   return (
     <StyledSection>
-      <StyledItemRow>
+      <StyledItemRow style={{ alignItems: 'center' }}>
         <GovernanceCard
           isDark={isDark}
           style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}
@@ -630,9 +612,9 @@ const GovernanceSection = () => {
             <StyledSectionTitle>Shape Abax with us!</StyledSectionTitle>
             <StyledBodySubTitle style={{ fontSize: '20px' }}>
               Join the Abax Discourse where you can shape the future of lending in the Aleph Zero ecosystem. Participate
-              in the development of tokenomics, governance processes and DAO, and protocol management, by sharing your
-              meaningful ideas. Become one of the earliest contributors to the project that values your input and
-              rewards you for your efforts.
+              in the development of tokenomics, governance processes of the DAO, by sharing your meaningful ideas.
+              Become one of the earliest contributors to the project that values your input and rewards you for your
+              efforts.
             </StyledBodySubTitle>
           </span>
           <Button href="https://gov.abax.finance/t/welcome-to-the-abax-protocol-community/24/1" outlined>

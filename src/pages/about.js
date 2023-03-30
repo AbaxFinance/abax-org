@@ -187,7 +187,7 @@ const About = props => {
             <p>
               We encourage anyone facing issues with their wallet, transaction or Abax related question to join our
               active community on&nbsp;
-              <ExternalLink target="_blank" rel="noopener noreferrer" href={'https://t.me/abaxprotocol'}>
+              <ExternalLink target="_blank" rel="noopener noreferrer" href={'https://t.me/abaxfinance'}>
                 Telegram
               </ExternalLink>
               .
@@ -197,7 +197,7 @@ const About = props => {
               <ExternalLink target="_blank" rel="noopener noreferrer" href={'https://twitter.com/AbaxFinance'}>
                 Twitter <span style={{ fontSize: '11px' }}>↗</span>
               </ExternalLink>
-              <ExternalLink target="_blank" rel="noopener noreferrer" href={'https://t.me/abaxprotocol'}>
+              <ExternalLink target="_blank" rel="noopener noreferrer" href={'https://t.me/abaxfinance'}>
                 Telegram <span style={{ fontSize: '11px' }}>↗</span>
               </ExternalLink>
             </div>

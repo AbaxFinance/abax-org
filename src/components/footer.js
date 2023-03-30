@@ -14,10 +14,6 @@ const StyledFooter = styled.footer`
   position: relative;
   padding: 2rem;
 
-  @media (max-width: 1155px) {
-    display: block;
-  }
-
   @media (max-width: 960px) {
     padding: 1rem;
   }
@@ -86,7 +82,7 @@ const Footer = () => {
         <a href="https://github.com/AbaxFinance" rel="noopener noreferrer" target="_blank">
           <StyledGithub />
         </a>
-        <a href="https://t.me/abaxprotocol" rel="noopener noreferrer" target="_blank">
+        <a href="https://t.me/abaxfinance" rel="noopener noreferrer" target="_blank">
           <StyledTelegram />
         </a>
       </StyledFooterLinkSection>
