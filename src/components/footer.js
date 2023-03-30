@@ -82,6 +82,9 @@ const Footer = () => {
         <a href="https://github.com/AbaxFinance" rel="noopener noreferrer" target="_blank">
           <StyledGithub />
         </a>
+        <a href="https://discord.gg/ECBA5ZYT" rel="noopener noreferrer" target="_blank">
+          <StyledDiscord />
+        </a>
         <a href="https://t.me/abaxfinance" rel="noopener noreferrer" target="_blank">
           <StyledTelegram />
         </a>

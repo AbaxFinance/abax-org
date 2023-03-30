@@ -286,6 +286,9 @@ const IndexPage = props => {
             <a href="https://github.com/AbaxFinance/">
               <StyledGithub />
             </a>
+            <a href="https://discord.gg/ECBA5ZYT">
+              <StyledDiscord />
+            </a>
             <a href="https://t.me/abaxfinance" style={{ marginLeft: '14px' }}>
               <StyledTelegram />
             </a>

@@ -17,6 +17,7 @@ const menu = [
   {
     name: 'Community',
     sublinks: [
+      { name: 'Discord', link: 'https://discord.gg/WyDrWyr5Fk' },
       { name: 'Telegram', link: 'https://t.me/abaxfinance' },
       { name: 'Twitter', link: 'https://twitter.com/AbaxFinance' }
     ]
