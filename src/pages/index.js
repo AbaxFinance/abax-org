@@ -12,6 +12,7 @@ import Discord from '../images/discord.inline.svg'
 import Github from '../images/github.inline.svg'
 import Twitter from '../images/twitter.inline.svg'
 import Telegram from '../images/telegram.inline.svg'
+import { Analytics } from '@vercel/analytics/react'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 
@@ -667,6 +668,7 @@ const GovernanceSection = () => {
           </Button>
         </StyledItemColumn>
       </StyledItemRow>
+      <Analytics />
     </StyledSection>
   )
 }
