@@ -90,9 +90,11 @@ const StyledTradeLink = styled.a`
   margin-left: 1rem;
   border: 1px solid transparent;
 
-  :hover,
-  :focus {
-    border: 1px solid white;
+  :not([disabled]) {
+    :hover,
+    :focus {
+      border: 1px solid white;
+    }
   }
 `
 
@@ -263,18 +265,36 @@ const Header = props => {
           </StyledButton>
         </HideSmall>
         {props.path !== undefined && (
-          <StyledTradeLink
-            disabled
-            style={{
-              background: `linear-gradient(128.17deg, #395175 -14.78%, #755139 110.05%)`,
-              color: 'white'
-            }}
-            href="#"
-            // target="_blank"
-            // href="https://app.abax.finance/"
-          >
-            Launch App
-          </StyledTradeLink>
+          <div style={{ position: 'relative', opacity: '0.6' }}>
+            <p
+              style={{
+                pointerEvents: 'none',
+                opacity: '1.8',
+                position: 'absolute',
+                top: '-1rem',
+                right: '0',
+                color: '#DC2626',
+                fontSize: '0.75rem',
+                lineHeight: '1rem',
+                fontWeight: '700'
+              }}
+            >
+              Soon
+            </p>
+            <StyledTradeLink
+              disabled
+              style={{
+                pointerEvents: 'none',
+                background: `linear-gradient(128.17deg, #395175 -14.78%, #755139 110.05%)`,
+                color: 'white'
+              }}
+              href="#"
+              // target="_blank"
+              // href="https://app.abax.finance/"
+            >
+              Launch App
+            </StyledTradeLink>
+          </div>
         )}
       </StyledNav>
     </StyledHeader>

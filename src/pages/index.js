@@ -226,6 +226,12 @@ const HideSmall = styled.span`
     display: none;
   }
 `
+const ShowSmall = styled.span`
+  display: none;
+  @media (max-width: 960px) {
+    display: inherit;
+  }
+`
 
 const StyledTradeLink = styled.a`
   padding: 0.25rem 0.75rem;
@@ -242,9 +248,11 @@ const StyledTradeLink = styled.a`
   box-shadow: ${({ theme }) => theme.shadows.small};
   display: none;
 
-  :hover,
-  :focus {
-    border: 1px solid white;
+  :not([disabled]) {
+    :hover,
+    :focus {
+      border: 1px solid white;
+    }
   }
   @media (max-width: 960px) {
     display: inline-block;
@@ -269,18 +277,38 @@ const IndexPage = props => {
           </StyledBodyTitle>
           <StyledBodySubTitle>{mainHeaderText}</StyledBodySubTitle>
           <StyledBodySubText>Part of the Aleph Zero Ecosystem Funding Program</StyledBodySubText>
-
-          <StyledTradeLink
-            style={{
-              background: `linear-gradient(128.17deg, #395175 -14.78%, #755139 110.05%)`,
-              color: 'white'
-            }}
-            href="#"
-            // target="_blank"
-            // href="https://app.abax.finance/"
-          >
-            Launch App
-          </StyledTradeLink>
+          <div style={{ position: 'relative', opacity: '0.6' }}>
+            <ShowSmall>
+              <p
+                style={{
+                  pointerEvents: 'none',
+                  opacity: '1.8',
+                  position: 'absolute',
+                  top: '-1rem',
+                  right: '0',
+                  color: '#DC2626',
+                  fontSize: '0.75rem',
+                  lineHeight: '1rem',
+                  fontWeight: '700'
+                }}
+              >
+                Soon
+              </p>
+            </ShowSmall>
+            <StyledTradeLink
+              disabled
+              style={{
+                pointerEvents: 'none',
+                background: `linear-gradient(128.17deg, #395175 -14.78%, #755139 110.05%)`,
+                color: 'white'
+              }}
+              href="#"
+              // target="_blank"
+              // href="https://app.abax.finance/"
+            >
+              Launch App
+            </StyledTradeLink>
+          </div>
           <StyledSocialRow>
             <a href="https://twitter.com/AbaxFinance/">
               <StyledTwitter />
