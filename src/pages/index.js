@@ -275,8 +275,9 @@ const IndexPage = props => {
               background: `linear-gradient(128.17deg, #395175 -14.78%, #755139 110.05%)`,
               color: 'white'
             }}
-            target="_blank"
-            href="https://app.abax.finance/"
+            href="#"
+            // target="_blank"
+            // href="https://app.abax.finance/"
           >
             Launch App
           </StyledTradeLink>
