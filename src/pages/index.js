@@ -13,9 +13,7 @@ import Github from '../images/github.inline.svg'
 import Twitter from '../images/twitter.inline.svg'
 import Telegram from '../images/telegram.inline.svg'
 import { inject } from '@vercel/analytics'
-console.log('injecting')
 inject()
-console.log('injected')
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 
