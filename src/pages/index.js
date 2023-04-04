@@ -650,7 +650,7 @@ const GovernanceSection = () => {
               efforts.
             </StyledBodySubTitle>
           </span>
-          <Button href="https://gov.abax.finance/t/welcome-to-the-abax-protocol-community/24/1" outlined>
+          <Button href="https://gov.abax.finance/t/community-existence-purpose/41" outlined>
             <p style={{ margin: 0 }}>Read more </p>
           </Button>
         </GovernanceCard>
@@ -683,7 +683,7 @@ const GovernanceSection = () => {
           </Button>
           <Button
             style={{ borderRadius: '20px', width: '100%' }}
-            href="https://gov.abax.finance/t/abax-the-dao-token-tokenomics/32"
+            href="https://gov.abax.finance/t/abax-the-dao-token-tokenomics/42"
             outlined
           >
             <div style={{ padding: '1rem' }}>
