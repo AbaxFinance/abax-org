@@ -1,0 +1,6 @@
+{
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "prettier.prettierPath": "./node_modules/prettier",
+  // "tailwindCSS.experimental.classRegex": [["\\S*[Cc]lass[nN]ame\\S* = \\[([\\s\\S]+?)(?=][\\s;,.])", "'([^']*)'"], "return '(.*)'"]
+  "tailwindCSS.classAttributes": ["class", "className", "ngClass", "wrapperClassName"]
+}
