@@ -60,7 +60,7 @@ export const BeadsSlideInContainer: FC<{
   const containerRef = useRef<HTMLDivElement>(null);
 
   return (
-    <animated.div className={`flex gap-8`} onMouseEnter={trigger} style={animationStyles}>
+    <animated.div ref={containerRef} className={`flex gap-8`} onMouseEnter={trigger} style={animationStyles}>
       <Beads beadSizeVariant={beadSizeVariant} beadVariant={hasFinished ? 'default' : 'ghost'} numberOfBeeds={1} />
       <BeadsTextContainer
         beadSizeVariant={beadSizeVariant}
