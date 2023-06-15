@@ -1,6 +1,5 @@
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
-import { Bead } from '@/components/ui/Bead';
 import { Beads, BeadsFlexContainer, BeadsSlideInContainer, BeadsTextContainer } from '@/components/ui/BeadsWithText';
 import { RoadmapCircleEmpty } from '@/components/ui/RoadmapCircleEmpty';
 import { RoadmapCircleFilled } from '@/components/ui/RoadmapCircleFilled';
@@ -11,6 +10,7 @@ import { SectionVerticalDivider } from '@/components/ui/SectionVerticalDivider';
 import { SectionVerticalDividerAccent } from '@/components/ui/SectionVerticalDividerAccent';
 import { SectionVerticalDividerLong } from '@/components/ui/SectionVerticalDividerLong';
 import { TextColorTransition } from '@/components/ui/TextColorTransition';
+import { TextWithColorChangeOnViewportOverlap } from '@/components/ui/TextWithColorChangeOnViewportOverlap';
 import { MoveUpRight } from 'lucide-react';
 import Link from 'next/link';
 
@@ -196,26 +196,35 @@ export default function Home() {
           <div className="flex flex-col gap-14">
             <div className="flex justify-between">
               <h3 className="max-w-xs whitespace-pre-wrap text-3xl">Regulatory Compliance</h3>
-              <div className="max-w-2xl text-[#E0E0E0]">
-                Compliance with relevant regulations is a key goal of our Abax community. With a focus on compliance and transparency, we aim to
-                establish ourselves as a trustworthy and reliable partner for both lenders and borrowers.
-              </div>
+              <TextWithColorChangeOnViewportOverlap
+                text={
+                  'Compliance with relevant regulations is a key goal of our Abax community. With a focus on compliance and transparency, we aim to establish ourselves as a trustworthy and reliable partner for both lenders and borrowers.'
+                }
+                fromColor="#9D9D9D"
+                toColor="#E0E0E0"
+              />
             </div>
             <SectionHorizontalDivider />
             <div className="flex justify-between">
               <h3 className="max-w-xs whitespace-pre-wrap text-3xl">User Interface tailored to your needs</h3>
-              <div className="max-w-2xl text-[#9D9D9D]">
-                Whether you`re an experienced blockchain user or new to the technology, the Abax App provides an intuitive and user-friendly way to
-                utilize all the features of our platform.
-              </div>
+              <TextWithColorChangeOnViewportOverlap
+                text={
+                  'Whether you`re an experienced blockchain user or new to the technology, the Abax App provides an intuitive and user-friendly way to utilize all the features of our platform.'
+                }
+                fromColor="#9D9D9D"
+                toColor="#E0E0E0"
+              />
             </div>
             <SectionHorizontalDivider />
             <div className="flex justify-between">
               <h3 className="max-w-xs whitespace-pre-wrap text-3xl">Cross-chain Compatibility</h3>
-              <div className="max-w-2xl text-[#9D9D9D]">
-                The protocol is built on Aleph Zero and will allow for cross-chain compatibility once Aleph Zero bridges to Polkadot and other
-                ecosystems.
-              </div>
+              <TextWithColorChangeOnViewportOverlap
+                text={
+                  'The protocol is built on Aleph Zero and will allow for cross-chain compatibility once Aleph Zero bridges to Polkadot and other ecosystems.'
+                }
+                fromColor="#9D9D9D"
+                toColor="#E0E0E0"
+              />
             </div>
           </div>
         </section>
@@ -225,6 +234,7 @@ export default function Home() {
     </main>
   );
 }
+
 function RoadmapSection() {
   return (
     <section className="overflow-hidden">

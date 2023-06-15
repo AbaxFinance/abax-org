@@ -28,7 +28,7 @@ export const beadWidthBySize: Record<NonNullable<VariantProps<BeadVariants>['siz
 };
 export const beadSpringConfigBySize: Record<NonNullable<VariantProps<BeadVariants>['size']>, SpringConfig> = {
   default: { tension: 250, friction: 8 },
-  lg: { tension: 100, friction: 40 },
+  lg: { tension: 120, friction: 35 },
 };
 
 export type BeadVariants = typeof beadVariants;
@@ -41,6 +41,7 @@ const Bead = forwardRef<HTMLDivElement, BeadProps>(({ variant, size, className, 
   return (
     <animated.div
       onMouseEnter={trigger}
+      onClick={trigger}
       className={cn(beadVariants({ variant, size, className }))}
       ref={ref}
       style={{ borderLeft: 'none', ...style }}

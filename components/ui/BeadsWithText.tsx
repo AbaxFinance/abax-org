@@ -2,10 +2,11 @@
 import { Bead, BeadProps, beadWidthBySize } from '@/components/ui/Bead';
 import { useBoop } from '@/hooks/useBoop';
 import { StrictUnion } from '@/lib/tsUtils';
-import { FC, memo, ReactNode, SVGProps, useRef } from 'react';
+import { FC, memo, ReactNode, SVGProps, useEffect, useRef } from 'react';
 import { animated } from '@react-spring/web';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
+import { elementViewportOverlap } from '@/lib/clientUtils';
 
 export function getBeadsWidth(containerWidthInBeeds: number, beadSizeVariant?: BeadProps['size']) {
   const widthInRem = containerWidthInBeeds * beadWidthBySize[beadSizeVariant ?? 'default'] * 0.25 + (containerWidthInBeeds - 1) * 2;
@@ -55,9 +56,20 @@ export const BeadsSlideInContainer: FC<{
   const [animationStyles, trigger, hasFinished] = useBoop({
     x: `-${getBeadsWidth(numberOfBeadsToSlide, 'lg') + 2}rem`,
     repeat: false,
-    springConfig: { tension: 300, friction: 25 },
+    springConfig: { tension: 250, friction: 25 },
   });
   const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!containerRef.current) return;
+      const breakpoint = (window.innerHeight * 3) / 5;
+      if (containerRef.current.getBoundingClientRect().top < breakpoint) trigger();
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [trigger]);
 
   return (
     <animated.div ref={containerRef} className={`flex gap-8`} onMouseEnter={trigger} style={animationStyles}>
