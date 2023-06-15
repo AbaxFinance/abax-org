@@ -57,13 +57,13 @@ export default function Home() {
         </h4>
         <div className="mb-32 text-6xl leading-[4rem] tracking-tight">
           <span className="text-black">{`Join the Abax Discourse `}</span>
-          {/* <TextColorTransition
+          <TextColorTransition
             text={`where you can shape the future of lending in the Aleph Zero ecosystem.\n
           Participate in the development of tokenomics, governance processes of the DAO, by sharing your meaningful ideas.\n
           Become one of the earliest contributors to the project that values your input and rewards you for your efforts.`}
             fromColor="#CCCCCC"
             toColor="black"
-          /> */}
+          />
         </div>
         <div className="flex gap-10">
           <div className="flex h-[32rem] w-full flex-col gap-5 rounded-3xl bg-[#f3f3f3] p-12 transition-transform duration-300 hover:scale-105">
