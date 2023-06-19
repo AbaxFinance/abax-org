@@ -1,8 +1,14 @@
 'use client';
 import { cn } from '@/lib/utils';
-import { FC, memo, useEffect, useRef, useState } from 'react';
+import { FC, ReactNode, memo, useEffect, useRef, useState } from 'react';
 
-const TextWithColorChangeOnViewportOverlap: FC<{ text: string; fromColor: string; toColor: string }> = ({ text, fromColor, toColor }) => {
+const TextWithColorChangeOnViewportOverlap: FC<{ text?: string; children?: ReactNode; fromColor: string; toColor: string; className?: string }> = ({
+  text,
+  fromColor,
+  toColor,
+  children,
+  className,
+}) => {
   const [hasOverlapped, setHasOverlapped] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -20,9 +26,10 @@ const TextWithColorChangeOnViewportOverlap: FC<{ text: string; fromColor: string
   return (
     <div
       ref={containerRef}
-      className={cn('max-w-2xl transition-colors duration-500', fromColor)}
+      className={cn('transition-colors duration-700', className, fromColor)}
       style={{ color: hasOverlapped ? toColor : fromColor }}>
       {text}
+      {children}
     </div>
   );
 };

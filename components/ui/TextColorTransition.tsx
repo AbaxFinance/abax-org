@@ -1,5 +1,5 @@
 'use client';
-import { elementViewportOverlap } from '@/lib/clientUtils';
+import { elementViewportOverlap, useIsMobile } from '@/lib/clientUtils';
 import { FC, memo, useEffect, useRef, useState } from 'react';
 
 const TextColorTransition: FC<{ text: string; fromColor: string; toColor: string }> = ({ text, fromColor, toColor }) => {
@@ -8,11 +8,11 @@ const TextColorTransition: FC<{ text: string; fromColor: string; toColor: string
   const lockedStickyRef = useRef<HTMLSpanElement>(null);
   const [allowColoring, setAllowColoring] = useState(false);
 
+  const isMobileView = useIsMobile();
+
   useEffect(() => {
     // at what yPosition should we stick?
     const stickyAtYPos = 100;
-    // minumum time between coloring a character
-    const minTimeColorCharMs = 50;
 
     // browser, do not remember scroll positions for me
     history.scrollRestoration = 'manual';
@@ -26,7 +26,7 @@ const TextColorTransition: FC<{ text: string; fromColor: string; toColor: string
       if (!allowColoring && elementViewportOverlap(lockedStickyRef.current) > 0) {
         setAllowColoring(true);
       }
-      if (allowColoring || (lockedAt && window.scrollY > lockedAt && (!lastColorTime || Date.now() - lastColorTime > minTimeColorCharMs))) {
+      if (allowColoring || (lockedAt && window.scrollY > lockedAt)) {
         // find the first uncolored span
         const spans = Array.from(lockedStickyRef.current.querySelectorAll('span'))
           .filter((x) => !x.classList.contains('colored'))
@@ -51,7 +51,11 @@ const TextColorTransition: FC<{ text: string; fromColor: string; toColor: string
         return;
       }
       // check if the sticky should stick :)
-      if (lockedStickyRef.current.getBoundingClientRect().top < stickyAtYPos && !lockedStickyRef.current.classList.contains('locked')) {
+      if (
+        !isMobileView &&
+        lockedStickyRef.current.getBoundingClientRect().top < stickyAtYPos &&
+        !lockedStickyRef.current.classList.contains('locked')
+      ) {
         // remember y pos to lock scroll at + locked sticky
         setLockedAt(window.scrollY);
         // add class signaling that we are locked
@@ -62,7 +66,7 @@ const TextColorTransition: FC<{ text: string; fromColor: string; toColor: string
     // listen to the scroll event of the window
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [allowColoring, lastColorTime, lockedAt, toColor]);
+  }, [allowColoring, isMobileView, lastColorTime, lockedAt, toColor]);
 
   return (
     <span style={{ color: fromColor }} ref={lockedStickyRef}>

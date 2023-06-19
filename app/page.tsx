@@ -1,9 +1,12 @@
+import { FeaturesSection } from '@/components/FeaturesSection';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import { LandingBeadsSectionContent } from '@/components/LandingBeadsSectionContent';
 import { Beads, BeadsFlexContainer, BeadsSlideInContainer, BeadsTextContainer } from '@/components/ui/BeadsWithText';
 import { RoadmapCircleEmpty } from '@/components/ui/RoadmapCircleEmpty';
 import { RoadmapCircleFilled } from '@/components/ui/RoadmapCircleFilled';
 import { RoadmapLine } from '@/components/ui/RoadmapLine';
+import { RoadmapLineMobile } from '@/components/ui/RoadmapLineMobile';
 import { SectionHorizontalDivider } from '@/components/ui/SectionHorizontalDivider';
 import { SectionTitleIcon } from '@/components/ui/SectionTitleIcon';
 import { SectionVerticalDivider } from '@/components/ui/SectionVerticalDivider';
@@ -16,46 +19,17 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col gap-4 overflow-hidden bg-black text-white">
+    <main className="w- flex min-h-screen flex-col gap-2 overflow-hidden bg-black text-white lg:gap-4">
       <Header />
       <section className="-ml-6 flex w-[200%] flex-col gap-8 overflow-x-hidden pb-12">
-        <BeadsFlexContainer>
-          <Beads numberOfBeeds={7} />
-          <BeadsTextContainer
-            containerWidthInBeeds={2}
-            text={
-              <h2 className="-mt-2 flex h-full items-center justify-center text-left text-5xl font-light leading-[4rem] tracking-tight">
-                Abax
-                <br />
-                Protocol
-              </h2>
-            }
-          />
-          <Beads numberOfBeeds={14} />
-        </BeadsFlexContainer>
-        <BeadsFlexContainer>
-          <Beads numberOfBeeds={2} />
-          <BeadsTextContainer
-            containerWidthInBeeds={5}
-            text={
-              <h3 className="-mt-2 flex h-full items-center justify-center whitespace-pre-wrap p-8 text-left text-xl font-normal leading-10 tracking-tight">
-                {`With fair interest rates and high security,\n you can grow your capital with Abax both \n as a lender as well as a borrower.`}
-              </h3>
-            }
-          />
-          <Beads numberOfBeeds={14} />
-        </BeadsFlexContainer>
-        <BeadsFlexContainer>
-          <Beads fullRow />
-        </BeadsFlexContainer>
-        <></>
+        <LandingBeadsSectionContent />
       </section>
-      <section className="flex h-full w-full flex-col gap-10 rounded-[4rem] bg-white px-60 py-40 text-black">
+      <section className="flex h-full w-full flex-col gap-6 rounded-t-[3rem] bg-white px-8 py-20 pb-40 text-black lg:gap-10 lg:rounded-t-[4rem] lg:px-40 lg:py-40 2xl:px-60">
         <h4 className="flex gap-1 leading-5">
           <SectionTitleIcon className="h-4 w-4 overflow-visible" />
           <span>Shape Abax with us!</span>
         </h4>
-        <div className="mb-32 text-6xl leading-[4rem] tracking-tight">
+        <div className="mb-20 text-3xl leading-[4rem] tracking-tight lg:mb-32 lg:text-6xl">
           <span className="text-black">{`Join the Abax Discourse `}</span>
           <TextColorTransition
             text={`where you can shape the future of lending in the Aleph Zero ecosystem.\n
@@ -65,8 +39,8 @@ export default function Home() {
             toColor="black"
           />
         </div>
-        <div className="flex gap-10">
-          <div className="flex h-[32rem] w-full flex-col gap-5 rounded-3xl bg-[#f3f3f3] p-12 transition-transform duration-300 hover:scale-105">
+        <div className="flex flex-col gap-5 lg:flex-row lg:gap-10">
+          <div className="flex h-96 w-full flex-col gap-5 rounded-3xl bg-[#f3f3f3] p-8 transition-transform duration-300 hover:scale-105 lg:h-[32rem] lg:p-12">
             <h5 className="text-4xl">Whitepaper</h5>
             <div>Read the document and undestand the core concept of Abax</div>
             <Link
@@ -77,7 +51,7 @@ export default function Home() {
               <MoveUpRight className="h-5 w-5 transition-all hover:-translate-y-1/4 hover:translate-x-1/4" />
             </Link>
           </div>
-          <div className="flex h-[32rem] w-full flex-col gap-5 rounded-3xl bg-[#f3f3f3] p-12 transition-transform duration-300 hover:scale-105">
+          <div className="flex h-96 w-full flex-col gap-5 rounded-3xl bg-[#f3f3f3] p-8 transition-transform duration-300 hover:scale-105 lg:h-[32rem] lg:p-12">
             <h5 className="text-4xl">Governance Forum</h5>
             <div>Participate by proposing upgrades and discussing the future of the protocol with the Abax community.</div>
             <Link
@@ -88,7 +62,7 @@ export default function Home() {
               <MoveUpRight className="h-5 w-5 transition-all hover:-translate-y-1/4 hover:translate-x-1/4" />
             </Link>
           </div>
-          <div className="flex h-[32rem] w-full flex-col gap-5 rounded-3xl bg-[#f3f3f3] p-12 transition-transform duration-300 hover:scale-105">
+          <div className="flex h-96 w-full flex-col gap-5 rounded-3xl bg-[#f3f3f3] p-8 transition-transform duration-300 hover:scale-105 lg:h-[32rem] lg:p-12">
             <h5 className="text-4xl">Abax Token</h5>
             <div>Read and discuss the DAO token tokenomics proposal</div>
             <Link
@@ -102,101 +76,18 @@ export default function Home() {
         </div>
         <></>
       </section>
-      <section className="flex h-full w-full flex-col gap-10 rounded-[4rem] bg-black pt-40 text-white">
-        <section className="flex flex-col justify-center gap-5">
-          <h4 className="flex justify-center gap-1 leading-5">
-            <SectionTitleIcon className="h-4 w-4 overflow-visible" />
-            <span>Features</span>
-          </h4>
-          <h5 className="mb-32 text-center text-4xl">Making The Decentralized Lending Even Better</h5>
-          <div className="flex w-full flex-col gap-8 overflow-x-hidden">
-            <BeadsFlexContainer>
-              <Beads beadSizeVariant={'lg'} numberOfBeeds={5} />
-              <BeadsTextContainer
-                beadSizeVariant={'lg'}
-                containerWidthInBeeds={5}
-                text={
-                  <section className="flex h-full flex-col items-start justify-center gap-4 text-left">
-                    <h3 className="whitespace-pre-wrap text-3xl">{`Innovative Position\nRisk Model`}</h3>
-                    <div className="max-w-md text-[#9D9D9D]">
-                      Abax Protocol calculates the maximum debt for each user`s based on users collaterals and debts that built position. Each asset
-                      contributes differently to the position depending on it`s volatitlity...{' '}
-                      <Link
-                        href="https://abaxfinance.github.io/abax-org/whitepaper.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-white">
-                        Read more
-                      </Link>
-                    </div>
-                  </section>
-                }
-              />
-              <Beads beadSizeVariant={'lg'} beadVariant={'ghost'} numberOfBeeds={4} />
-            </BeadsFlexContainer>
-            <BeadsFlexContainer>
-              <Beads beadSizeVariant={'lg'} numberOfBeeds={3} />
-              <BeadsTextContainer text={''} beadSizeVariant={'lg'} containerWidthInBeeds={2} />
-              <BeadsSlideInContainer
-                beadSizeVariant={'lg'}
-                containerWidthInBeeds={3}
-                numberOfBeadsToSlide={2}
-                text={
-                  <section className="flex h-full flex-col items-start justify-center gap-4 text-left">
-                    <h3 className="whitespace-pre-wrap text-3xl">{`Transparency`}</h3>
-                    <div className="max-w-md text-[#9D9D9D]">
-                      Abax Protocol is built with transparency at its core. Our public code of the smart contracts are auditable by anyone, at any
-                      time. With Abax Protocol, you can have...{' '}
-                      <Link
-                        href="https://abaxfinance.github.io/abax-org/whitepaper.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-white">
-                        Read more
-                      </Link>
-                    </div>
-                  </section>
-                }
-              />
-              <Beads beadSizeVariant={'lg'} beadVariant={'ghost'} numberOfBeeds={4} />
-            </BeadsFlexContainer>
-            <BeadsFlexContainer>
-              <Beads beadSizeVariant={'lg'} numberOfBeeds={4} />
-              <BeadsTextContainer text={''} beadSizeVariant={'lg'} containerWidthInBeeds={2} />
-              <BeadsSlideInContainer
-                beadSizeVariant={'lg'}
-                containerWidthInBeeds={3}
-                numberOfBeadsToSlide={2}
-                text={
-                  <section className="flex h-full flex-col items-start justify-center gap-4 text-left">
-                    <h3 className="whitespace-pre-wrap text-3xl">{`Fair Interest\nRate Model`}</h3>
-                    <div className="max-w-md text-[#9D9D9D]">
-                      Abax Protocol uses a dynamic interest rate model that adjusts based on market demand, ensuring fair and competitive rates for
-                      users. Our flexible model maximizes...
-                      <Link
-                        href="https://abaxfinance.github.io/abax-org/whitepaper.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-white">
-                        Read more
-                      </Link>
-                    </div>
-                  </section>
-                }
-              />
-              <Beads beadSizeVariant={'lg'} beadVariant={'ghost'} numberOfBeeds={5} />
-            </BeadsFlexContainer>
-          </div>
-        </section>
-        <section className="flex h-full w-full flex-col gap-20 px-60 py-40">
+      <section className="z-10 -mt-20 flex h-full w-full flex-col gap-10 rounded-t-[3rem] bg-black pt-20 text-white lg:rounded-t-[4rem] lg:pt-40">
+        <FeaturesSection />
+        <section className="flex h-full w-full flex-col gap-10 px-4 py-20 lg:gap-20 lg:px-40 lg:py-40 2xl:px-60">
           <h4 className="flex gap-1 leading-5">
             <SectionTitleIcon className="h-4 w-4 overflow-visible" />
             <span>A powerful protocol</span>
           </h4>
           <div className="flex flex-col gap-14">
-            <div className="flex justify-between">
+            <div className="flex flex-col justify-between gap-4 lg:flex-row ">
               <h3 className="max-w-xs whitespace-pre-wrap text-3xl">Regulatory Compliance</h3>
               <TextWithColorChangeOnViewportOverlap
+                className="max-w-lg xl:max-w-xl 2xl:max-w-2xl"
                 text={
                   'Compliance with relevant regulations is a key goal of our Abax community. With a focus on compliance and transparency, we aim to establish ourselves as a trustworthy and reliable partner for both lenders and borrowers.'
                 }
@@ -205,9 +96,10 @@ export default function Home() {
               />
             </div>
             <SectionHorizontalDivider />
-            <div className="flex justify-between">
+            <div className="flex flex-col justify-between gap-4 lg:flex-row ">
               <h3 className="max-w-xs whitespace-pre-wrap text-3xl">User Interface tailored to your needs</h3>
               <TextWithColorChangeOnViewportOverlap
+                className="max-w-lg xl:max-w-xl 2xl:max-w-2xl"
                 text={
                   'Whether you`re an experienced blockchain user or new to the technology, the Abax App provides an intuitive and user-friendly way to utilize all the features of our platform.'
                 }
@@ -216,9 +108,10 @@ export default function Home() {
               />
             </div>
             <SectionHorizontalDivider />
-            <div className="flex justify-between">
+            <div className="flex flex-col justify-between gap-4 lg:flex-row ">
               <h3 className="max-w-xs whitespace-pre-wrap text-3xl">Cross-chain Compatibility</h3>
               <TextWithColorChangeOnViewportOverlap
+                className="max-w-lg xl:max-w-xl 2xl:max-w-2xl"
                 text={
                   'The protocol is built on Aleph Zero and will allow for cross-chain compatibility once Aleph Zero bridges to Polkadot and other ecosystems.'
                 }
@@ -238,65 +131,66 @@ export default function Home() {
 function RoadmapSection() {
   return (
     <section className="overflow-hidden">
-      <div className="flex h-full w-full flex-col gap-20 px-60 pb-6 pt-20">
-        <h4 className="flex gap-1 leading-5">
+      <div className="lg:pr-30 relative flex h-full min-h-[900px] w-full flex-col px-8 pt-20 lg:min-h-[inherit] lg:gap-20 lg:px-40 lg:pb-6 xl:pr-40 2xl:px-60">
+        <div className="absolute lg:relative lg:hidden">
+          <RoadmapLineMobile className="-ml-8 h-[900px] overflow-visible" />
+          <RoadmapCircleFilled className="absolute left-[42px] top-[128px] z-10 h-5 w-5" />
+          <RoadmapCircleEmpty className="absolute left-[42px] top-[382px] z-10 h-5 w-5 rounded-full" />
+          <RoadmapCircleEmpty className="absolute left-[42px] top-[578px] z-10 h-5 w-5 rounded-full min-[460px]:top-[556px]" />
+        </div>
+        <h4 className="flex w-full justify-center gap-1 pt-16 leading-5 lg:justify-start lg:pt-0">
           <SectionTitleIcon className="h-4 w-4 overflow-visible" />
           <span>Roadmap</span>
         </h4>
-        <div className="flex w-full justify-center">
-          <div className="relative">
-            <SectionVerticalDividerLong className="absolute w-px" />
-            <SectionVerticalDividerAccent className="absolute top-0 h-1/2 w-[2px]" />
-            <RoadmapCircleFilled className="absolute -left-[10px] z-10 h-5 w-5" style={{ top: 'calc(100% + 166px)' }} />
-          </div>
-          <div className="ml-10 flex w-full flex-col gap-8 text-sm">
-            <div className="text-2xl">Phase 1</div>
-            <div className="flex flex-col gap-4">
-              <div className="">Converge on the vision of the DAO</div>
-              <div className="ml-4 text-[#9D9D9D]">
-                <div className="">Governance processes</div>
-                <div className="">Tokenomics</div>
-              </div>
-              <div className="">Switch to the on-chain governance</div>
-              <div className="">Launch protocol demo on the testnet</div>
+        <div className="flex grow flex-row lg:block">
+          <div className="w-10 min-[460px]:w-16 lg:hidden" />
+          <div className="flex w-full grow flex-col gap-20 pt-10 lg:flex-row lg:justify-center lg:gap-0 lg:pt-0">
+            <div className="relative hidden lg:block">
+              <SectionVerticalDividerLong className="absolute max-h-[448px] w-px lg:block xl:max-h-[410px] 2xl:max-h-[inherit]" />
+              <SectionVerticalDividerAccent className="absolute top-0 h-1/2 w-[2px] lg:block" />
+              <RoadmapCircleFilled className="absolute -left-[10px] top-[468px] z-10 h-5 w-5 2xl:top-[548px]" />
             </div>
-          </div>
-          <div className="relative">
-            <SectionVerticalDivider className="h-96 w-px" />
-            <RoadmapCircleEmpty className="absolute -left-[10px] z-10 h-5 w-5 rounded-full" style={{ top: 'calc(100% + 14px)' }} />
-          </div>
-          <div className="ml-10 flex w-full flex-col gap-8 text-sm text-[#9D9D9D]">
-            <div className="text-2xl">Phase 2</div>
-            <div className="flex flex-col gap-4">
-              <div className="">Converge on the vision of the DAO</div>
-              <div className="">
-                <div className="">Governance processes</div>
-                <div className="">Tokenomics</div>
+            <div className=" ml-10 flex w-full flex-col gap-4 text-sm lg:gap-8 lg:pr-10">
+              <div className="text-2xl">Phase 1</div>
+              <div className="flex flex-col gap-2 text-sm lg:gap-4 lg:text-base">
+                <div className="">Converge on the vision of the DAO</div>
+                <div className="ml-4 text-[#9D9D9D]">
+                  <div className="">Governance processes</div>
+                  <div className="">Tokenomics</div>
+                </div>
+                <div className="">Switch to the on-chain governance</div>
+                <div className="">Launch protocol demo on the testnet</div>
               </div>
-              <div className="">Switch to the on-chain governance</div>
-              <div className="">Launch protocol demo on the testnet</div>
             </div>
-          </div>
-          <div className="relative">
-            <SectionVerticalDivider className="h-96 w-px" />
-            <RoadmapCircleEmpty className="absolute -left-[10px] z-10 h-5 w-5 rounded-full" style={{ top: 'calc(100% + 14px)' }} />
-          </div>
-          <div className="ml-10 flex w-full flex-col gap-8 text-sm text-[#9D9D9D]">
-            <div className="text-2xl">Phase 3</div>
-            <div className="flex flex-col gap-4">
-              <div className="">Converge on the vision of the DAO</div>
-              <div className="">
-                <div className="">Governance processes</div>
-                <div className="">Tokenomics</div>
+            <div className="relative hidden lg:block">
+              <SectionVerticalDivider className="h-96 w-px lg:block" />
+              <RoadmapCircleEmpty className="absolute -left-[10px] z-10 h-5 w-5 rounded-full" style={{ top: 'calc(100% + 14px)' }} />
+            </div>
+            <div className=" ml-10 flex w-full flex-col gap-4 text-sm text-[#9D9D9D] lg:gap-8 lg:pr-10">
+              <div className="text-2xl">Phase 2</div>
+              <div className="flex flex-col gap-2 text-sm lg:gap-4 lg:text-base">
+                <div className="">Distribute DAO tokens to financial contributors</div>
+                <div className="">Launch protocol on the mainnet</div>
               </div>
-              <div className="">Switch to the on-chain governance</div>
-              <div className="">Launch protocol demo on the testnet</div>
+            </div>
+            <div className="relative hidden lg:block">
+              <SectionVerticalDivider className="h-96 w-px lg:block" />
+              <RoadmapCircleEmpty className="absolute -left-[10px] z-10 h-5 w-5 rounded-full" style={{ top: 'calc(100% + 14px)' }} />
+            </div>
+            <div className="ml-10 flex w-full flex-col gap-4 text-sm text-[#9D9D9D] lg:gap-8">
+              <div className="text-2xl">Phase 3</div>
+              <div className="flex flex-col gap-2 text-sm lg:gap-4 lg:text-base">
+                <div className="">Establish the foundation</div>
+                <div className="">Further Improve Interest Rate Model</div>
+                <div className="">Implement ideas issued by DAO</div>
+                <div className="">...TBD</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="relative h-72">
-        <RoadmapLine className="w-[2646px] overflow-visible" />
+      <div className="relative hidden h-72 lg:block 2xl:mt-0">
+        <RoadmapLine className="-ml-32 w-[2246px] overflow-visible 2xl:-ml-0 2xl:w-[2646px]" />
       </div>
     </section>
   );
