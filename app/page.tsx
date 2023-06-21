@@ -29,7 +29,7 @@ export default function Home() {
           <SectionTitleIcon className="h-4 w-4 overflow-visible" />
           <span>Shape Abax with us!</span>
         </h4>
-        <div className="mb-20 text-3xl leading-[4rem] tracking-tight lg:mb-32 lg:text-6xl">
+        <div className="mb-20 text-2xl leading-[4rem] tracking-tight lg:mb-32 lg:text-4xl xl:text-6xl">
           <span className="text-black">{`Join the Abax Discourse `}</span>
           <TextColorTransition
             text={`where you can shape the future of lending in the Aleph Zero ecosystem.\n

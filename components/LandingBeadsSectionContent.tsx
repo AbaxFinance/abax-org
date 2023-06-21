@@ -13,7 +13,7 @@ const LandingBeadsSectionContent: FC = () => {
         <BeadsTextContainer
           containerWidthInBeeds={2}
           text={
-            <h2 className="-mt-2 flex h-full items-center justify-center text-left text-4xl font-light leading-[4rem] tracking-tight lg:text-5xl">
+            <h2 className="-mt-2 flex h-full items-center justify-center text-left text-5xl font-normal leading-[4rem] tracking-tight lg:text-5xl">
               Abax
               <br />
               Protocol

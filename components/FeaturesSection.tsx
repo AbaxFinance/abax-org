@@ -56,10 +56,10 @@ const FeaturesSection: FC = () => {
               isMobileView ? null : amountOfBeedsToSubtract === 2 ? 4 : amountOfBeedsToSubtract === 3 ? 2 : 5 - amountOfBeedsToSubtract
             }
             text={
-              <section className="flex h-full flex-col items-start justify-center  gap-2 text-left lg:gap-4">
+              <section className="flex h-full flex-col items-start justify-center gap-2 text-left lg:gap-4">
                 <h3 className="whitespace-pre-wrap text-2xl lg:text-3xl ">{`Innovative Position\nRisk Model`}</h3>
                 <div className="max-w-md text-sm text-[#9D9D9D] lg:text-base">
-                  <span className="line-clamp-3 inline lg:line-clamp-none lg:inline">
+                  <span className="line-clamp-3 lg:line-clamp-none lg:inline">
                     Abax Protocol calculates the maximum debt for each user`s based on users collaterals and debts that built position. Each asset
                     contributes differently to the position depending on it`s volatitlity...{' '}
                   </span>
@@ -89,13 +89,13 @@ const FeaturesSection: FC = () => {
           <BeadsSlideInContainer
             animateVertically={isMobileView}
             beadSizeVariant={isMobileView ? 'default' : 'lg'}
-            containerWidthInBeeds={amountOfBeedsToSubtract === 3 ? 2 : 3}
+            containerWidthInBeeds={isMobileView ? null : amountOfBeedsToSubtract === 3 ? 2 : 3}
             numberOfBeadsToSlide={amountOfBeedsToSubtract === 3 || amountOfBeedsToSubtract === 1 || amountOfBeedsToSubtract === 2 ? 1 : 2}
             text={
               <section className="flex h-full flex-col items-start justify-center gap-2 text-left lg:gap-4">
                 <h3 className="whitespace-pre-wrap text-2xl lg:text-3xl ">{`Transparency`}</h3>
                 <div className="max-w-md text-sm text-[#9D9D9D] lg:text-base">
-                  <span className="line-clamp-3 inline lg:line-clamp-none lg:inline">
+                  <span className="line-clamp-3 lg:line-clamp-none lg:inline">
                     Abax Protocol is built with transparency at its core. Our public code of the smart contracts are auditable by anyone, at any time.
                     With Abax Protocol, you can have...{' '}
                   </span>
@@ -124,14 +124,14 @@ const FeaturesSection: FC = () => {
           <BeadsSlideInContainer
             animateVertically={isMobileView}
             beadSizeVariant={isMobileView ? 'default' : 'lg'}
-            containerWidthInBeeds={amountOfBeedsToSubtract === 3 ? 2 : 3}
+            containerWidthInBeeds={isMobileView ? null : amountOfBeedsToSubtract === 3 ? 2 : 3}
             numberOfBeadsToSlide={amountOfBeedsToSubtract === 3 || amountOfBeedsToSubtract === 1 || amountOfBeedsToSubtract === 2 ? 1 : 2}
             text={
               <div className="flex justify-between">
                 <section className="flex h-full flex-col items-start justify-center gap-2 text-left lg:gap-4">
                   <h3 className="whitespace-pre-wrap text-2xl lg:text-3xl ">{`Fair Interest\nRate Model`}</h3>
                   <div className="max-w-md text-sm text-[#9D9D9D] lg:text-base">
-                    <span className="line-clamp-3 inline lg:line-clamp-none lg:inline">
+                    <span className="line-clamp-3 lg:line-clamp-none lg:inline">
                       Abax Protocol uses a dynamic interest rate model that adjusts based on market demand, ensuring fair and competitive rates for
                       users. Our flexible model maximizes...
                     </span>
