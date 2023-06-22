@@ -2,7 +2,6 @@ import { FeaturesSection } from '@/components/FeaturesSection';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import { LandingBeadsSectionContent } from '@/components/LandingBeadsSectionContent';
-import { Beads, BeadsFlexContainer, BeadsSlideInContainer, BeadsTextContainer } from '@/components/ui/BeadsWithText';
 import { RoadmapCircleEmpty } from '@/components/ui/RoadmapCircleEmpty';
 import { RoadmapCircleFilled } from '@/components/ui/RoadmapCircleFilled';
 import { RoadmapLine } from '@/components/ui/RoadmapLine';
@@ -14,117 +13,123 @@ import { SectionVerticalDividerAccent } from '@/components/ui/SectionVerticalDiv
 import { SectionVerticalDividerLong } from '@/components/ui/SectionVerticalDividerLong';
 import { TextColorTransition } from '@/components/ui/TextColorTransition';
 import { TextWithColorChangeOnViewportOverlap } from '@/components/ui/TextWithColorChangeOnViewportOverlap';
+import { useIsMobile } from '@/lib/clientUtils';
 import { MoveUpRight } from 'lucide-react';
 import Link from 'next/link';
+import { Suspense } from 'react';
 
 export default function Home() {
+  const isMobile = useIsMobile();
+  console.log({ isMobile });
   return (
-    <main className="w- flex min-h-screen flex-col gap-2 overflow-hidden bg-black text-white lg:gap-4">
-      <Header />
-      <section className="-ml-6 flex w-[200%] flex-col gap-8 overflow-x-hidden pb-12">
-        <LandingBeadsSectionContent />
-      </section>
-      <section className="flex h-full w-full flex-col gap-6 rounded-t-[3rem] bg-white px-8 py-20 pb-40 text-black lg:gap-10 lg:rounded-t-[4rem] lg:px-40 lg:py-40 2xl:px-60">
-        <h4 className="flex gap-1 leading-5">
-          <SectionTitleIcon className="h-4 w-4 overflow-visible" />
-          <span>Shape Abax with us!</span>
-        </h4>
-        <div className="mb-20 text-2xl leading-[4rem] tracking-tight lg:mb-32 lg:text-4xl xl:text-6xl">
-          <span className="text-black">{`Join the Abax Discourse `}</span>
-          <TextColorTransition
-            text={`where you can shape the future of lending in the Aleph Zero ecosystem.\n
-          Participate in the development of tokenomics, governance processes of the DAO, by sharing your meaningful ideas.\n
-          Become one of the earliest contributors to the project that values your input and rewards you for your efforts.`}
-            fromColor="#CCCCCC"
-            toColor="black"
-          />
-        </div>
-        <div className="flex flex-col gap-5 lg:flex-row lg:gap-10">
-          <div className="flex h-96 w-full flex-col gap-5 rounded-3xl bg-[#f3f3f3] p-8 transition-transform duration-300 hover:scale-105 lg:h-[32rem] lg:p-12">
-            <h5 className="text-4xl">Whitepaper</h5>
-            <div>Read the document and undestand the core concept of Abax</div>
-            <Link
-              href="https://abaxfinance.github.io/abax-org/whitepaper.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-auto flex h-12 w-12 items-center justify-center rounded-full bg-white hover:scale-105">
-              <MoveUpRight className="h-5 w-5 transition-all hover:-translate-y-1/4 hover:translate-x-1/4" />
-            </Link>
-          </div>
-          <div className="flex h-96 w-full flex-col gap-5 rounded-3xl bg-[#f3f3f3] p-8 transition-transform duration-300 hover:scale-105 lg:h-[32rem] lg:p-12">
-            <h5 className="text-4xl">Governance Forum</h5>
-            <div>Participate by proposing upgrades and discussing the future of the protocol with the Abax community.</div>
-            <Link
-              href="https://gov.abax.finance/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-auto flex h-12 w-12 items-center justify-center rounded-full bg-white hover:scale-105">
-              <MoveUpRight className="h-5 w-5 transition-all hover:-translate-y-1/4 hover:translate-x-1/4" />
-            </Link>
-          </div>
-          <div className="flex h-96 w-full flex-col gap-5 rounded-3xl bg-[#f3f3f3] p-8 transition-transform duration-300 hover:scale-105 lg:h-[32rem] lg:p-12">
-            <h5 className="text-4xl">Abax Token</h5>
-            <div>Read and discuss the DAO token tokenomics proposal</div>
-            <Link
-              href="https://gov.abax.finance/t/abax-the-dao-token-tokenomics/42"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-auto flex h-12 w-12 items-center justify-center rounded-full bg-white hover:scale-105">
-              <MoveUpRight className="h-5 w-5 transition-all hover:-translate-y-1/4 hover:translate-x-1/4" />
-            </Link>
-          </div>
-        </div>
-        <></>
-      </section>
-      <section className="z-10 -mt-20 flex h-full w-full flex-col gap-10 rounded-t-[3rem] bg-black pt-20 text-white lg:rounded-t-[4rem] lg:pt-40">
-        <FeaturesSection />
-        <section className="flex h-full w-full flex-col gap-10 px-4 py-20 lg:gap-20 lg:px-40 lg:py-40 2xl:px-60">
+    <Suspense fallback={<div className="text-3xl">LOADING</div>}>
+      <main className="w- flex min-h-screen flex-col gap-2 overflow-hidden bg-black text-white lg:gap-4">
+        <Header />
+        <section className="-ml-6 flex w-[200%] flex-col gap-8 overflow-x-hidden pb-12">
+          <LandingBeadsSectionContent />
+        </section>
+        <section className="flex h-full w-full flex-col gap-6 rounded-t-[3rem] bg-white px-8 py-20 pb-40 text-black lg:gap-10 lg:rounded-t-[4rem] lg:px-40 lg:py-40 2xl:px-60">
           <h4 className="flex gap-1 leading-5">
             <SectionTitleIcon className="h-4 w-4 overflow-visible" />
-            <span>A powerful protocol</span>
+            <span>Shape Abax with us!</span>
           </h4>
-          <div className="flex flex-col gap-14">
-            <div className="flex flex-col justify-between gap-4 lg:flex-row ">
-              <h3 className="max-w-xs whitespace-pre-wrap text-3xl">Regulatory Compliance</h3>
-              <TextWithColorChangeOnViewportOverlap
-                className="max-w-lg xl:max-w-xl 2xl:max-w-2xl"
-                text={
-                  'Compliance with relevant regulations is a key goal of our Abax community. With a focus on compliance and transparency, we aim to establish ourselves as a trustworthy and reliable partner for both lenders and borrowers.'
-                }
-                fromColor="#9D9D9D"
-                toColor="#E0E0E0"
-              />
+          <div className="mb-20 text-2xl leading-[4rem] tracking-tight lg:mb-32 lg:text-4xl xl:text-6xl">
+            <span className="text-black">{`Join the Abax Discourse `}</span>
+            <TextColorTransition
+              text={`where you can shape the future of lending in the Aleph Zero ecosystem.\n
+          Participate in the development of tokenomics, governance processes of the DAO, by sharing your meaningful ideas.\n
+          Become one of the earliest contributors to the project that values your input and rewards you for your efforts.`}
+              fromColor="#CCCCCC"
+              toColor="black"
+            />
+          </div>
+          <div className="flex flex-col gap-5 lg:flex-row lg:gap-10">
+            <div className="flex h-96 w-full flex-col gap-5 rounded-3xl bg-[#f3f3f3] p-8 transition-transform duration-300 hover:scale-105 lg:h-[32rem] lg:p-12">
+              <h5 className="text-4xl">Whitepaper</h5>
+              <div>Read the document and undestand the core concept of Abax</div>
+              <Link
+                href="https://abaxfinance.github.io/abax-org/whitepaper.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-auto flex h-12 w-12 items-center justify-center rounded-full bg-white hover:scale-105">
+                <MoveUpRight className="h-5 w-5 transition-all hover:-translate-y-1/4 hover:translate-x-1/4" />
+              </Link>
             </div>
-            <SectionHorizontalDivider />
-            <div className="flex flex-col justify-between gap-4 lg:flex-row ">
-              <h3 className="max-w-xs whitespace-pre-wrap text-3xl">User Interface tailored to your needs</h3>
-              <TextWithColorChangeOnViewportOverlap
-                className="max-w-lg xl:max-w-xl 2xl:max-w-2xl"
-                text={
-                  'Whether you`re an experienced blockchain user or new to the technology, the Abax App provides an intuitive and user-friendly way to utilize all the features of our platform.'
-                }
-                fromColor="#9D9D9D"
-                toColor="#E0E0E0"
-              />
+            <div className="flex h-96 w-full flex-col gap-5 rounded-3xl bg-[#f3f3f3] p-8 transition-transform duration-300 hover:scale-105 lg:h-[32rem] lg:p-12">
+              <h5 className="text-4xl">Governance Forum</h5>
+              <div>Participate by proposing upgrades and discussing the future of the protocol with the Abax community.</div>
+              <Link
+                href="https://gov.abax.finance/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-auto flex h-12 w-12 items-center justify-center rounded-full bg-white hover:scale-105">
+                <MoveUpRight className="h-5 w-5 transition-all hover:-translate-y-1/4 hover:translate-x-1/4" />
+              </Link>
             </div>
-            <SectionHorizontalDivider />
-            <div className="flex flex-col justify-between gap-4 lg:flex-row ">
-              <h3 className="max-w-xs whitespace-pre-wrap text-3xl">Cross-chain Compatibility</h3>
-              <TextWithColorChangeOnViewportOverlap
-                className="max-w-lg xl:max-w-xl 2xl:max-w-2xl"
-                text={
-                  'The protocol is built on Aleph Zero and will allow for cross-chain compatibility once Aleph Zero bridges to Polkadot and other ecosystems.'
-                }
-                fromColor="#9D9D9D"
-                toColor="#E0E0E0"
-              />
+            <div className="flex h-96 w-full flex-col gap-5 rounded-3xl bg-[#f3f3f3] p-8 transition-transform duration-300 hover:scale-105 lg:h-[32rem] lg:p-12">
+              <h5 className="text-4xl">Abax Token</h5>
+              <div>Read and discuss the DAO token tokenomics proposal</div>
+              <Link
+                href="https://gov.abax.finance/t/abax-the-dao-token-tokenomics/42"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-auto flex h-12 w-12 items-center justify-center rounded-full bg-white hover:scale-105">
+                <MoveUpRight className="h-5 w-5 transition-all hover:-translate-y-1/4 hover:translate-x-1/4" />
+              </Link>
             </div>
           </div>
+          <></>
         </section>
-        <RoadmapSection />
-      </section>
-      <Footer />
-    </main>
+        <section className="z-10 -mt-20 flex h-full w-full flex-col gap-10 rounded-t-[3rem] bg-black pt-20 text-white lg:rounded-t-[4rem] lg:pt-40">
+          <FeaturesSection />
+          <section className="flex h-full w-full flex-col gap-10 px-4 py-20 lg:gap-20 lg:px-40 lg:py-40 2xl:px-60">
+            <h4 className="flex gap-1 leading-5">
+              <SectionTitleIcon className="h-4 w-4 overflow-visible" />
+              <span>A powerful protocol</span>
+            </h4>
+            <div className="flex flex-col gap-14">
+              <div className="flex flex-col justify-between gap-4 lg:flex-row ">
+                <h3 className="max-w-xs whitespace-pre-wrap text-3xl">Regulatory Compliance</h3>
+                <TextWithColorChangeOnViewportOverlap
+                  className="max-w-lg xl:max-w-xl 2xl:max-w-2xl"
+                  text={
+                    'Compliance with relevant regulations is a key goal of our Abax community. With a focus on compliance and transparency, we aim to establish ourselves as a trustworthy and reliable partner for both lenders and borrowers.'
+                  }
+                  fromColor="#9D9D9D"
+                  toColor="#E0E0E0"
+                />
+              </div>
+              <SectionHorizontalDivider />
+              <div className="flex flex-col justify-between gap-4 lg:flex-row ">
+                <h3 className="max-w-xs whitespace-pre-wrap text-3xl">User Interface tailored to your needs</h3>
+                <TextWithColorChangeOnViewportOverlap
+                  className="max-w-lg xl:max-w-xl 2xl:max-w-2xl"
+                  text={
+                    'Whether you`re an experienced blockchain user or new to the technology, the Abax App provides an intuitive and user-friendly way to utilize all the features of our platform.'
+                  }
+                  fromColor="#9D9D9D"
+                  toColor="#E0E0E0"
+                />
+              </div>
+              <SectionHorizontalDivider />
+              <div className="flex flex-col justify-between gap-4 lg:flex-row ">
+                <h3 className="max-w-xs whitespace-pre-wrap text-3xl">Cross-chain Compatibility</h3>
+                <TextWithColorChangeOnViewportOverlap
+                  className="max-w-lg xl:max-w-xl 2xl:max-w-2xl"
+                  text={
+                    'The protocol is built on Aleph Zero and will allow for cross-chain compatibility once Aleph Zero bridges to Polkadot and other ecosystems.'
+                  }
+                  fromColor="#9D9D9D"
+                  toColor="#E0E0E0"
+                />
+              </div>
+            </div>
+          </section>
+          <RoadmapSection />
+        </section>
+        <Footer />
+      </main>
+    </Suspense>
   );
 }
 

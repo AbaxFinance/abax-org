@@ -1,5 +1,5 @@
 'use client';
-import { elementViewportOverlap, useIsMobile } from '@/lib/clientUtils';
+import { elementViewportOverlap, useIsMobile, useWindowDimensions } from '@/lib/clientUtils';
 import { FC, memo, useEffect, useRef, useState } from 'react';
 
 const TextColorTransition: FC<{ text: string; fromColor: string; toColor: string }> = ({ text, fromColor, toColor }) => {
@@ -7,10 +7,12 @@ const TextColorTransition: FC<{ text: string; fromColor: string; toColor: string
   const [lastColorTime, setLastColorTime] = useState<number>(0);
   const lockedStickyRef = useRef<HTMLSpanElement>(null);
   const [allowColoring, setAllowColoring] = useState(false);
+  const dimensions = useWindowDimensions();
 
   const isMobileView = useIsMobile();
 
   useEffect(() => {
+    let intervalId: number | undefined;
     // at what yPosition should we stick?
     const stickyAtYPos = 100;
 
@@ -20,15 +22,8 @@ const TextColorTransition: FC<{ text: string; fromColor: string; toColor: string
     // a flag that is set later (yPos to lock the scroll at)
     // + lastTime we colored a span
     const handleScroll = () => {
-      if (!lockedStickyRef.current) return;
-      // if scroll is locked and the user scrolls down
-      // and time enough between coloring characters
-      if (!allowColoring && elementViewportOverlap(lockedStickyRef.current) > 0) {
-        setAllowColoring(true);
-      }
-      if (allowColoring || (lockedAt && window.scrollY > lockedAt)) {
-        // find the first uncolored span
-        const spans = Array.from(lockedStickyRef.current.querySelectorAll('span'))
+      function colorSpans(container: Element) {
+        const spans = Array.from(container.querySelectorAll('span'))
           .filter((x) => !x.classList.contains('colored'))
           .slice(0, 2);
         for (const span of spans) {
@@ -38,12 +33,31 @@ const TextColorTransition: FC<{ text: string; fromColor: string; toColor: string
             span.setAttribute('style', `color: ${toColor};`);
           }
         }
-        setLastColorTime(Date.now());
-        // if no more spans to color, release the scroll lock
-        if (spans.length === 0) setLockedAt(null);
+        return spans;
+      }
+      if (!lockedStickyRef.current) return;
+      // if scroll is locked and the user scrolls down
+      // and time enough between coloring characters
+      if (!allowColoring && elementViewportOverlap(dimensions, lockedStickyRef.current) > 0) {
+        setAllowColoring(true);
+      }
+      if (allowColoring || (lockedAt && window.scrollY > lockedAt)) {
+        // find the first uncolored span
+        if (!isMobileView) {
+          const spans = colorSpans(lockedStickyRef.current);
+          setLastColorTime(Date.now());
+          // if no more spans to color, release the scroll lock
+          if (spans.length === 0) setLockedAt(null);
+        }
+        if (isMobileView) {
+          intervalId = window.setInterval(() => colorSpans(lockedStickyRef.current!), 500);
+        }
       }
       // if locked, then don't allow scroll down
-      lockedAt && window.scrollY > lockedAt && window.scrollTo(0, lockedAt);
+      if (lockedAt && window.scrollY > lockedAt) {
+        console.log('scrolling to');
+        window.scrollTo(0, lockedAt);
+      }
       // get the stickycolor elements
       // loop through them
       // if we have a lock already do nothing
@@ -65,8 +79,11 @@ const TextColorTransition: FC<{ text: string; fromColor: string; toColor: string
 
     // listen to the scroll event of the window
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [allowColoring, isMobileView, lastColorTime, lockedAt, toColor]);
+    return () => {
+      window.clearInterval(intervalId);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [allowColoring, dimensions, isMobileView, lastColorTime, lockedAt, toColor]);
 
   return (
     <span style={{ color: fromColor }} ref={lockedStickyRef}>

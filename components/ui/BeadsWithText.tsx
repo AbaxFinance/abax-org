@@ -1,17 +1,15 @@
 'use client';
 import { BeadProps, beadWidthBySize } from '@/components/ui/Bead';
+import { TextWithColorChangeOnViewportOverlap } from '@/components/ui/TextWithColorChangeOnViewportOverlap';
 import { useBoop } from '@/hooks/useBoop';
 import { StrictUnion } from '@/lib/tsUtils';
-import { FC, memo, ReactNode, SVGProps, useEffect, useRef, useState } from 'react';
-import { animated } from '@react-spring/web';
-import Link from 'next/link';
 import { cn } from '@/lib/utils';
-import { elementViewportOverlap, useIsMobile, useTailwindBreakpoint } from '@/lib/clientUtils';
-import { TextWithColorChangeOnViewportOverlap } from '@/components/ui/TextWithColorChangeOnViewportOverlap';
+import { animated } from '@react-spring/web';
 import dynamic from 'next/dynamic';
+import { FC, ReactNode, Suspense, memo, useEffect, useRef, useState } from 'react';
 
 const BeadDynamic = dynamic(() => import('@/components/ui/Bead').then((mod) => mod.Bead), {
-  ssr: false,
+  ssr: true,
 });
 
 export function getBeadsWidth(containerWidthInBeeds: number, beadSizeVariant?: BeadProps['size']) {
@@ -106,5 +104,4 @@ export const BeadsSlideInContainer: FC<{
 
 const Memo = memo(Beads);
 const Memo2 = memo(BeadsTextContainer);
-export { Memo as Beads };
-export { Memo2 as BeadsTextContainer };
+export { Memo as Beads, Memo2 as BeadsTextContainer };

@@ -1,7 +1,8 @@
 'use client';
-import { Beads, BeadsFlexContainer, BeadsSlideInContainer, BeadsTextContainer } from '@/components/ui/BeadsWithText';
+import { Beads, BeadsFlexContainer, BeadsTextContainer } from '@/components/ui/BeadsWithText';
 import { SectionTitleIcon } from '@/components/ui/SectionTitleIcon';
-import { useIsMobile } from '@/lib/clientUtils';
+import { useIsMobile, useWindowDimensions } from '@/lib/clientUtils';
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { FC, memo } from 'react';
 
@@ -34,10 +35,15 @@ const getAmountOfBeedsToSubtractByWidth = (width: number) => {
   return 0;
 };
 
+const BeadsSlideInContainerDynamic = dynamic(() => import('@/components/ui/BeadsWithText').then((mod) => mod.BeadsSlideInContainer), {
+  ssr: false,
+});
+
 const FeaturesSection: FC = () => {
   const isMobileView = useIsMobile();
+  const dimensions = useWindowDimensions();
 
-  const amountOfBeedsToSubtract = getAmountOfBeedsToSubtractByWidth(typeof window !== 'undefined' ? window.innerWidth : 0);
+  const amountOfBeedsToSubtract = getAmountOfBeedsToSubtractByWidth(dimensions.width);
 
   return (
     <section className="flex flex-col justify-center gap-5">
@@ -86,7 +92,7 @@ const FeaturesSection: FC = () => {
               containerWidthInBeeds={amountOfBeedsToSubtract === 3 || amountOfBeedsToSubtract === 1 || amountOfBeedsToSubtract === 2 ? 1 : 2}
             />
           )}
-          <BeadsSlideInContainer
+          <BeadsSlideInContainerDynamic
             animateVertically={isMobileView}
             beadSizeVariant={isMobileView ? 'default' : 'lg'}
             containerWidthInBeeds={isMobileView ? null : amountOfBeedsToSubtract === 3 ? 2 : 3}
@@ -121,7 +127,7 @@ const FeaturesSection: FC = () => {
               containerWidthInBeeds={amountOfBeedsToSubtract === 3 || amountOfBeedsToSubtract === 1 || amountOfBeedsToSubtract === 2 ? 1 : 2}
             />
           )}
-          <BeadsSlideInContainer
+          <BeadsSlideInContainerDynamic
             animateVertically={isMobileView}
             beadSizeVariant={isMobileView ? 'default' : 'lg'}
             containerWidthInBeeds={isMobileView ? null : amountOfBeedsToSubtract === 3 ? 2 : 3}

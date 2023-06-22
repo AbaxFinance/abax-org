@@ -1,10 +1,11 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 
 import { throttle } from 'lodash';
 import resolveConfig from 'tailwindcss/resolveConfig';
 
 import tailwindConfig from 'tailwind.config';
+export const IsSsrMobileContext = createContext(false);
 
 export type Breakpoint = 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl';
 
@@ -40,11 +41,18 @@ const getDeviceConfig = (width: number): Breakpoint => {
   return breakpoint;
 };
 
-export const useTailwindBreakpoint = () => {
+export function useWindowDimensions() {
   const [dimensions, setDimensions] = useState({
-    width: typeof window !== 'undefined' ? window.innerWidth : 0,
-    height: typeof window !== 'undefined' ? window.innerHeight : 0,
+    width: 0,
+    height: 0,
   });
+
+  useEffect(() => {
+    setDimensions({
+      width: typeof window !== 'undefined' ? window.innerWidth : 0,
+      height: typeof window !== 'undefined' ? window.innerHeight : 0,
+    });
+  }, []);
 
   useEffect(() => {
     const handleResize = throttle(function () {
@@ -57,19 +65,33 @@ export const useTailwindBreakpoint = () => {
     return () => window.removeEventListener('resize', handleResize, false);
   }, []);
 
+  return dimensions;
+}
+
+export const useTailwindBreakpoint = () => {
+  const dimensions = useWindowDimensions();
+
   return getDeviceConfig(dimensions.width);
 };
 
 export const useIsMobile = () => {
+  const isSsrMobile = useContext(IsSsrMobileContext);
   const breakpoint = useTailwindBreakpoint();
+  console.log({ isSsrMobile });
 
   const isMobileView = breakpoint === 'md' || breakpoint === 'sm';
   return isMobileView;
 };
 
-export function elementViewportOverlap(element: Element) {
+export function elementViewportOverlap(
+  dimensions: {
+    width: number;
+    height: number;
+  },
+  element: Element,
+) {
   const rect = element.getBoundingClientRect();
-  const viewport = { x: 0, y: 0, w: window.innerWidth, h: window.innerHeight };
+  const viewport = { x: 0, y: 0, w: dimensions.width, h: dimensions.height };
   const elDimension = { x: rect.x, y: rect.y, w: rect.width, h: rect.height };
 
   const y_overlap = Math.max(0, Math.min(elDimension.y + elDimension.h, viewport.y + viewport.h) - Math.max(elDimension.y, viewport.y));
