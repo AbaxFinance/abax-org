@@ -43,14 +43,12 @@ const TextColorTransition: FC<{ text: string; fromColor: string; toColor: string
       }
       if (allowColoring || (lockedAt && window.scrollY > lockedAt)) {
         // find the first uncolored span
-        if (!isMobileView) {
-          const spans = colorSpans(lockedStickyRef.current);
-          setLastColorTime(Date.now());
-          // if no more spans to color, release the scroll lock
-          if (spans.length === 0) setLockedAt(null);
-        }
+        const spans = colorSpans(lockedStickyRef.current);
+        setLastColorTime(Date.now());
+        // if no more spans to color, release the scroll lock
+        if (spans.length === 0) setLockedAt(null);
         if (isMobileView) {
-          intervalId = window.setInterval(() => colorSpans(lockedStickyRef.current!), 500);
+          intervalId = window.setInterval(() => colorSpans(lockedStickyRef.current!), 200);
         }
       }
       // if locked, then don't allow scroll down
