@@ -1,10 +1,8 @@
-'use server';
-import { headers } from 'next/headers';
 import MobileDetect from 'mobile-detect';
+import { GetServerSidePropsContext } from 'next';
 
-export async function getIsMobileSSR() {
-  const userAgent = headers().get('user-agent');
+export const getIsSsrMobile = (context: GetServerSidePropsContext) => {
+  const md = new MobileDetect(context.req.headers['user-agent'] as string);
 
-  if (!userAgent) return false;
-  return Boolean(new MobileDetect(userAgent).mobile());
-}
+  return Boolean(md.mobile());
+};

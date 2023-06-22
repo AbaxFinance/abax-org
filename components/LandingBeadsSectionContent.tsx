@@ -1,11 +1,11 @@
 'use client';
 import { Beads, BeadsFlexContainer, BeadsTextContainer } from '@/components/ui/BeadsWithText';
-import { useIsMobile, useTailwindBreakpoint } from '@/lib/clientUtils';
+import { useIsMobile } from '@/lib/clientUtils';
 import { FC, memo } from 'react';
 
 const LandingBeadsSectionContent: FC = () => {
   const isMobileView = useIsMobile();
-
+  console.log({ isMobileView });
   return (
     <>
       <BeadsFlexContainer>
@@ -13,11 +13,11 @@ const LandingBeadsSectionContent: FC = () => {
         <BeadsTextContainer
           containerWidthInBeeds={2}
           text={
-            <h2 className="-mt-2 flex h-full items-center justify-center text-left text-5xl font-normal leading-[4rem] tracking-tight lg:text-5xl">
+            <div className="-mt-2 flex h-full items-center justify-center text-left text-5xl font-normal leading-[4rem] tracking-tight lg:text-5xl">
               Abax
               <br />
               Protocol
-            </h2>
+            </div>
           }
         />
         <Beads numberOfBeeds={14} />

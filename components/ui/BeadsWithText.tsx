@@ -1,16 +1,12 @@
 'use client';
-import { BeadProps, beadWidthBySize } from '@/components/ui/Bead';
+import { Bead, BeadProps, beadWidthBySize } from '@/components/ui/Bead';
 import { TextWithColorChangeOnViewportOverlap } from '@/components/ui/TextWithColorChangeOnViewportOverlap';
 import { useBoop } from '@/hooks/useBoop';
 import { StrictUnion } from '@/lib/tsUtils';
 import { cn } from '@/lib/utils';
 import { animated } from '@react-spring/web';
 import dynamic from 'next/dynamic';
-import { FC, ReactNode, Suspense, memo, useEffect, useRef, useState } from 'react';
-
-const BeadDynamic = dynamic(() => import('@/components/ui/Bead').then((mod) => mod.Bead), {
-  ssr: true,
-});
+import { FC, ReactNode, memo, useEffect, useRef, useState } from 'react';
 
 export function getBeadsWidth(containerWidthInBeeds: number, beadSizeVariant?: BeadProps['size']) {
   const widthInRem = containerWidthInBeeds * beadWidthBySize[beadSizeVariant ?? 'default'] * 0.25 + (containerWidthInBeeds - 1) * 2;
@@ -27,13 +23,13 @@ const Beads: FC<
 > = (props) => {
   const beeds = Array(props.fullRow ? 30 : props.numberOfBeeds)
     .fill(null)
-    .map((_, i) => <BeadDynamic size={props.beadSizeVariant} variant={props.beadVariant} key={i} />);
+    .map((_, i) => <Bead size={props.beadSizeVariant} variant={props.beadVariant} key={i} />);
 
   return beeds;
 };
 
 export const BeadsFlexContainer: FC<{ children: ReactNode; className?: string }> = ({ children, className }) => (
-  <div className={cn('ml-4 flex w-full flex-nowrap gap-8', className)}> {children}</div>
+  <div className={cn('ml-4 flex w-full flex-nowrap gap-8', className)}>{children}</div>
 );
 
 const BeadsTextContainer: FC<{ text: string | ReactNode; containerWidthInBeeds: number | null; beadSizeVariant?: BeadProps['size'] }> = ({

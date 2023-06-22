@@ -14,13 +14,13 @@ import { SectionVerticalDividerLong } from '@/components/ui/SectionVerticalDivid
 import { TextColorTransition } from '@/components/ui/TextColorTransition';
 import { TextWithColorChangeOnViewportOverlap } from '@/components/ui/TextWithColorChangeOnViewportOverlap';
 import { useIsMobile } from '@/lib/clientUtils';
+import { getIsSsrMobile } from '@/lib/ssrUtils';
 import { MoveUpRight } from 'lucide-react';
+import { GetServerSidePropsContext } from 'next';
 import Link from 'next/link';
 import { Suspense } from 'react';
 
 export default function Home() {
-  const isMobile = useIsMobile();
-  console.log({ isMobile });
   return (
     <Suspense fallback={<div className="text-3xl">LOADING</div>}>
       <main className="w- flex min-h-screen flex-col gap-2 overflow-hidden bg-black text-white lg:gap-4">
@@ -82,7 +82,7 @@ export default function Home() {
         </section>
         <section className="z-10 -mt-20 flex h-full w-full flex-col gap-10 rounded-t-[3rem] bg-black pt-20 text-white lg:rounded-t-[4rem] lg:pt-40">
           <FeaturesSection />
-          <section className="flex h-full w-full flex-col gap-10 px-4 py-20 lg:gap-20 lg:px-40 lg:py-40 2xl:px-60">
+          <section className="flex h-full w-full flex-col gap-10 px-5 py-20 lg:gap-20 lg:px-40 lg:py-40 2xl:px-60">
             <h4 className="flex gap-1 leading-5">
               <SectionTitleIcon className="h-4 w-4 overflow-visible" />
               <span>A powerful protocol</span>
@@ -90,38 +90,29 @@ export default function Home() {
             <div className="flex flex-col gap-14">
               <div className="flex flex-col justify-between gap-4 lg:flex-row ">
                 <h3 className="max-w-xs whitespace-pre-wrap text-3xl">Regulatory Compliance</h3>
-                <TextWithColorChangeOnViewportOverlap
-                  className="max-w-lg xl:max-w-xl 2xl:max-w-2xl"
-                  text={
+                <TextWithColorChangeOnViewportOverlap className="max-w-lg xl:max-w-xl 2xl:max-w-2xl" fromColor="#9D9D9D" toColor="#E0E0E0">
+                  {
                     'Compliance with relevant regulations is a key goal of our Abax community. With a focus on compliance and transparency, we aim to establish ourselves as a trustworthy and reliable partner for both lenders and borrowers.'
                   }
-                  fromColor="#9D9D9D"
-                  toColor="#E0E0E0"
-                />
+                </TextWithColorChangeOnViewportOverlap>
               </div>
               <SectionHorizontalDivider />
               <div className="flex flex-col justify-between gap-4 lg:flex-row ">
                 <h3 className="max-w-xs whitespace-pre-wrap text-3xl">User Interface tailored to your needs</h3>
-                <TextWithColorChangeOnViewportOverlap
-                  className="max-w-lg xl:max-w-xl 2xl:max-w-2xl"
-                  text={
+                <TextWithColorChangeOnViewportOverlap className="max-w-lg xl:max-w-xl 2xl:max-w-2xl" fromColor="#9D9D9D" toColor="#E0E0E0">
+                  {
                     'Whether you`re an experienced blockchain user or new to the technology, the Abax App provides an intuitive and user-friendly way to utilize all the features of our platform.'
                   }
-                  fromColor="#9D9D9D"
-                  toColor="#E0E0E0"
-                />
+                </TextWithColorChangeOnViewportOverlap>
               </div>
               <SectionHorizontalDivider />
               <div className="flex flex-col justify-between gap-4 lg:flex-row ">
                 <h3 className="max-w-xs whitespace-pre-wrap text-3xl">Cross-chain Compatibility</h3>
-                <TextWithColorChangeOnViewportOverlap
-                  className="max-w-lg xl:max-w-xl 2xl:max-w-2xl"
-                  text={
+                <TextWithColorChangeOnViewportOverlap className="max-w-lg xl:max-w-xl 2xl:max-w-2xl" fromColor="#9D9D9D" toColor="#E0E0E0">
+                  {
                     'The protocol is built on Aleph Zero and will allow for cross-chain compatibility once Aleph Zero bridges to Polkadot and other ecosystems.'
                   }
-                  fromColor="#9D9D9D"
-                  toColor="#E0E0E0"
-                />
+                </TextWithColorChangeOnViewportOverlap>
               </div>
             </div>
           </section>
@@ -132,7 +123,13 @@ export default function Home() {
     </Suspense>
   );
 }
-
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  return {
+    props: {
+      isSsrMobile: getIsSsrMobile(context),
+    },
+  };
+}
 function RoadmapSection() {
   return (
     <section className="overflow-hidden">
@@ -155,7 +152,7 @@ function RoadmapSection() {
               <SectionVerticalDividerAccent className="absolute top-0 h-1/2 w-[2px] lg:block" />
               <RoadmapCircleFilled className="absolute -left-[10px] top-[468px] z-10 h-5 w-5 2xl:top-[548px]" />
             </div>
-            <div className=" ml-10 flex w-full flex-col gap-4 text-sm lg:gap-8 lg:pr-10">
+            <div className=" ml-10 flex w-full flex-col gap-4 pr-5 text-sm lg:gap-8 lg:pr-10">
               <div className="text-2xl">Phase 1</div>
               <div className="flex flex-col gap-2 text-sm lg:gap-4 lg:text-base">
                 <div className="">Converge on the vision of the DAO</div>
@@ -171,7 +168,7 @@ function RoadmapSection() {
               <SectionVerticalDivider className="h-96 w-px lg:block" />
               <RoadmapCircleEmpty className="absolute -left-[10px] z-10 h-5 w-5 rounded-full" style={{ top: 'calc(100% + 14px)' }} />
             </div>
-            <div className=" ml-10 flex w-full flex-col gap-4 text-sm text-[#9D9D9D] lg:gap-8 lg:pr-10">
+            <div className=" ml-10 flex w-full flex-col gap-4 pr-5 text-sm text-[#9D9D9D] lg:gap-8 lg:pr-10">
               <div className="text-2xl">Phase 2</div>
               <div className="flex flex-col gap-2 text-sm lg:gap-4 lg:text-base">
                 <div className="">Distribute DAO tokens to financial contributors</div>
@@ -182,7 +179,7 @@ function RoadmapSection() {
               <SectionVerticalDivider className="h-96 w-px lg:block" />
               <RoadmapCircleEmpty className="absolute -left-[10px] z-10 h-5 w-5 rounded-full" style={{ top: 'calc(100% + 14px)' }} />
             </div>
-            <div className="ml-10 flex w-full flex-col gap-4 text-sm text-[#9D9D9D] lg:gap-8">
+            <div className="ml-10 flex w-full flex-col gap-4 pr-5 text-sm text-[#9D9D9D] lg:gap-8 lg:pr-10">
               <div className="text-2xl">Phase 3</div>
               <div className="flex flex-col gap-2 text-sm lg:gap-4 lg:text-base">
                 <div className="">Establish the foundation</div>

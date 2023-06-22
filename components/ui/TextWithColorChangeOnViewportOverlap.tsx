@@ -2,8 +2,7 @@
 import { cn } from '@/lib/utils';
 import { FC, ReactNode, memo, useEffect, useRef, useState } from 'react';
 
-const TextWithColorChangeOnViewportOverlap: FC<{ text?: string; children?: ReactNode; fromColor: string; toColor: string; className?: string }> = ({
-  text,
+const TextWithColorChangeOnViewportOverlap: FC<{ children?: ReactNode; fromColor: string; toColor: string; className?: string }> = ({
   fromColor,
   toColor,
   children,
@@ -28,7 +27,6 @@ const TextWithColorChangeOnViewportOverlap: FC<{ text?: string; children?: React
       ref={containerRef}
       className={cn('transition-colors duration-700', className, fromColor)}
       style={{ color: hasOverlapped ? toColor : fromColor }}>
-      {text}
       {children}
     </div>
   );

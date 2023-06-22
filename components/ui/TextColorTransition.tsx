@@ -55,7 +55,6 @@ const TextColorTransition: FC<{ text: string; fromColor: string; toColor: string
       }
       // if locked, then don't allow scroll down
       if (lockedAt && window.scrollY > lockedAt) {
-        console.log('scrolling to');
         window.scrollTo(0, lockedAt);
       }
       // get the stickycolor elements

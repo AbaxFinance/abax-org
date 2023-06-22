@@ -1,11 +1,11 @@
 'use client';
-import { createContext, useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 import { throttle } from 'lodash';
 import resolveConfig from 'tailwindcss/resolveConfig';
 
 import tailwindConfig from 'tailwind.config';
-export const IsSsrMobileContext = createContext(false);
+import { IsSsrMobileContext } from '@/pages/_app';
 
 export type Breakpoint = 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl';
 
@@ -43,16 +43,16 @@ const getDeviceConfig = (width: number): Breakpoint => {
 
 export function useWindowDimensions() {
   const [dimensions, setDimensions] = useState({
-    width: 0,
-    height: 0,
+    width: typeof window !== 'undefined' ? window.innerWidth : 0,
+    height: typeof window !== 'undefined' ? window.innerHeight : 0,
   });
 
-  useEffect(() => {
-    setDimensions({
-      width: typeof window !== 'undefined' ? window.innerWidth : 0,
-      height: typeof window !== 'undefined' ? window.innerHeight : 0,
-    });
-  }, []);
+  // useEffect(() => {
+  //   setDimensions({
+  //     width: typeof window !== 'undefined' ? window.innerWidth : 0,
+  //     height: typeof window !== 'undefined' ? window.innerHeight : 0,
+  //   });
+  // }, []);
 
   useEffect(() => {
     const handleResize = throttle(function () {
@@ -77,10 +77,10 @@ export const useTailwindBreakpoint = () => {
 export const useIsMobile = () => {
   const isSsrMobile = useContext(IsSsrMobileContext);
   const breakpoint = useTailwindBreakpoint();
-  console.log({ isSsrMobile });
 
-  const isMobileView = breakpoint === 'md' || breakpoint === 'sm';
-  return isMobileView;
+  console.log({ isSsrMobile, breakpoint, windowType: typeof window, windowWidth: typeof window !== 'undefined' && window.innerWidth });
+  const isClientMobile = typeof window !== 'undefined' && (breakpoint === 'md' || breakpoint === 'sm');
+  return isSsrMobile || isClientMobile;
 };
 
 export function elementViewportOverlap(

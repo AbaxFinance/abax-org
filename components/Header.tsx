@@ -51,7 +51,7 @@ export default function Header() {
         {menuLinks.map((l, i) => (
           <>
             {l.sublinks ? (
-              <DropdownMenu>
+              <DropdownMenu key={i}>
                 <DropdownMenuTrigger>{l.name}</DropdownMenuTrigger>
                 <DropdownMenuContent>
                   {l.sublinks.map((l, i) => (
@@ -64,11 +64,15 @@ export default function Header() {
                 </DropdownMenuContent>
               </DropdownMenu>
             ) : (
-              <Link target="_blank" rel="noopener noreferrer" href={l.link}>
+              <Link key={i} target="_blank" rel="noopener noreferrer" href={l.link}>
                 {l.name}
               </Link>
             )}
-            {i !== menuLinks.length - 1 && <div className="text-[#505050]">/</div>}
+            {i !== menuLinks.length - 1 && (
+              <div key={`divider_${i}`} className="text-[#505050]">
+                /
+              </div>
+            )}
           </>
         ))}
       </div>
@@ -90,7 +94,7 @@ export default function Header() {
           {menuLinks.map((l, i) => (
             <>
               {l.sublinks ? (
-                <DropdownMenuGroup>
+                <DropdownMenuGroup key={i}>
                   <DropdownMenuLabel className="text-base">{l.name}</DropdownMenuLabel>
                   {l.sublinks.map((l, i) => (
                     <DropdownMenuItem className="py-3 text-base" key={i}>
@@ -101,7 +105,7 @@ export default function Header() {
                   ))}
                 </DropdownMenuGroup>
               ) : (
-                <DropdownMenuGroup className="py-3">
+                <DropdownMenuGroup key={i} className="py-3">
                   <DropdownMenuItem className="text-base" key={i}>
                     <Link target="_blank" rel="noopener noreferrer" href={l.link}>
                       {l.name}
@@ -109,7 +113,7 @@ export default function Header() {
                   </DropdownMenuItem>
                 </DropdownMenuGroup>
               )}
-              {i !== menuLinks.length - 1 && <DropdownMenuSeparator className="my-2" />}
+              {i !== menuLinks.length - 1 && <DropdownMenuSeparator key={i} className="my-2" />}
             </>
           ))}
         </DropdownMenuContent>

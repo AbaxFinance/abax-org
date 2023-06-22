@@ -1,5 +1,5 @@
 'use client';
-import { Beads, BeadsFlexContainer, BeadsTextContainer } from '@/components/ui/BeadsWithText';
+import { Beads, BeadsFlexContainer, BeadsSlideInContainer, BeadsTextContainer } from '@/components/ui/BeadsWithText';
 import { SectionTitleIcon } from '@/components/ui/SectionTitleIcon';
 import { useIsMobile, useWindowDimensions } from '@/lib/clientUtils';
 import dynamic from 'next/dynamic';
@@ -34,10 +34,6 @@ const getAmountOfBeedsToSubtractByWidth = (width: number) => {
 
   return 0;
 };
-
-const BeadsSlideInContainerDynamic = dynamic(() => import('@/components/ui/BeadsWithText').then((mod) => mod.BeadsSlideInContainer), {
-  ssr: false,
-});
 
 const FeaturesSection: FC = () => {
   const isMobileView = useIsMobile();
@@ -92,7 +88,7 @@ const FeaturesSection: FC = () => {
               containerWidthInBeeds={amountOfBeedsToSubtract === 3 || amountOfBeedsToSubtract === 1 || amountOfBeedsToSubtract === 2 ? 1 : 2}
             />
           )}
-          <BeadsSlideInContainerDynamic
+          <BeadsSlideInContainer
             animateVertically={isMobileView}
             beadSizeVariant={isMobileView ? 'default' : 'lg'}
             containerWidthInBeeds={isMobileView ? null : amountOfBeedsToSubtract === 3 ? 2 : 3}
@@ -127,7 +123,7 @@ const FeaturesSection: FC = () => {
               containerWidthInBeeds={amountOfBeedsToSubtract === 3 || amountOfBeedsToSubtract === 1 || amountOfBeedsToSubtract === 2 ? 1 : 2}
             />
           )}
-          <BeadsSlideInContainerDynamic
+          <BeadsSlideInContainer
             animateVertically={isMobileView}
             beadSizeVariant={isMobileView ? 'default' : 'lg'}
             containerWidthInBeeds={isMobileView ? null : amountOfBeedsToSubtract === 3 ? 2 : 3}

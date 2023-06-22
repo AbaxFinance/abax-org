@@ -25,7 +25,7 @@ const footerLinks = [
 export default function Footer() {
   return (
     <footer
-      className="-mt-4 flex w-full flex-col items-center gap-6 rounded-t-[4rem] bg-[#121212] px-10 pb-4 pt-8 text-white lg:flex-row lg:items-center lg:gap-10 lg:px-60 lg:py-7"
+      className="-mt-4 flex w-full flex-col items-center gap-6 rounded-t-[4rem] bg-[#121212] px-10 pb-4 pt-8 text-white lg:flex-row lg:items-center lg:gap-10 lg:px-40 lg:py-7 xl:px-60"
       aria-label="Global">
       <div className="flex lg:w-[inherit]" aria-label="Global">
         <Link href="/" className="relative hidden lg:block">
@@ -35,13 +35,17 @@ export default function Footer() {
           <LogoIcon className="h-6 w-6" variant="light" />
         </Link>
       </div>
-      <div className="flex w-full justify-around lg:ml-auto lg:w-[inherit] lg:justify-normal lg:gap-6">
+      <div className="flex w-full justify-around lg:ml-auto lg:w-[inherit] lg:justify-end lg:gap-6">
         {footerLinks.map((l, i) => (
           <>
-            <Link target="_blank" rel="noopener noreferrer" href={l.link}>
+            <Link key={`${l.name}_${i}`} target="_blank" rel="noopener noreferrer" href={l.link}>
               {l.name}
             </Link>
-            {i !== footerLinks.length - 1 && <div className="text-[#505050]">/</div>}
+            {i !== footerLinks.length - 1 && (
+              <div key={`divider_${i}`} className="text-[#505050]">
+                /
+              </div>
+            )}
           </>
         ))}
       </div>
