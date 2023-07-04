@@ -25,7 +25,7 @@ const TextColorTransition: FC<{ text: string; fromColor: string; toColor: string
         }
       }
       if (!spanContainer.current) return;
-      if (!allowColoring && elementViewportOverlap(dimensions, spanContainer.current) > 0) {
+      if (!allowColoring && elementViewportOverlap(dimensions, spanContainer.current) > 65) {
         setAllowColoring(true);
       }
       if (allowColoring && coloringState === 'idle') {

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { LogoIcon } from '@/components/ui/LogoIcon';
+import { Fragment } from 'react';
 
 type FooterLink = { name: string; link: string };
 type FooterLinks = FooterLink[];
@@ -37,7 +38,7 @@ export default function Footer() {
       </div>
       <div className="flex w-full justify-around lg:ml-auto lg:w-[inherit] lg:justify-end lg:gap-6">
         {footerLinks.map((l, i) => (
-          <>
+          <Fragment key={i}>
             <Link key={`${l.name}_${i}`} target="_blank" rel="noopener noreferrer" href={l.link}>
               {l.name}
             </Link>
@@ -46,7 +47,7 @@ export default function Footer() {
                 /
               </div>
             )}
-          </>
+          </Fragment>
         ))}
       </div>
     </footer>

@@ -57,7 +57,7 @@ export const BeadsSlideInContainer: FC<{
   const [animationStyles, trigger, hasFinishedSlide] = useBoop({
     x: `-${getBeadsWidth(numberOfBeadsToSlide, 'lg') + 2}rem`,
     repeat: false,
-    springConfig: { tension: 250, friction: 25 },
+    springConfig: { tension: 175, friction: 40 },
   });
   const [hasOverlapped, setHasOverlapped] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);

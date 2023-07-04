@@ -10,6 +10,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { HamburgerMenuIcon } from '@/components/ui/HamburgerMenuIcon';
+import { Fragment } from 'react';
 
 type MenuLink = { name: string; link: string };
 type MenuLinks = (MenuLink | { name: string; sublinks: MenuLink[] })[];
@@ -41,7 +42,7 @@ const menuLinks = [
 
 export default function Header() {
   return (
-    <nav className="flex w-full items-center justify-between gap-12 p-8 text-center" aria-label="Global">
+    <nav className="flex w-full items-center justify-between gap-12 px-16 py-8 text-center" aria-label="Global">
       <div className="flex" aria-label="Global">
         <Link href="/" className="relative -m-1.5 p-5">
           <LogoIcon className="w-30 h-10" variant="light" />
@@ -49,9 +50,9 @@ export default function Header() {
       </div>
       <div className="hidden gap-6 lg:flex">
         {menuLinks.map((l, i) => (
-          <>
+          <Fragment key={i}>
             {l.sublinks ? (
-              <DropdownMenu key={i}>
+              <DropdownMenu>
                 <DropdownMenuTrigger>{l.name}</DropdownMenuTrigger>
                 <DropdownMenuContent>
                   {l.sublinks.map((l, i) => (
@@ -73,7 +74,7 @@ export default function Header() {
                 /
               </div>
             )}
-          </>
+          </Fragment>
         ))}
       </div>
       <button
@@ -92,7 +93,7 @@ export default function Header() {
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-screen pb-3">
           {menuLinks.map((l, i) => (
-            <>
+            <Fragment key={i}>
               {l.sublinks ? (
                 <DropdownMenuGroup key={i}>
                   <DropdownMenuLabel className="text-base">{l.name}</DropdownMenuLabel>
@@ -113,8 +114,8 @@ export default function Header() {
                   </DropdownMenuItem>
                 </DropdownMenuGroup>
               )}
-              {i !== menuLinks.length - 1 && <DropdownMenuSeparator key={i} className="my-2" />}
-            </>
+              {i !== menuLinks.length - 1 && <DropdownMenuSeparator key={`divider_${i}`} className="my-2" />}
+            </Fragment>
           ))}
         </DropdownMenuContent>
       </DropdownMenu>

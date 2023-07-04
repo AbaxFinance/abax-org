@@ -8,7 +8,7 @@ const LandingBeadsSectionContent: FC = () => {
   return (
     <>
       <BeadsFlexContainer>
-        <Beads numberOfBeeds={isMobileView ? 1 : 7} />
+        <Beads numberOfBeeds={isMobileView ? 1 : 8} />
         <BeadsTextContainer
           containerWidthInBeeds={2}
           text={
@@ -27,11 +27,11 @@ const LandingBeadsSectionContent: FC = () => {
         </BeadsFlexContainer>
       )}
       <BeadsFlexContainer>
-        {isMobileView ? null : <Beads numberOfBeeds={2} />}
+        {isMobileView ? null : <Beads numberOfBeeds={3} />}
         <BeadsTextContainer
-          containerWidthInBeeds={isMobileView ? 3 : 5}
+          containerWidthInBeeds={isMobileView ? 3 : 8}
           text={
-            <h3 className="-mt-2 flex h-full items-center whitespace-pre-wrap p-8 text-left text-sm font-normal leading-10 tracking-tight lg:justify-center lg:text-xl">
+            <h3 className="-mt-2 flex h-full items-center whitespace-pre-wrap p-8 text-left text-sm font-normal leading-10 tracking-tight lg:pl-24 lg:text-xl">
               {`With fair interest rates and high security,\n you can grow your capital with Abax both \n as a lender as well as a borrower.`}
             </h3>
           }
@@ -40,7 +40,9 @@ const LandingBeadsSectionContent: FC = () => {
       </BeadsFlexContainer>
       {isMobileView ? null : (
         <BeadsFlexContainer>
-          <Beads fullRow />
+          <Beads numberOfBeeds={6} />
+          <BeadsTextContainer containerWidthInBeeds={3} text={''} />
+          <Beads numberOfBeeds={14} />
         </BeadsFlexContainer>
       )}
     </>
