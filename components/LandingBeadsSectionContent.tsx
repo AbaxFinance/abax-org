@@ -70,8 +70,8 @@ const LandingBeadsSectionContent: FC = () => {
       </BeadsFlexContainer>
       {isMobileView ? null : (
         <BeadsFlexContainer>
-          <Beads numberOfBeeds={Math.max(0, 6 - amountOfBeedsToSubtractByWidth)} />
-          <BeadsTextContainer containerWidthInBeeds={3} text={''} />
+          <Beads numberOfBeeds={Math.max(0, 5 - amountOfBeedsToSubtractByWidth)} />
+          <BeadsTextContainer containerWidthInBeeds={4} text={''} />
           <Beads numberOfBeeds={14} />
         </BeadsFlexContainer>
       )}
