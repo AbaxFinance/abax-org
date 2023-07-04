@@ -2,11 +2,10 @@
 import { Beads, BeadsFlexContainer, BeadsSlideInContainer, BeadsTextContainer } from '@/components/ui/BeadsWithText';
 import { SectionTitleIcon } from '@/components/ui/SectionTitleIcon';
 import { useIsMobile, useWindowDimensions } from '@/lib/clientUtils';
-import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { FC, memo } from 'react';
 
-const getAmountOfBeedsToSubtractByWidth = (width: number) => {
+export const getAmountOfBeedsToSubtractByWidth = (width: number) => {
   if (0 <= width && width < 640) {
     return 0;
   }
