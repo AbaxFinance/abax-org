@@ -24,7 +24,7 @@ export default function Home() {
     <Suspense fallback={<div className="text-3xl">LOADING</div>}>
       <main className="w- flex min-h-screen flex-col gap-2 overflow-hidden bg-black text-white lg:gap-4">
         <Header />
-        <section className="-ml-6 flex w-[200%] flex-col gap-8 overflow-x-hidden pb-4 sm:pb-12">
+        <section className="-ml-6 flex w-[200%] flex-col gap-8 overflow-x-hidden pb-4 sm:pb-20">
           <LandingBeadsSectionContent />
         </section>
         <section className="flex h-full w-full flex-col gap-6 rounded-t-[3rem] bg-white px-8 py-20 pb-40 text-black lg:gap-10 lg:rounded-t-[4rem] lg:px-40 lg:py-40 2xl:px-60">
