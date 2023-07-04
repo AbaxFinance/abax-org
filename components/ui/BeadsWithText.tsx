@@ -81,7 +81,7 @@ export const BeadsSlideInContainer: FC<{
   return (
     <animated.div
       ref={containerRef}
-      className={cn(`flex`, { 'gap-8': animateVertically }, { 'gap-8': !animateVertically })}
+      className={cn(`flex gap-4 lg:gap-8`)}
       onMouseEnter={!animateVertically ? trigger : undefined}
       style={animationStyles}>
       <Beads beadSizeVariant={beadSizeVariant} beadVariant={hasFinishedSlide || hasOverlapped ? 'default' : 'ghost'} numberOfBeeds={1} />
