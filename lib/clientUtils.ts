@@ -78,7 +78,6 @@ export const useIsMobile = () => {
   const isSsrMobile = useContext(IsSsrMobileContext);
   const breakpoint = useTailwindBreakpoint();
 
-  console.log({ isSsrMobile, breakpoint, windowType: typeof window, windowWidth: typeof window !== 'undefined' && window.innerWidth });
   const isClientMobile = typeof window !== 'undefined' && (breakpoint === 'md' || breakpoint === 'sm');
   return isSsrMobile || isClientMobile;
 };

@@ -5,7 +5,6 @@ import { FC, memo } from 'react';
 
 const LandingBeadsSectionContent: FC = () => {
   const isMobileView = useIsMobile();
-  console.log({ isMobileView });
   return (
     <>
       <BeadsFlexContainer>
@@ -39,9 +38,11 @@ const LandingBeadsSectionContent: FC = () => {
         />
         <Beads numberOfBeeds={14} />
       </BeadsFlexContainer>
-      <BeadsFlexContainer>
-        <Beads fullRow />
-      </BeadsFlexContainer>
+      {isMobileView ? null : (
+        <BeadsFlexContainer>
+          <Beads fullRow />
+        </BeadsFlexContainer>
+      )}
     </>
   );
 };

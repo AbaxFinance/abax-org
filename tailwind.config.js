@@ -75,10 +75,18 @@ module.exports = {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: 0 },
         },
+        'translate-xy': {
+          '0%, 100%': { transform: 'translate(0, 0)' },
+          '50%': {
+            transform:
+              'translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))',
+          },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'translate-xy': 'translate-xy 1.5s ease-in-out infinite',
       },
     },
   },
