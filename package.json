@@ -59,6 +59,7 @@
     "lodash": "^4.17.20",
     "lunr": "^2.3.8",
     "marquee3000": "^1.1.1",
+    "next": "^13.4.9",
     "postcss": "^8.2.4",
     "prism-react-renderer": "^1.0.2",
     "prismjs": "^1.19.0",
