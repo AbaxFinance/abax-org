@@ -27,11 +27,12 @@ export default function Home() {
             <span>Shape Abax with us!</span>
           </h4>
           <div className="mb-20 whitespace-pre-line text-xl leading-8 tracking-tight lg:mb-32 lg:text-4xl lg:leading-[3rem] xl:text-6xl xl:leading-[4rem]">
-            <span className="text-black">{`Join the Abax Discourse `}</span>
+            <span className="text-black">{`Join the Abax Discourse`}</span>
             <TextColorTransition
-              text={`where you can shape the future of lending in the Aleph Zero ecosystem.
-Participate in the development of tokenomics, governance processes of the DAO, by sharing your meaningful ideas.
-Become one of the earliest contributors to the project that values your input and rewards you for your efforts.`}
+              text={`
+- Shape the future of lending in the Aleph Zero ecosystem.
+- Participate in the development of tokenomics, governance processes of the DAO, by sharing your meaningful ideas.
+- Become one of the earliest contributors to the project that values your input and rewards you for your efforts.`}
               fromColor="#CCCCCC"
               toColor="black"
             />
@@ -85,7 +86,7 @@ Become one of the earliest contributors to the project that values your input an
                 <h3 className="max-w-xs whitespace-pre-wrap text-3xl">Regulatory Compliance</h3>
                 <TextWithColorChangeOnViewportOverlap className="max-w-lg xl:max-w-xl 2xl:max-w-2xl" fromColor="#9D9D9D" toColor="#E0E0E0">
                   {
-                    'Compliance with relevant regulations is a key goal of our Abax community. With a focus on compliance and transparency, we aim to establish ourselves as a trustworthy and reliable partner for both lenders and borrowers.'
+                    'Compliance with relevant regulations is a key goal of the Abax community. With a focus on compliance and transparency, we aim to establish ourselves as a trustworthy and reliable partner for both lenders and borrowers.'
                   }
                 </TextWithColorChangeOnViewportOverlap>
               </div>
@@ -94,7 +95,7 @@ Become one of the earliest contributors to the project that values your input an
                 <h3 className="max-w-xs whitespace-pre-wrap text-3xl">User Interface tailored to your needs</h3>
                 <TextWithColorChangeOnViewportOverlap className="max-w-lg xl:max-w-xl 2xl:max-w-2xl" fromColor="#9D9D9D" toColor="#E0E0E0">
                   {
-                    'Whether you`re an experienced blockchain user or new to the technology, the Abax App provides an intuitive and user-friendly way to utilize all the features of our platform.'
+                    'Whether you`re an experienced blockchain user or new to the technology, the Abax App provides an intuitive and user-friendly way to utilize all the features of the platform.'
                   }
                 </TextWithColorChangeOnViewportOverlap>
               </div>

@@ -65,7 +65,7 @@ const FeaturesSection: FC = () => {
                     contributes differently to the position depending on it`s volatitlity...{' '}
                   </span>
                   <Link
-                    href="https://abaxfinance.github.io/abax-org/whitepaper.pdf"
+                    href="https://docs.abax.finance/lending-protocol/collateral-and-borrowing/health-factor"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline text-white">
@@ -94,14 +94,14 @@ const FeaturesSection: FC = () => {
             numberOfBeadsToSlide={amountOfBeedsToSubtract === 3 || amountOfBeedsToSubtract === 1 || amountOfBeedsToSubtract === 2 ? 1 : 2}
             text={
               <section className="flex h-full flex-col items-start justify-center gap-2 text-left lg:gap-4">
-                <h3 className="whitespace-pre-wrap text-2xl lg:text-3xl ">{`Transparency`}</h3>
+                <h3 className="whitespace-pre-wrap text-2xl lg:text-3xl ">{`Flexible Borrowing Rules`}</h3>
                 <div className="max-w-md text-sm text-[#9D9D9D] lg:text-base">
                   <span className="line-clamp-3 lg:line-clamp-none lg:inline">
-                    Abax Protocol is built with transparency at its core. Our public code of the smart contracts are auditable by anyone, at any time.
-                    With Abax Protocol, you can have...{' '}
+                    Abax is highly customizable at its core. To create the best borrowing experience possible it allows borrowers to choose from many
+                    Market Rules. The Market Rules regulate the way which assets can be borrowed and how...{' '}
                   </span>
                   <Link
-                    href="https://abaxfinance.github.io/abax-org/whitepaper.pdf"
+                    href="https://docs.abax.finance/lending-protocol/collateral-and-borrowing/market-rules"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline text-white">
@@ -133,10 +133,10 @@ const FeaturesSection: FC = () => {
                 <div className="max-w-md text-sm text-[#9D9D9D] lg:text-base">
                   <span className="line-clamp-3 lg:line-clamp-none lg:inline">
                     Abax Protocol uses a dynamic interest rate model that adjusts based on market demand, ensuring fair and competitive rates for
-                    users. Our flexible model maximizes...
+                    users. Its flexible model maximizes...
                   </span>
                   <Link
-                    href="https://abaxfinance.github.io/abax-org/whitepaper.pdf"
+                    href="https://docs.abax.finance/lending-protocol/collateral-and-borrowing/interest-rate-model"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline text-white">

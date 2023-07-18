@@ -4,7 +4,7 @@ import { BeadsFlexContainer, BeadsTextContainer } from '@/components/ui/BeadsWit
 import { FC, memo } from 'react';
 
 const heroTitle = (
-  <div className="flex h-full items-center justify-center text-left text-4xl font-normal leading-[3rem] tracking-tight sm:text-5xl sm:leading-[4rem] lg:-mt-2">
+  <div className="flex h-full items-center justify-center text-left text-4xl font-normal leading-[3rem] tracking-tight sm:text-5xl sm:leading-[4rem] lg:-mt-2 lg:-translate-x-4">
     Abax
     <br />
     Protocol
@@ -54,7 +54,7 @@ const BeadsFillRight = () => (
 const LandingBeadsSectionContent: FC = () => {
   return (
     <>
-      <BeadsFlexContainer className=" gap-4">
+      <BeadsFlexContainer className="gap-4 md:gap-8">
         <Bead className="block" size={'defaultShrinkable'} />
         <Bead className="hidden xs:block" size={'defaultShrinkable'} />
         <Bead className="hidden xs:block" size={'defaultShrinkable'} />
@@ -64,13 +64,13 @@ const LandingBeadsSectionContent: FC = () => {
         <Bead className="hidden 2xl:block" size={'defaultShrinkable'} />
         <Bead className="hidden 3xl:block" size={'defaultShrinkable'} />
         <Bead className="hidden 3xl:block" size={'defaultShrinkable'} />
-        <BeadsTextContainer className="-mr-20 block -translate-x-10 xs:hidden" containerWidthInBeeds={2} text={heroTitle} />
+        <BeadsTextContainer className="-mr-1 block xs:hidden" containerWidthInBeeds={2} text={heroTitle} />
         <BeadsTextContainer className="-mr-9 hidden -translate-x-16 xs:block md:hidden" containerWidthInBeeds={3} text={heroTitle} />
         <BeadsTextContainer className="-mr-9 hidden -translate-x-6 md:block lg:hidden" containerWidthInBeeds={3} text={heroTitle} />
         <BeadsTextContainer className="-mr-8 hidden lg:block" containerWidthInBeeds={3} text={heroTitle} />
         <BeadsFillRight />
       </BeadsFlexContainer>
-      <BeadsFlexContainer className="gap-4 xs:hidden">
+      <BeadsFlexContainer className="gap-4 xs:hidden md:gap-8">
         <Bead className="sm:hidden" size={'defaultShrinkable'} />
         <Bead className="sm:hidden" size={'defaultShrinkable'} />
         <Bead className="invisible block" size={'defaultShrinkable'} />
@@ -87,7 +87,7 @@ const LandingBeadsSectionContent: FC = () => {
         <Bead size={'defaultShrinkable'} />
         <BeadsFillRight />
       </BeadsFlexContainer>
-      <BeadsFlexContainer className=" gap-4">
+      <BeadsFlexContainer className=" gap-4 md:gap-8">
         <Bead className="hidden xs:block" size={'defaultShrinkable'} />
         <Bead className="hidden xl:block" size={'defaultShrinkable'} />
         <Bead className="hidden xl:block" size={'defaultShrinkable'} />
@@ -102,7 +102,7 @@ const LandingBeadsSectionContent: FC = () => {
         <Bead className="invisible hidden 3xl:block" size={'defaultShrinkable'} />
         <BeadsFillRight />
       </BeadsFlexContainer>
-      <BeadsFlexContainer className=" gap-4">
+      <BeadsFlexContainer className=" gap-4 md:gap-8">
         <Bead size={'defaultShrinkable'} />
         <Bead size={'defaultShrinkable'} />
         <Bead className="hidden lg:block" size={'defaultShrinkable'} />
