@@ -43,7 +43,7 @@ const LandingBeadsSectionContent: FC = () => {
           beadSizeVariant={isMobileView ? 'sm' : 'default'}
           containerWidthInBeeds={2}
           text={
-            <div className="-mt-2 flex h-full items-center justify-center text-left text-5xl font-normal leading-[4rem] tracking-tight lg:text-5xl">
+            <div className="flex h-full items-center justify-center text-left text-4xl font-normal leading-[3rem] tracking-tight lg:-mt-2 lg:text-5xl lg:leading-[4rem]">
               Abax
               <br />
               Protocol
@@ -54,22 +54,31 @@ const LandingBeadsSectionContent: FC = () => {
       </BeadsFlexContainer>
       {isMobileView && (
         <BeadsFlexContainer>
-          <Beads beadSizeVariant={isMobileView ? 'sm' : 'default'} numberOfBeeds={14} />
+          <Beads beadSizeVariant={isMobileView ? 'sm' : 'default'} numberOfBeeds={2} />
+          {isMobileView && <BeadsTextContainer beadSizeVariant={isMobileView ? 'sm' : 'default'} containerWidthInBeeds={1} text={''} />}
+          <Beads beadSizeVariant={isMobileView ? 'sm' : 'default'} numberOfBeeds={13} />
         </BeadsFlexContainer>
       )}
       <BeadsFlexContainer>
-        {isMobileView ? null : <Beads numberOfBeeds={Math.max(0, 3 - amountOfBeedsToSubtractByWidth)} />}
+        {isMobileView ? null : <Beads numberOfBeeds={Math.max(1, 3 - amountOfBeedsToSubtractByWidth)} />}
         <BeadsTextContainer
-          containerWidthInBeeds={isMobileView ? 3 : 8}
+          beadSizeVariant={isMobileView ? 'sm' : 'default'}
+          containerWidthInBeeds={isMobileView ? 4 : Math.max(0, 10 - amountOfBeedsToSubtractByWidth)}
           text={
-            <h3 className="-mt-2 flex h-full items-center whitespace-pre-wrap p-8 text-left text-sm font-normal leading-10 tracking-tight lg:pl-24 lg:text-xl">
+            <h3 className="flex h-full items-center whitespace-pre-wrap p-4 text-left text-sm font-normal leading-10 tracking-tight lg:-mt-2 lg:p-8 lg:pl-24 lg:text-xl">
               {`With fair interest rates and high security,\n you can grow your capital with Abax both \n as a lender as well as a borrower.`}
             </h3>
           }
         />
         <Beads beadSizeVariant={isMobileView ? 'sm' : 'default'} numberOfBeeds={14} />
       </BeadsFlexContainer>
-      {isMobileView ? null : (
+      {isMobileView ? (
+        <BeadsFlexContainer>
+          <Beads beadSizeVariant="sm" numberOfBeeds={1} />
+          <BeadsTextContainer beadSizeVariant="sm" containerWidthInBeeds={1} text={''} />
+          <Beads beadSizeVariant="sm" numberOfBeeds={8} />
+        </BeadsFlexContainer>
+      ) : (
         <BeadsFlexContainer>
           <Beads numberOfBeeds={Math.max(0, 5 - amountOfBeedsToSubtractByWidth)} />
           <BeadsTextContainer containerWidthInBeeds={4} text={''} />
