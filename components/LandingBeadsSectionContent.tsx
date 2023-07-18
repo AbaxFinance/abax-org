@@ -2,6 +2,7 @@
 import { Beads, BeadsFlexContainer, BeadsTextContainer } from '@/components/ui/BeadsWithText';
 import { useIsMobile, useWindowDimensions } from '@/lib/clientUtils';
 import { FC, memo } from 'react';
+
 const getAmountOfBeedsToSubtractByWidth = (width: number) => {
   if (0 <= width && width < 640) {
     return 0;
