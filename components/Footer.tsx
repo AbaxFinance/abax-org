@@ -36,7 +36,7 @@ export default function Footer() {
           <LogoIcon className="h-6 w-6" variant="light" />
         </Link>
       </div>
-      <div className="flex w-full justify-around lg:ml-auto lg:w-[inherit] lg:justify-end lg:gap-6">
+      <div className="flex w-full justify-around gap-2 lg:ml-auto lg:w-[inherit] lg:justify-end lg:gap-6">
         {footerLinks.map((l, i) => (
           <Fragment key={i}>
             <Link key={`${l.name}_${i}`} target="_blank" rel="noopener noreferrer" href={l.link}>

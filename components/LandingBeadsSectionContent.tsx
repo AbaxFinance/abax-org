@@ -38,8 +38,9 @@ const LandingBeadsSectionContent: FC = () => {
   return (
     <>
       <BeadsFlexContainer>
-        <Beads numberOfBeeds={isMobileView ? 1 : Math.max(0, 8 - amountOfBeedsToSubtractByWidth)} />
+        <Beads beadSizeVariant={isMobileView ? 'sm' : 'default'} numberOfBeeds={isMobileView ? 1 : Math.max(0, 8 - amountOfBeedsToSubtractByWidth)} />
         <BeadsTextContainer
+          beadSizeVariant={isMobileView ? 'sm' : 'default'}
           containerWidthInBeeds={2}
           text={
             <div className="-mt-2 flex h-full items-center justify-center text-left text-5xl font-normal leading-[4rem] tracking-tight lg:text-5xl">
@@ -49,11 +50,11 @@ const LandingBeadsSectionContent: FC = () => {
             </div>
           }
         />
-        <Beads numberOfBeeds={14} />
+        <Beads beadSizeVariant={isMobileView ? 'sm' : 'default'} numberOfBeeds={14} />
       </BeadsFlexContainer>
       {isMobileView && (
         <BeadsFlexContainer>
-          <Beads numberOfBeeds={14} />
+          <Beads beadSizeVariant={isMobileView ? 'sm' : 'default'} numberOfBeeds={14} />
         </BeadsFlexContainer>
       )}
       <BeadsFlexContainer>
@@ -66,7 +67,7 @@ const LandingBeadsSectionContent: FC = () => {
             </h3>
           }
         />
-        <Beads numberOfBeeds={14} />
+        <Beads beadSizeVariant={isMobileView ? 'sm' : 'default'} numberOfBeeds={14} />
       </BeadsFlexContainer>
       {isMobileView ? null : (
         <BeadsFlexContainer>

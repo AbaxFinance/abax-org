@@ -2,15 +2,9 @@ import { FeaturesSection } from '@/components/FeaturesSection';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import { LandingBeadsSectionContent } from '@/components/LandingBeadsSectionContent';
-import { RoadmapCircleEmpty } from '@/components/ui/RoadmapCircleEmpty';
-import { RoadmapCircleFilled } from '@/components/ui/RoadmapCircleFilled';
-import { RoadmapLine } from '@/components/ui/RoadmapLine';
-import { RoadmapLineMobile } from '@/components/ui/RoadmapLineMobile';
+import { RoadmapSection } from '@/components/RoadmapSection';
 import { SectionHorizontalDivider } from '@/components/ui/SectionHorizontalDivider';
 import { SectionTitleIcon } from '@/components/ui/SectionTitleIcon';
-import { SectionVerticalDivider } from '@/components/ui/SectionVerticalDivider';
-import { SectionVerticalDividerAccent } from '@/components/ui/SectionVerticalDividerAccent';
-import { SectionVerticalDividerLong } from '@/components/ui/SectionVerticalDividerLong';
 import { TextColorTransition } from '@/components/ui/TextColorTransition';
 import { TextWithColorChangeOnViewportOverlap } from '@/components/ui/TextWithColorChangeOnViewportOverlap';
 import { getIsSsrMobile } from '@/lib/ssrUtils';
@@ -81,7 +75,7 @@ Become one of the earliest contributors to the project that values your input an
         </section>
         <section className="z-10 -mt-20 flex h-full w-full flex-col gap-10 rounded-t-[3rem] bg-black pt-20 text-white lg:rounded-t-[4rem] lg:pt-40">
           <FeaturesSection />
-          <section className="flex h-full w-full flex-col gap-10 px-5 py-20 lg:gap-20 lg:px-40 lg:py-40 2xl:px-60">
+          <section className="flex h-full w-full flex-col gap-10 px-5 pt-20 lg:gap-20 lg:px-40 lg:py-40 2xl:px-60">
             <h4 className="flex gap-1 leading-5">
               <SectionTitleIcon className="h-4 w-4 overflow-visible" />
               <span>A powerful protocol</span>
@@ -128,71 +122,4 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
       isSsrMobile: getIsSsrMobile(context),
     },
   };
-}
-function RoadmapSection() {
-  return (
-    <section className="overflow-hidden">
-      <div className="lg:pr-30 relative flex h-full min-h-[900px] w-full flex-col px-8 pt-20 lg:min-h-[inherit] lg:gap-20 lg:px-40 lg:pb-6 xl:pr-40 2xl:px-60">
-        <div className="absolute lg:relative lg:hidden">
-          <RoadmapLineMobile className="-ml-8 h-[900px] overflow-visible" />
-          <RoadmapCircleFilled className="absolute left-[42px] top-[128px] z-10 h-5 w-5" />
-          <RoadmapCircleEmpty className="absolute left-[42px] top-[382px] z-10 h-5 w-5 rounded-full" />
-          <RoadmapCircleEmpty className="absolute left-[42px] top-[578px] z-10 h-5 w-5 rounded-full min-[460px]:top-[556px]" />
-        </div>
-        <h4 className="flex w-full justify-center gap-1 pt-16 leading-5 lg:justify-start lg:pt-0">
-          <SectionTitleIcon className="h-4 w-4 overflow-visible" />
-          <span>Roadmap</span>
-        </h4>
-        <div className="flex grow flex-row lg:block">
-          <div className="w-10 min-[460px]:w-16 lg:hidden" />
-          <div className="flex w-full grow flex-col gap-20 pt-10 lg:flex-row lg:justify-center lg:gap-0 lg:pt-0">
-            <div className="relative hidden lg:block">
-              <SectionVerticalDividerLong className="absolute max-h-[448px] w-px lg:block xl:max-h-[410px] 2xl:max-h-[inherit]" />
-              <SectionVerticalDividerAccent className="absolute top-0 h-1/2 w-[2px] lg:block" />
-              <RoadmapCircleFilled className="absolute -left-[10px] top-[468px] z-10 h-5 w-5 2xl:top-[548px]" />
-            </div>
-            <div className=" ml-10 flex w-full flex-col gap-4 pr-5 text-sm lg:gap-8 lg:pr-10">
-              <div className="text-2xl">Phase 1</div>
-              <div className="flex flex-col gap-2 text-sm lg:gap-4 lg:text-base">
-                <div className="">Converge on the vision of the DAO</div>
-                <div className="ml-4 text-[#9D9D9D]">
-                  <div className="">Governance processes</div>
-                  <div className="">Tokenomics</div>
-                </div>
-                <div className="">Launch protocol demo on the testnet</div>
-              </div>
-            </div>
-            <div className="relative hidden lg:block">
-              <SectionVerticalDivider className="h-96 w-px lg:block" />
-              <RoadmapCircleEmpty className="absolute -left-[10px] z-10 h-5 w-5 rounded-full" style={{ top: 'calc(100% + 14px)' }} />
-            </div>
-            <div className=" ml-10 flex w-full flex-col gap-4 pr-5 text-sm text-[#9D9D9D] lg:gap-8 lg:pr-10">
-              <div className="text-2xl">Phase 2</div>
-              <div className="flex flex-col gap-2 text-sm lg:gap-4 lg:text-base">
-                <div className="">Launch the on-chain governance</div>
-                <div className="">Distribute DAO tokens to financial contributors</div>
-                <div className="">Launch protocol on the mainnet</div>
-              </div>
-            </div>
-            <div className="relative hidden lg:block">
-              <SectionVerticalDivider className="h-96 w-px lg:block" />
-              <RoadmapCircleEmpty className="absolute -left-[10px] z-10 h-5 w-5 rounded-full" style={{ top: 'calc(100% + 14px)' }} />
-            </div>
-            <div className="ml-10 flex w-full flex-col gap-4 pr-5 text-sm text-[#9D9D9D] lg:gap-8 lg:pr-10">
-              <div className="text-2xl">Phase 3</div>
-              <div className="flex flex-col gap-2 text-sm lg:gap-4 lg:text-base">
-                <div className="">Establish the foundation</div>
-                <div className="">Further Improve Interest Rate Model</div>
-                <div className="">Implement ideas issued by DAO</div>
-                <div className="">...TBD</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="relative hidden h-72 lg:block 2xl:mt-0">
-        <RoadmapLine className="-ml-32 w-[2246px] overflow-visible 2xl:-ml-0 2xl:w-[2646px]" />
-      </div>
-    </section>
-  );
 }
