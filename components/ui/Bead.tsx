@@ -15,6 +15,7 @@ const beadVariants = cva('shrink-0 items-center rounded-full gradient-border-4 t
     size: {
       sm: 'h-32 w-16',
       default: 'h-48 w-24',
+      defaultShrinkable: 'h-32 w-16 sm:h-48 sm:w-24',
       lg: 'h-72 w-36',
     },
   },
@@ -27,11 +28,13 @@ const beadVariants = cva('shrink-0 items-center rounded-full gradient-border-4 t
 export const beadWidthBySize: Record<NonNullable<VariantProps<BeadVariants>['size']>, number> = {
   sm: 16,
   default: 24,
+  defaultShrinkable: 24, //TODO
   lg: 36,
 };
 export const beadSpringConfigBySize: Record<NonNullable<VariantProps<BeadVariants>['size']>, SpringConfig> = {
   sm: { tension: 250, friction: 8 },
   default: { tension: 250, friction: 8 },
+  defaultShrinkable: { tension: 250, friction: 8 },
   lg: { tension: 120, friction: 35 },
 };
 

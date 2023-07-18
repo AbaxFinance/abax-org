@@ -1,91 +1,125 @@
 'use client';
-import { Beads, BeadsFlexContainer, BeadsTextContainer } from '@/components/ui/BeadsWithText';
-import { useIsMobile, useWindowDimensions } from '@/lib/clientUtils';
+import { Bead } from '@/components/ui/Bead';
+import { BeadsFlexContainer, BeadsTextContainer } from '@/components/ui/BeadsWithText';
 import { FC, memo } from 'react';
 
-const getAmountOfBeedsToSubtractByWidth = (width: number) => {
-  if (0 <= width && width < 640) {
-    return 0;
-  }
-  if (640 <= width && width < 768) {
-    return 4;
-  }
-  if (768 <= width && width < 1024) {
-    return 4;
-  }
-  if (1024 <= width && width < 1280) {
-    return 3;
-  }
-  if (1280 <= width && width < 1464) {
-    return 2;
-  }
-  if (1464 <= width && width < 1536) {
-    return 1;
-  }
-  if (1536 <= width && width < 1792) {
-    return 1;
-  }
-  if (1792 <= width) {
-    return 0;
-  }
+const heroTitle = (
+  <div className="flex h-full items-center justify-center text-left text-4xl font-normal leading-[3rem] tracking-tight sm:text-5xl sm:leading-[4rem] lg:-mt-2">
+    Abax
+    <br />
+    Protocol
+  </div>
+);
 
-  return 0;
-};
+const heroDescription = (
+  <>
+    <h3 className="flex h-full items-center whitespace-pre-wrap py-4 pl-1 text-left text-sm font-normal tracking-tight xs:hidden sm:p-4 sm:leading-10 lg:-mt-2 lg:p-8 lg:pl-24 lg:text-xl">
+      {`With fair interest rates and high security, you can grow your capital with Abax both as a lender as well as a borrower.`}
+    </h3>
+    <h3 className="hidden h-full items-center whitespace-pre-wrap py-4 pl-1 text-left text-sm font-normal tracking-tight xs:flex sm:p-4 sm:leading-10 lg:-mt-2 lg:p-8 lg:pl-24 lg:text-xl">
+      {`With fair interest rates and high security,\n you can grow your capital with Abax both \n as a lender as well as a borrower.`}
+    </h3>
+  </>
+);
+
+const BeadsFillRight = () => (
+  <>
+    <Bead size={'defaultShrinkable'} />
+    <Bead size={'defaultShrinkable'} />
+    <Bead size={'defaultShrinkable'} />
+    <Bead size={'defaultShrinkable'} />
+    <Bead size={'defaultShrinkable'} />
+    <Bead size={'defaultShrinkable'} />
+    <Bead size={'defaultShrinkable'} />
+    <Bead size={'defaultShrinkable'} />
+    <Bead size={'defaultShrinkable'} />
+    <Bead size={'defaultShrinkable'} />
+    <Bead size={'defaultShrinkable'} />
+    <Bead size={'defaultShrinkable'} />
+    <Bead size={'defaultShrinkable'} />
+    <Bead size={'defaultShrinkable'} />
+    <Bead size={'defaultShrinkable'} />
+    <Bead size={'defaultShrinkable'} />
+    <Bead size={'defaultShrinkable'} />
+    <Bead size={'defaultShrinkable'} />
+    <Bead size={'defaultShrinkable'} />
+    <Bead size={'defaultShrinkable'} />
+    <Bead size={'defaultShrinkable'} />
+    <Bead size={'defaultShrinkable'} />
+    <Bead size={'defaultShrinkable'} />
+    <Bead size={'defaultShrinkable'} />
+  </>
+);
 
 const LandingBeadsSectionContent: FC = () => {
-  const isMobileView = useIsMobile();
-  const dimensions = useWindowDimensions();
-  const amountOfBeedsToSubtractByWidth = getAmountOfBeedsToSubtractByWidth(dimensions.width);
   return (
     <>
-      <BeadsFlexContainer>
-        <Beads beadSizeVariant={isMobileView ? 'sm' : 'default'} numberOfBeeds={isMobileView ? 1 : Math.max(0, 8 - amountOfBeedsToSubtractByWidth)} />
-        <BeadsTextContainer
-          beadSizeVariant={isMobileView ? 'sm' : 'default'}
-          containerWidthInBeeds={2}
-          text={
-            <div className="flex h-full items-center justify-center text-left text-4xl font-normal leading-[3rem] tracking-tight lg:-mt-2 lg:text-5xl lg:leading-[4rem]">
-              Abax
-              <br />
-              Protocol
-            </div>
-          }
-        />
-        <Beads beadSizeVariant={isMobileView ? 'sm' : 'default'} numberOfBeeds={14} />
+      <BeadsFlexContainer className=" gap-4">
+        <Bead className="block" size={'defaultShrinkable'} />
+        <Bead className="hidden xs:block" size={'defaultShrinkable'} />
+        <Bead className="hidden xs:block" size={'defaultShrinkable'} />
+        <Bead className="hidden lg:block" size={'defaultShrinkable'} />
+        <Bead className="hidden lg:block" size={'defaultShrinkable'} />
+        <Bead className="hidden xl:block" size={'defaultShrinkable'} />
+        <Bead className="hidden 2xl:block" size={'defaultShrinkable'} />
+        <Bead className="hidden 3xl:block" size={'defaultShrinkable'} />
+        <Bead className="hidden 3xl:block" size={'defaultShrinkable'} />
+        <BeadsTextContainer className="-mr-20 block -translate-x-10 xs:hidden" containerWidthInBeeds={2} text={heroTitle} />
+        <BeadsTextContainer className="-mr-9 hidden -translate-x-16 xs:block md:hidden" containerWidthInBeeds={3} text={heroTitle} />
+        <BeadsTextContainer className="-mr-9 hidden -translate-x-6 md:block lg:hidden" containerWidthInBeeds={3} text={heroTitle} />
+        <BeadsTextContainer className="-mr-8 hidden lg:block" containerWidthInBeeds={3} text={heroTitle} />
+        <BeadsFillRight />
       </BeadsFlexContainer>
-      {isMobileView && (
-        <BeadsFlexContainer>
-          <Beads beadSizeVariant={isMobileView ? 'sm' : 'default'} numberOfBeeds={2} />
-          {isMobileView && <BeadsTextContainer beadSizeVariant={isMobileView ? 'sm' : 'default'} containerWidthInBeeds={1} text={''} />}
-          <Beads beadSizeVariant={isMobileView ? 'sm' : 'default'} numberOfBeeds={13} />
-        </BeadsFlexContainer>
-      )}
-      <BeadsFlexContainer>
-        {isMobileView ? null : <Beads numberOfBeeds={Math.max(1, 3 - amountOfBeedsToSubtractByWidth)} />}
-        <BeadsTextContainer
-          beadSizeVariant={isMobileView ? 'sm' : 'default'}
-          containerWidthInBeeds={isMobileView ? 4 : Math.max(0, 10 - amountOfBeedsToSubtractByWidth)}
-          text={
-            <h3 className="flex h-full items-center whitespace-pre-wrap p-4 text-left text-sm font-normal leading-10 tracking-tight lg:-mt-2 lg:p-8 lg:pl-24 lg:text-xl">
-              {`With fair interest rates and high security,\n you can grow your capital with Abax both \n as a lender as well as a borrower.`}
-            </h3>
-          }
-        />
-        <Beads beadSizeVariant={isMobileView ? 'sm' : 'default'} numberOfBeeds={14} />
+      <BeadsFlexContainer className="gap-4 xs:hidden">
+        <Bead className="sm:hidden" size={'defaultShrinkable'} />
+        <Bead className="sm:hidden" size={'defaultShrinkable'} />
+        <Bead className="invisible block" size={'defaultShrinkable'} />
+        <Bead className="invisible block" size={'defaultShrinkable'} />
+        <Bead className="invisible hidden xs:block sm:hidden" size={'defaultShrinkable'} />
+        <Bead className="invisible hidden sm:block" size={'defaultShrinkable'} />
+        <Bead className="invisible hidden sm:block" size={'defaultShrinkable'} />
+        <Bead size={'defaultShrinkable'} />
+        <Bead size={'defaultShrinkable'} />
+        <Bead size={'defaultShrinkable'} />
+        <Bead size={'defaultShrinkable'} />
+        <Bead size={'defaultShrinkable'} />
+        <Bead size={'defaultShrinkable'} />
+        <Bead size={'defaultShrinkable'} />
+        <BeadsFillRight />
       </BeadsFlexContainer>
-      {isMobileView ? (
-        <BeadsFlexContainer>
-          <Beads beadSizeVariant="sm" numberOfBeeds={1} />
-          <BeadsTextContainer beadSizeVariant="sm" containerWidthInBeeds={1} text={''} />
-          <Beads beadSizeVariant="sm" numberOfBeeds={8} />
-        </BeadsFlexContainer>
-      ) : (
-        <BeadsFlexContainer>
-          <Beads numberOfBeeds={Math.max(0, 5 - amountOfBeedsToSubtractByWidth)} />
-          <BeadsTextContainer containerWidthInBeeds={4} text={''} />
-          <Beads numberOfBeeds={14} />
-        </BeadsFlexContainer>
-      )}
+      <BeadsFlexContainer className=" gap-4">
+        <Bead className="hidden xs:block" size={'defaultShrinkable'} />
+        <Bead className="hidden xl:block" size={'defaultShrinkable'} />
+        <Bead className="hidden xl:block" size={'defaultShrinkable'} />
+        <BeadsTextContainer className="block xs:hidden" containerWidthInBeeds={2} text={heroDescription} />
+        <BeadsTextContainer className="-mr-8 hidden xs:block md:hidden" containerWidthInBeeds={3} text={heroDescription} />
+        <BeadsTextContainer className="-mr-12 hidden pl-2 md:block lg:hidden" containerWidthInBeeds={4} text={heroDescription} />
+        <BeadsTextContainer className="-mr-16 hidden pl-2 lg:block" containerWidthInBeeds={5} text={heroDescription} />
+        <Bead className="invisible hidden xl:block" size={'defaultShrinkable'} />
+        <Bead className="invisible hidden xl:block" size={'defaultShrinkable'} />
+        <Bead className="invisible hidden 2xl:block" size={'defaultShrinkable'} />
+        <Bead className="invisible hidden 2xl:block" size={'defaultShrinkable'} />
+        <Bead className="invisible hidden 3xl:block" size={'defaultShrinkable'} />
+        <BeadsFillRight />
+      </BeadsFlexContainer>
+      <BeadsFlexContainer className=" gap-4">
+        <Bead size={'defaultShrinkable'} />
+        <Bead size={'defaultShrinkable'} />
+        <Bead className="hidden lg:block" size={'defaultShrinkable'} />
+        <Bead className="hidden lg:block" size={'defaultShrinkable'} />
+        <Bead className="hidden xl:block" size={'defaultShrinkable'} />
+        <Bead className="hidden 2xl:block" size={'defaultShrinkable'} />
+        <Bead className="invisible block sm:hidden" size={'defaultShrinkable'} />
+        <Bead className="invisible block sm:hidden" size={'defaultShrinkable'} />
+        <Bead className="invisible hidden md:block lg:hidden" size={'defaultShrinkable'} />
+        <Bead className="invisible hidden md:block" size={'defaultShrinkable'} />
+        <Bead className="invisible hidden lg:block" size={'defaultShrinkable'} />
+        <Bead className="invisible hidden lg:block" size={'defaultShrinkable'} />
+        <Bead size={'defaultShrinkable'} />
+        <Bead size={'defaultShrinkable'} />
+        <Bead size={'defaultShrinkable'} />
+        <BeadsFillRight />
+      </BeadsFlexContainer>
     </>
   );
 };

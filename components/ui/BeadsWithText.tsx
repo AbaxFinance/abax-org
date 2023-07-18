@@ -31,12 +31,14 @@ export const BeadsFlexContainer: FC<{ children: ReactNode; className?: string }>
   <div className={cn('ml-4 flex w-full flex-nowrap gap-8', className)}>{children}</div>
 );
 
-const BeadsTextContainer: FC<{ text: string | ReactNode; containerWidthInBeeds: number | null; beadSizeVariant?: BeadProps['size'] }> = ({
-  text,
-  containerWidthInBeeds,
-  beadSizeVariant,
-}) => (
+const BeadsTextContainer: FC<{
+  className?: string;
+  text: string | ReactNode;
+  containerWidthInBeeds: number | null;
+  beadSizeVariant?: BeadProps['size'];
+}> = ({ text, containerWidthInBeeds, beadSizeVariant, className }) => (
   <div
+    className={className}
     key="custom"
     style={{
       width: containerWidthInBeeds ? `${getBeadsWidth(containerWidthInBeeds, beadSizeVariant)}rem` : 'inherit',
@@ -97,6 +99,6 @@ export const BeadsSlideInContainer: FC<{
   );
 };
 
-const Memo = memo(Beads);
-const Memo2 = memo(BeadsTextContainer);
-export { Memo as Beads, Memo2 as BeadsTextContainer };
+const BeadsMemo = memo(Beads);
+const BeadsTextContainerMemo = memo(BeadsTextContainer);
+export { BeadsMemo as Beads, BeadsTextContainerMemo as BeadsTextContainer };
