@@ -5,7 +5,6 @@ import { useBoop } from '@/hooks/useBoop';
 import { StrictUnion } from '@/lib/tsUtils';
 import { cn } from '@/lib/utils';
 import { animated } from '@react-spring/web';
-import dynamic from 'next/dynamic';
 import { FC, ReactNode, memo, useEffect, useRef, useState } from 'react';
 
 export function getBeadsWidth(containerWidthInBeeds: number, beadSizeVariant?: BeadProps['size']) {
@@ -21,7 +20,7 @@ const Beads: FC<
     }
   >
 > = (props) => {
-  const beeds = Array(props.fullRow ? 30 : props.numberOfBeeds)
+  const beeds = Array(props.fullRow ? 30 : Math.max(0, props.numberOfBeeds))
     .fill(null)
     .map((_, i) => <Bead size={props.beadSizeVariant} variant={props.beadVariant} key={i} />);
 

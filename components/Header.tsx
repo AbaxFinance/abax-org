@@ -42,9 +42,9 @@ const menuLinks = [
 
 export default function Header() {
   return (
-    <nav className="flex w-full items-center justify-between gap-12 p-8 text-center lg:px-16 lg:py-8" aria-label="Global">
+    <nav className="flex w-full items-center justify-between gap-12 p-4 text-center lg:p-8 lg:px-16 lg:py-8" aria-label="Global">
       <div className="flex" aria-label="Global">
-        <Link href="/" className="relative -m-1.5 p-5">
+        <Link href="/" className="relative -m-1.5 p-2 lg:p-5">
           <LogoIcon className="w-30 h-10" variant="light" />
         </Link>
       </div>

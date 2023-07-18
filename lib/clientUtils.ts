@@ -12,7 +12,7 @@ export type Breakpoint = 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl';
 const findKeyByValue = (object: { [x: string]: unknown }, value: string) => Object.keys(object).find((key) => object[key] === value);
 
 const getDeviceConfig = (width: number): Breakpoint => {
-  let breakpoint: Breakpoint = 'md';
+  let breakpoint: Breakpoint = 'sm';
   const fullConfig = resolveConfig(tailwindConfig);
   if (!fullConfig.theme) return breakpoint;
   const screens = fullConfig.theme.screens;
