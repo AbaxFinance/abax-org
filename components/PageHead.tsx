@@ -15,6 +15,16 @@ export default function PageHead() {
       <meta name="application-name" content="Abax Org" />
       <meta name="msapplication-TileColor" content="#ffffff" />
       <meta name="theme-color" content="#ffffff" />
+      <meta property="og:title" content={'Abax'} />
+      <meta property="og:description" content={'Liquidity Protocol'} />
+      <meta property="og:type" content={'website'} />
+      <meta property="og:url" content={'https://abax.finance'} />
+      <meta property="og:image" content={`https://abax.finance/og_twitter_card.jpg`} />
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:creator" content="@Abax"></meta>
+      <meta name="twitter:site" content="@Abax" />
+      <meta property="twitter:image" content={`https://abax.finance/og_twitter_card.jpg`} />
     </Head>
   );
 }
