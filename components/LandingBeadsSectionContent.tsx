@@ -91,7 +91,7 @@ const LandingBeadsSectionContent: FC = () => {
         <Bead className="hidden xs:block" size={'defaultShrinkable'} />
         <Bead className="hidden xl:block" size={'defaultShrinkable'} />
         <Bead className="hidden xl:block" size={'defaultShrinkable'} />
-        <BeadsTextContainer className="block xs:hidden" containerWidthInBeeds={2} text={heroDescription} />
+        <BeadsTextContainer className="block pl-2 xs:hidden" containerWidthInBeeds={2} text={heroDescription} />
         <BeadsTextContainer className="-mr-8 hidden xs:block md:hidden" containerWidthInBeeds={3} text={heroDescription} />
         <BeadsTextContainer className="-mr-12 hidden pl-2 md:block lg:hidden" containerWidthInBeeds={4} text={heroDescription} />
         <BeadsTextContainer className="hidden pl-2 lg:block" containerWidthInBeeds={5} text={heroDescription} />
