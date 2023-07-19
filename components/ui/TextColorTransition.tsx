@@ -2,9 +2,14 @@
 import { elementViewportOverlap, useWindowDimensions } from '@/lib/clientUtils';
 import { FC, memo, useEffect, useRef, useState } from 'react';
 
-const TextColorTransition: FC<{ text: string; fromColor: string; toColor: string }> = ({ text, fromColor, toColor }) => {
-  const spanContainer = useRef<HTMLSpanElement>(null);
-  const [coloringState, setColoringState] = useState<'idle' | 'started' | 'stop' | 'finish'>('idle');
+const TextColorTransition: FC<{ text: string; fromColor: string; toColor: string; className?: string }> = ({
+  text,
+  fromColor,
+  toColor,
+  className,
+}) => {
+  const spanContainer = useRef<HTMLDivElement>(null);
+  const [coloringState, setColoringState] = useState<'init' | 'started' | 'stop' | 'finish'>('init');
   const [allowColoring, setAllowColoring] = useState(false);
   const dimensions = useWindowDimensions();
   const [intervalId, setIntervalId] = useState<number | undefined>();
@@ -28,7 +33,7 @@ const TextColorTransition: FC<{ text: string; fromColor: string; toColor: string
       if (!allowColoring && elementViewportOverlap(dimensions, spanContainer.current) > 65) {
         setAllowColoring(true);
       }
-      if (allowColoring && coloringState === 'idle') {
+      if (allowColoring && coloringState === 'init') {
         setColoringState('started');
         const newIntervalId = window.setInterval(() => colorSpans(spanContainer.current!), 10);
         setIntervalId(newIntervalId);
@@ -47,7 +52,7 @@ const TextColorTransition: FC<{ text: string; fromColor: string; toColor: string
   }, [coloringState, intervalId]);
 
   return (
-    <span style={{ color: fromColor }} ref={spanContainer}>
+    <div className={className} style={{ color: fromColor }} ref={spanContainer}>
       {/* // divide text inside .stickyColor elements
   // into one span per character */}
       {text
@@ -58,7 +63,7 @@ const TextColorTransition: FC<{ text: string; fromColor: string; toColor: string
             {c}
           </span>
         ))}
-    </span>
+    </div>
   );
 };
 

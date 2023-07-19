@@ -26,13 +26,11 @@ export default function Home() {
             <SectionTitleIcon className="h-4 w-4 overflow-visible" />
             <span>Shape Abax with us!</span>
           </h4>
-          <div className="mb-20 whitespace-pre-line text-xl leading-8 tracking-tight lg:mb-32 lg:text-4xl lg:leading-[3rem] xl:text-6xl xl:leading-[4rem]">
-            <span className="text-black">{`Join the Abax Discourse`}</span>
+          <div className="mb-20 whitespace-pre-line text-xl leading-8 tracking-tight lg:mb-32">
+            <span className="text-black lg:text-4xl xl:text-5xl">{`Join the Abax Discourse:\n`}</span>
             <TextColorTransition
-              text={`
-- Shape the future of lending in the Aleph Zero ecosystem.
-- Participate in the development of tokenomics, governance processes of the DAO, by sharing your meaningful ideas.
-- Become one of the earliest contributors to the project that values your input and rewards you for your efforts.`}
+              className="font-sans lg:leading-[3rem] xl:text-5xl xl:leading-[4rem]"
+              text={`• Shape the future of lending in the Aleph Zero ecosystem.\n• Participate in the development of tokenomics, governance processes of the DAO, by sharing your meaningful ideas.\n• Become one of the earliest contributors to the project that values your input and rewards you for your efforts.`}
               fromColor="#CCCCCC"
               toColor="black"
             />

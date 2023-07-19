@@ -15,7 +15,7 @@ export function RoadmapSection() {
           <RoadmapLineMobile className="-ml-[346px] overflow-visible" />
           <RoadmapCircleFilled className="absolute left-[42px] top-[130px] z-10 h-4 w-4" />
           <RoadmapCircleEmpty className="absolute left-[42px] top-[524px] z-10 h-4 w-4 rounded-full" />
-          <RoadmapCircleEmpty className="absolute left-[42px] top-[936px] z-10 h-4 w-4 rounded-full min-[460px]:top-[556px]" />
+          <RoadmapCircleEmpty className="absolute left-[42px] top-[936px] z-10 h-4 w-4 rounded-full" />
         </div>
         <h4 className="flex w-full justify-center gap-1 pt-16 leading-5 lg:justify-start lg:pt-0">
           <SectionTitleIcon className="h-4 w-4 overflow-visible" />
@@ -29,7 +29,7 @@ export function RoadmapSection() {
               <SectionVerticalDividerAccent className="absolute top-0 h-1/3 w-[2px]" />
               <RoadmapCircleFilled className="absolute -bottom-[106px] -left-[10px] z-10 h-5 w-5 2xl:-bottom-[186px]" />
             </div>
-            <div className="ml-8 flex w-full flex-col gap-4 pr-3 text-sm lg:pr-8">
+            <div className="ml-8 flex min-h-[312px] w-full flex-col gap-4 pr-3 text-sm lg:pr-8">
               <div className="text-2xl">Phase 1</div>
               <div className="flex flex-col gap-2 text-sm lg:gap-4 lg:text-base">
                 <div className="">Converge on the vision of the DAO</div>
@@ -49,7 +49,7 @@ export function RoadmapSection() {
               <SectionVerticalDivider className="h-full w-px pb-6 lg:block" />
               <RoadmapCircleEmpty className="absolute -left-[10px] z-10 h-5 w-5 rounded-full lg:-bottom-[34px]" />
             </div>
-            <div className="ml-8 flex w-full flex-col gap-4 pr-3 text-sm text-[#9D9D9D] lg:pr-8">
+            <div className="ml-8 flex min-h-[332px] w-full flex-col gap-4 pr-3 text-sm text-[#9D9D9D] lg:pr-8">
               <div className="text-2xl">Phase 2</div>
               <div className="flex flex-col gap-2 text-sm lg:gap-4 lg:text-base">
                 <div className="">Initialize the on-chain governance</div>
@@ -70,7 +70,7 @@ export function RoadmapSection() {
               <SectionVerticalDivider className="h-full w-px pb-6 lg:block" />
               <RoadmapCircleEmpty className="absolute -left-[10px] z-10 h-5 w-5 rounded-full lg:-bottom-[34px]" />
             </div>
-            <div className="ml-8 flex w-full flex-col gap-4 pr-3 text-sm text-[#9D9D9D] md:pr-5 lg:pr-0">
+            <div className="ml-8 flex min-h-[312px] w-full flex-col gap-4 pr-3 text-sm text-[#9D9D9D] md:pr-5 lg:pr-0">
               <div className="text-2xl">Phase 3</div>
               <div className="flex flex-col gap-2 text-sm lg:gap-4 lg:text-base">
                 <div className="">Launch Abax Lending Protocol on mainnet</div>
