@@ -16,7 +16,10 @@ export default function PageHead() {
       <meta name="msapplication-TileColor" content="#ffffff" />
       <meta name="theme-color" content="#ffffff" />
       <meta property="og:title" content={'Abax'} />
-      <meta property="og:description" content={'Liquidity Protocol'} />
+      <meta
+        property="og:description"
+        content={`With fair interest rates and high security, you can grow your capital with Abax both as a lender as well as a borrower.`}
+      />
       <meta property="og:type" content={'website'} />
       <meta property="og:url" content={'https://abax.finance'} />
       <meta property="og:image" content={`https://abax.finance/og_twitter_card.jpg`} />
