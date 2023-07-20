@@ -84,7 +84,7 @@ export default function Home() {
                 <h3 className="max-w-xs whitespace-pre-wrap text-3xl">Regulatory Compliance</h3>
                 <TextWithColorChangeOnViewportOverlap className="max-w-lg xl:max-w-xl 2xl:max-w-2xl" fromColor="#9D9D9D" toColor="#E0E0E0">
                   {
-                    'Compliance with relevant regulations is a key goal of the Abax community. With a focus on compliance and transparency, we aim to establish ourselves as a trustworthy and reliable partner for both lenders and borrowers.'
+                    'Compliance with relevant regulations is a key goal of the Abax community. With a focus on compliance and transparency, we aim to establish Abax as a trustworthy and reliable partner for both lenders and borrowers.'
                   }
                 </TextWithColorChangeOnViewportOverlap>
               </div>

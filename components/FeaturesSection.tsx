@@ -46,7 +46,7 @@ const FeaturesSection: FC = () => {
         <SectionTitleIcon className="h-4 w-4 overflow-visible" />
         <span>Features</span>
       </h4>
-      <h5 className="mb-12 text-center text-2xl lg:mb-24 lg:text-4xl">Making The Decentralized Lending Even Better</h5>
+      <h5 className="mb-12 text-center text-2xl lg:mb-24 lg:text-4xl">Making Decentralized Lending Even Better</h5>
       <div className="flex w-full flex-col gap-8 overflow-x-hidden">
         <BeadsFlexContainer className="-ml-8 gap-4 lg:ml-4 lg:gap-8">
           {isMobileView ? null : <Beads beadSizeVariant={'lg'} numberOfBeeds={amountOfBeedsToSubtract === 3 ? 3 : 5 - amountOfBeedsToSubtract} />}
