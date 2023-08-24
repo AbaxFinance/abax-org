@@ -77,14 +77,16 @@ export default function Header() {
           </Fragment>
         ))}
       </div>
-      <button
-        disabled
-        className="hidden h-14 w-40 items-center justify-center gap-10 rounded-full bg-[#222222] px-6 disabled:cursor-not-allowed lg:flex">
+      <Link
+        target="_blank"
+        rel="noopener noreferrer"
+        href={'https://app.abax.finance'}
+        className="hidden h-14 w-44 items-center justify-center gap-10 rounded-full bg-[#222222] px-6 disabled:cursor-not-allowed lg:flex">
         <div className="relative flex gap-2">
-          <div className="whitespace-no-wrap text-white opacity-70">Launch app</div>
-          <p className="absolute -right-4 -top-2 text-[8px] text-[#E3C7A4]">SOON</p>
+          <div className="whitespace-no-wrap text-white">Launch app</div>
+          <p className="absolute -right-5 -top-3 text-xs text-[#E3C7A4]">TESTNET</p>
         </div>
-      </button>
+      </Link>
       <DropdownMenu modal>
         <DropdownMenuTrigger className="lg:hidden">
           <div>
