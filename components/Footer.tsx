@@ -15,7 +15,7 @@ const footerLinks = [
   },
   {
     name: 'Discord',
-    link: 'https://discord.gg/WyDrWyr5Fk',
+    link: 'https://discord.gg/REFw5njXcU',
   },
   {
     name: 'Telegram',
@@ -28,12 +28,17 @@ export default function Footer() {
     <footer
       className="-mt-4 flex w-full flex-col items-center gap-6 rounded-t-[4rem] bg-[#121212] px-10 pb-4 pt-8 text-white lg:flex-row lg:items-center lg:gap-10 lg:px-40 lg:py-7 xl:px-60"
       aria-label="Global">
-      <div className="flex lg:w-[inherit]" aria-label="Global">
+      <div className="mr-0 flex lg:w-min" aria-label="Global">
         <Link href="/" className="relative hidden lg:block">
           <LogoIcon className="h-6 w-6" variant="ghost" />
         </Link>
         <Link href="/" className="relative block lg:hidden">
           <LogoIcon className="h-6 w-6" variant="light" />
+        </Link>
+      </div>
+      <div className="ml-0 mr-auto flex w-full justify-center gap-4 lg:justify-start">
+        <Link className="w-max" target="_blank" rel="noopener noreferrer" href={'https://abaxfinance.github.io/abax-org/abax_brand_assets.zip'}>
+          Brand Assets
         </Link>
       </div>
       <div className="flex w-full justify-around gap-2 lg:ml-auto lg:w-[inherit] lg:justify-end lg:gap-6">

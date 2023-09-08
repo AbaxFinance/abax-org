@@ -16,8 +16,8 @@ type MenuLink = { name: string; link: string };
 type MenuLinks = (MenuLink | { name: string; sublinks: MenuLink[] })[];
 const menuLinks = [
   {
-    name: 'Whitepaper',
-    link: 'https://abaxfinance.github.io/abax-org/whitepaper.pdf',
+    name: 'Techpaper',
+    link: 'https://abaxfinance.github.io/abax-org/techpaper.pdf',
   },
   { name: 'GitHub', link: 'https://github.com/AbaxFinance' },
   {
@@ -95,7 +95,7 @@ export default function Header() {
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-screen pb-3">
           {menuLinks.map((l, i) => (
-            <Fragment key={i}>
+            <>
               {l.sublinks ? (
                 <DropdownMenuGroup key={i}>
                   <DropdownMenuLabel className="text-base">{l.name}</DropdownMenuLabel>
@@ -117,8 +117,22 @@ export default function Header() {
                 </DropdownMenuGroup>
               )}
               {i !== menuLinks.length - 1 && <DropdownMenuSeparator key={`divider_${i}`} className="my-2" />}
-            </Fragment>
+            </>
           ))}
+          <DropdownMenuGroup>
+            <DropdownMenuItem>
+              <Link
+                target="_blank"
+                rel="noopener noreferrer"
+                href={'https://app.abax.finance'}
+                className="h-14 w-full items-center justify-center gap-10 rounded-full bg-[#222222] px-6 disabled:cursor-not-allowed">
+                <div className="relative flex h-full items-center justify-center gap-2">
+                  <div className="whitespace-no-wrap text-white">Launch app</div>
+                  <p className="absolute right-16 top-2 text-xs text-[#E3C7A4]">TESTNET</p>
+                </div>
+              </Link>
+            </DropdownMenuItem>
+          </DropdownMenuGroup>
         </DropdownMenuContent>
       </DropdownMenu>
     </nav>
