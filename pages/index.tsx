@@ -37,10 +37,10 @@ export default function Home() {
           </div>
           <div className="flex flex-col gap-5 lg:flex-row lg:gap-10">
             <div className="flex h-96 w-full flex-col gap-5 rounded-3xl bg-[#f3f3f3] p-8 transition-transform duration-300 hover:scale-105 lg:h-[32rem] lg:p-12">
-              <h5 className="text-4xl">Whitepaper</h5>
+              <h5 className="text-4xl">Techpaper</h5>
               <div>Read the document and undestand the core concept of Abax.</div>
               <Link
-                href="https://abaxfinance.github.io/abax-org/whitepaper.pdf"
+                href="https://abaxfinance.github.io/abax-org/techpaper.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group mt-auto flex h-12 w-12 items-center justify-center rounded-full bg-white hover:scale-105 ">
